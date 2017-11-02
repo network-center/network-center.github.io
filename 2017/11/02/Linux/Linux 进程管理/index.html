@@ -37,8 +37,6 @@
     
     <title>
         
-            这个项目一定会做下去 | 
-        
         Network Center Blog
     </title>
 
@@ -231,18 +229,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="这个项目一定会做下去 | Network Center Blog">
+    <meta property="og:title" content="Network Center Blog">
     <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Fri Sep 15 2017 21:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Sep 15 2017 21:00:00 GMT+0800" />
+        <meta property="article:published_time" content="Thu Nov 02 2017 19:02:22 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Nov 02 2017 19:08:10 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="这个项目一定会做下去 | Network Center Blog">
+    <meta name="twitter:title" content="Network Center Blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -250,7 +248,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/2017/09/15/keep-going/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2017/11/02/Linux/Linux 进程管理/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +260,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://network-center.github.io/2017/09/15/keep-going/index.html",
-    "headline": "这个项目一定会做下去",
-    "datePublished": "Fri Sep 15 2017 21:00:00 GMT+0800",
-    "dateModified": "Fri Sep 15 2017 21:00:00 GMT+0800",
+    "mainEntityOfPage": "https://network-center.github.io/2017/11/02/Linux/Linux 进程管理/index.html",
+    "headline": "",
+    "datePublished": "Thu Nov 02 2017 19:02:22 GMT+0800",
+    "dateModified": "Thu Nov 02 2017 19:08:10 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -343,6 +341,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux-进程管理"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux 进程管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、-进程管理"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">一、 进程管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-什么是进程"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1. 什么是进程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-进程管理的作用"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2. 进程管理的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-进程的查看ps命令"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3. 进程的查看ps命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-进程的查看top命令"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">4. 进程的查看top命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-杀死进程"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">5. 杀死进程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-进程优先级"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">6. 进程优先级</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、工作管理"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">二、工作管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-把进程放入后台"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1. 把进程放入后台</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-查看后台的工作"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2. 查看后台的工作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-将后台暂停的工作恢复到前台执行"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3. 将后台暂停的工作恢复到前台执行</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-后台命令脱离终端执行"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">4. 后台命令脱离终端执行</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、系统资源查看"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">三、系统资源查看</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-vmstat-命令监控系统资源"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1. vmstat 命令监控系统资源</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-dmsg-开机时内核检测信息"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">2. dmsg 开机时内核检测信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-free-命令查看内存使用状态"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">3. free 命令查看内存使用状态</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-查看-cpu-信息"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">4. 查看 cpu 信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-uptime-命令"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">5. uptime 命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-查看系统与内核相关信息"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">6. 查看系统与内核相关信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-列出进程打开或使用的文件信息"><span class="post-toc-number">1.3.7.</span> <span class="post-toc-text">7. 列出进程打开或使用的文件信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、系统定时任务"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">四、系统定时任务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-at-一次执行"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">1. at 一次执行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#①-确定-at-安装"><span class="post-toc-number">1.4.1.1.</span> <span class="post-toc-text">① 确定 at 安装</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#②-at的访问控制"><span class="post-toc-number">1.4.1.2.</span> <span class="post-toc-text">② at的访问控制</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#③-at命令"><span class="post-toc-number">1.4.1.3.</span> <span class="post-toc-text">③ at命令</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#④-例子"><span class="post-toc-number">1.4.1.4.</span> <span class="post-toc-text">④ 例子</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#⑤-其他at管理命令"><span class="post-toc-number">1.4.1.5.</span> <span class="post-toc-text">⑤ 其他at管理命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-crontab-循环定时"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">2. crontab 循环定时</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#①-crond-服务管理与访问控制"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">①  crond 服务管理与访问控制</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#②-用户的-crontab-设置"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">②  用户的 crontab 设置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#③-常用命令"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">③  常用命令</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#④-crontab-注意事项"><span class="post-toc-number">1.4.2.4.</span> <span class="post-toc-text">④  crontab 注意事项</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-执行系统的定时任务的方法："><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">3. 执行系统的定时任务的方法：</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
 
 
 
@@ -372,7 +379,7 @@
         
     
             <p class="article-headline-p">
-                这个项目一定会做下去
+                
             </p>
         </div>
 
@@ -391,7 +398,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>geeker</strong>
-        <span>9月 15, 2017</span>
+        <span>11月 02, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -422,7 +429,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=这个项目一定会做下去&url=https://network-center.github.io/2017/09/15/keep-going/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=https://network-center.github.io/2017/11/02/Linux/Linux 进程管理/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -431,7 +438,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=这个项目一定会做下去&url=https://network-center.github.io/2017/09/15/keep-going/index.html&via=geeker" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=https://network-center.github.io/2017/11/02/Linux/Linux 进程管理/index.html&via=geeker" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -440,7 +447,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/09/15/keep-going/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/11/02/Linux/Linux 进程管理/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -449,7 +456,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/09/15/keep-going/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/11/02/Linux/Linux 进程管理/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -473,17 +480,259 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <blockquote>
-<p>有善始者实繁，能克终者盖寡。</p>
+        <h2 id="Linux-进程管理"><a href="#Linux-进程管理" class="headerlink" title="Linux 进程管理"></a>Linux 进程管理</h2><h3 id="一、-进程管理"><a href="#一、-进程管理" class="headerlink" title="一、 进程管理"></a>一、 进程管理</h3><h4 id="1-什么是进程"><a href="#1-什么是进程" class="headerlink" title="1. 什么是进程"></a>1. 什么是进程</h4><p>　　进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的运行空间，并占有一定的系统资源。</p>
+<h4 id="2-进程管理的作用"><a href="#2-进程管理的作用" class="headerlink" title="2. 进程管理的作用"></a>2. 进程管理的作用</h4><ul>
+<li>判断服务器健康状态</li>
+<li>查看系统中所有进程</li>
+<li>杀死进程<h4 id="3-进程的查看ps命令"><a href="#3-进程的查看ps命令" class="headerlink" title="3. 进程的查看ps命令"></a>3. 进程的查看ps命令</h4></li>
+<li><strong>ps aux</strong> 　查看系统中所有进程，使用<code>BSD</code>操作系统格式</li>
+<li><strong>ps -le</strong>　查看系统中所有进程，使用<code>Linux</code>标准命令格式</li>
+<li><strong>选项</strong><ul>
+<li>a：显示一个终端的所有进程，除了会话引线</li>
+<li>u：显示进程的归属用户及内存使用情况</li>
+<li>x：显示没有控制终端的进程</li>
+<li>-l：长格式显示，显示更加详细的信息</li>
+<li>-e：显示所有进程，和<code>a</code>作用一致</li>
+</ul>
+</li>
+<li><strong>pstree [选项]</strong>　查看进程树</li>
+<li><p><strong>选项</strong></p>
+<ul>
+<li>-p：显示进程的<code>pid</code></li>
+<li>-u：显示进程的所属用户</li>
+</ul>
+</li>
+<li><p><strong>STAT：进程状态。常见的状态有：</strong></p>
+<ul>
+<li>R：运行</li>
+<li>S：睡眠</li>
+<li>T：停止状态</li>
+<li>s：包含子进程</li>
+<li>+：位于后台<h4 id="4-进程的查看top命令"><a href="#4-进程的查看top命令" class="headerlink" title="4. 进程的查看top命令"></a>4. 进程的查看top命令</h4></li>
+</ul>
+</li>
+<li><strong>top [选项]</strong>　查看系统健康状态</li>
+<li><p><strong>选项</strong></p>
+<ul>
+<li>-d：秒数：指定<code>top</code>命令每隔几秒更新。默认是3秒</li>
+<li>-b：使用批处理模式输出。一般和<code>-n</code>选项合用</li>
+<li>-n：次数：指定<code>top</code>命令执行的次数</li>
+</ul>
+</li>
+<li><p><strong>在top命令的交互模式中可以执行的命令：</strong></p>
+<ul>
+<li>?或h：显示交互模式的帮助</li>
+<li>P：以<code>CPU</code>使用率排序，默认就是此项</li>
+<li>M：以<code>内存</code>的使用率排序</li>
+<li>N：以<code>PID</code>排序</li>
+<li>q：退出<code>top</code></li>
+</ul>
+</li>
+<li><strong>使用top查看所有进程</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 将所有进程的情况输出到 top.log文本文档中</div><div class="line">top -b -n 1 &gt; top.log</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="5-杀死进程"><a href="#5-杀死进程" class="headerlink" title="5. 杀死进程"></a>5. 杀死进程</h4><ul>
+<li><p><strong>kill命令</strong>　杀死单一进程</p>
+<ul>
+<li><code>kill -l</code>：查看可用的进程信号</li>
+<li><code>kill -1 4399</code>：重启进程</li>
+<li><code>kill -9 4399</code>：强制杀死进程</li>
+</ul>
+</li>
+<li><p><strong>killall命令</strong></p>
+<ul>
+<li><code>killall [选项][进程]进程名</code>：按照进程名杀死进程</li>
+<li><strong>选项：</strong><ul>
+<li>-i：交互式，询问是否要杀死某个进程</li>
+<li>-I：忽略进程名的大小写</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>pkill命令</strong><ul>
+<li><code>pkill [选项][进程]进程名</code>：按照进程名终止进程</li>
+<li><strong>选项：</strong><ul>
+<li>-t：终端号：按照终端号剔除用户 　　//踢掉用户 pkill -9 -t pts/?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-进程优先级"><a href="#6-进程优先级" class="headerlink" title="6. 进程优先级"></a>6. 进程优先级</h4><p>　　Linux 操作系统是一个多用户，多任务的操作系统，Linux 系统中同时运行着非常多的进程。但 CPU 在同一时钟周期内只能运算一个指令。进程优先级决定了每个进程处理的先后顺序。</p>
+<p><strong>注意</strong>：<br>系统优先级：只有NI可以改，priority由两个值PRI,NI相加<br><code>nice</code>：使用前必须先停止进程<br><code>renice</code>：可以修正在运行的进程</p>
+<ul>
+<li><strong>nice命令</strong><ul>
+<li><code>nice [选项] 命令</code>：可以给新执行的命令直接赋<code>NI</code>值，但不能修改已经存在的进程的<code>NI</code>值</li>
+<li><strong>选项：</strong><ul>
+<li>-n NI值：给命令赋予<code>NI</code>值</li>
+</ul>
+</li>
+<li><strong>例如：</strong>  <ul>
+<li>nice -n -5 service httpd start</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>renice命令</strong><ul>
+<li><code>renice [优先级] PID</code>：修改已经存在进程的<code>NI</code>值的命令</li>
+<li><strong>例如：</strong><ul>
+<li>renice -10 2125</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>修改NI值时有几个注意事项</strong></p>
+<ul>
+<li>NI 的值的范围是  <code>-20~19</code></li>
+<li>普通用户调整 NI 的值的范围是 <code>0~19</code>，而且只能调整自己的进程</li>
+<li>普通用户只能调高 NI值，不能降低</li>
+<li>root 用户才能设定进程 NI 值为负值，而且可以调整任何用户的进程</li>
+<li>PRI（最终值） = PRI（原始值）+ NI</li>
+<li>用户只能修改 NI 值，不能直接修改时 PRI</li>
+<li>数字越小，优先级越高</li>
+</ul>
+<h3 id="二、工作管理"><a href="#二、工作管理" class="headerlink" title="二、工作管理"></a>二、工作管理</h3><p>　　工作管理指的是在单个登录终端中（也就是登录的 shell 界面中）同时管理多个工作的行为</p>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>当前的登录终端，只能管理当前终端的工作，而不能管理其他登录终端的工作</li>
+<li>放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操作这个工作</li>
+<li>放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只能暂停，而不能执行</li>
+</ul>
+<h4 id="1-把进程放入后台"><a href="#1-把进程放入后台" class="headerlink" title="1. 把进程放入后台"></a>1. 把进程放入后台</h4><ul>
+<li><code>tar -zcf etc.tar.gz/etc &amp;</code> 　#在命令后加入<code>&amp;</code>,把命令放在后台执行</li>
+<li>按下<code>ctrl + z</code>快捷键，放在后台暂停</li>
+</ul>
+<h4 id="2-查看后台的工作"><a href="#2-查看后台的工作" class="headerlink" title="2. 查看后台的工作"></a>2. 查看后台的工作</h4><ul>
+<li><code>jobs [-l]</code></li>
+<li><p><strong>选项：</strong></p>
+<ul>
+<li>-l：显示工作的 PID</li>
+</ul>
+</li>
+<li><p><strong>注意：</strong></p>
+<ul>
+<li><code>+</code> 代表最近一个放入后台的工作，也是工作回复时，默认恢复的工作</li>
+<li><code>-</code> 代表倒数第二个放入后台的工作<h4 id="3-将后台暂停的工作恢复到前台执行"><a href="#3-将后台暂停的工作恢复到前台执行" class="headerlink" title="3. 将后台暂停的工作恢复到前台执行"></a>3. 将后台暂停的工作恢复到前台执行</h4></li>
+</ul>
+</li>
+<li><code>fg %工作号</code>　#恢复前台运行</li>
+<li><code>bg %工作号</code>　#恢复后台运行(不能有交互)</li>
+</ul>
+<h4 id="4-后台命令脱离终端执行"><a href="#4-后台命令脱离终端执行" class="headerlink" title="4. 后台命令脱离终端执行"></a>4. 后台命令脱离终端执行</h4><p>把命令放入后台，只能在当前登录终端执行。一旦退出或关闭终端，后台程序就会停止</p>
+<p>后台命令脱离登录终端执行的方法：</p>
+<ul>
+<li>把需要后台执行的命令加入 /etc/rc.local文件</li>
+<li>使用系统定时任务，让系统在指定的时间执行某个后台命令</li>
+<li>使用 nohup命令（常用）<br>nohup  命令  &amp;</li>
+</ul>
+<h3 id="三、系统资源查看"><a href="#三、系统资源查看" class="headerlink" title="三、系统资源查看"></a>三、系统资源查看</h3><h4 id="1-vmstat-命令监控系统资源"><a href="#1-vmstat-命令监控系统资源" class="headerlink" title="1. vmstat 命令监控系统资源"></a>1. vmstat 命令监控系统资源</h4><ul>
+<li><code>vmstat [刷新延时 刷新次数]</code></li>
+<li><strong>例如：</strong><ul>
+<li>vmstat 1 3<h4 id="2-dmsg-开机时内核检测信息"><a href="#2-dmsg-开机时内核检测信息" class="headerlink" title="2. dmsg 开机时内核检测信息"></a>2. dmsg 开机时内核检测信息</h4></li>
+</ul>
+</li>
+<li><code>dmesg</code></li>
+<li><code>dmesg | grep CPU</code><h4 id="3-free-命令查看内存使用状态"><a href="#3-free-命令查看内存使用状态" class="headerlink" title="3. free 命令查看内存使用状态"></a>3. free 命令查看内存使用状态</h4></li>
+<li><code>free [-b|-k|-m|-g]</code></li>
+<li><strong>选项：</strong><ul>
+<li>-b：以字节为单位显示</li>
+<li>-k：以KB为单位显示，默认就是以KB为单位显示</li>
+<li>-m：以MB为单位显示</li>
+<li>-g：以GB为单位显示<h4 id="4-查看-cpu-信息"><a href="#4-查看-cpu-信息" class="headerlink" title="4. 查看 cpu 信息"></a>4. 查看 cpu 信息</h4></li>
+</ul>
+</li>
+<li><code>cat /proc/cpuinfo</code><h4 id="5-uptime-命令"><a href="#5-uptime-命令" class="headerlink" title="5. uptime 命令"></a>5. uptime 命令</h4></li>
+<li><code>uptime</code><ul>
+<li>#显示系统的启动时间和平均负载，也就是top命令的第一行。w命令也可以看到这个数据<h4 id="6-查看系统与内核相关信息"><a href="#6-查看系统与内核相关信息" class="headerlink" title="6. 查看系统与内核相关信息"></a>6. 查看系统与内核相关信息</h4></li>
+</ul>
+</li>
+<li><code>uname [选项]</code></li>
+<li><strong>选项：</strong><ul>
+<li>-a：查看系统所有相关信息；</li>
+<li>-r：查看内核版本；</li>
+<li>-s：查看内核名称。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-列出进程打开或使用的文件信息"><a href="#7-列出进程打开或使用的文件信息" class="headerlink" title="7. 列出进程打开或使用的文件信息"></a>7. 列出进程打开或使用的文件信息</h4><ul>
+<li><code>lsof [选项]</code>　#列出进程调用或打开的文件信息</li>
+<li><strong>选项：</strong><ul>
+<li>-c 字符串：只列出以字符串开头的进程打开的文件</li>
+<li>-u 用户名：只列出某个用户的进程打开的文件</li>
+<li>-p pid：列出某个PID进程打开的文件</li>
+</ul>
+</li>
+</ul>
+<p><strong>缓冲和缓存的区别</strong><br>缓存（cache ) 是用来加速数据从硬盘中读取的<br>缓冲（buffer）是用来加速数据写入硬盘的</p>
+<p><strong>查看当前Linux系统的发现版本</strong><br><code>lsb_release -a</code></p>
+<p><strong>判断当前系统的位数</strong><br><code>file /bin/ls</code></p>
+<h3 id="四、系统定时任务"><a href="#四、系统定时任务" class="headerlink" title="四、系统定时任务"></a>四、系统定时任务</h3><h4 id="1-at-一次执行"><a href="#1-at-一次执行" class="headerlink" title="1. at 一次执行"></a>1. at 一次执行</h4><h5 id="①-确定-at-安装"><a href="#①-确定-at-安装" class="headerlink" title="① 确定 at 安装"></a>① 确定 <code>at</code> 安装</h5><ul>
+<li><code>chkconfig --list | grep atd</code>　#<code>at</code>服务是否安装</li>
+<li><code>service atd restart</code>  #<code>at</code>服务的启动<h5 id="②-at的访问控制"><a href="#②-at的访问控制" class="headerlink" title="② at的访问控制"></a>② <code>at</code>的访问控制</h5></li>
+<li>如果系统中有/etc/at.allow文件，那么只有写入/etc/at.allow文件（白名单）中的用户可以使用at命令（/etc/at.deny文件会被忽略）</li>
+<li>如果系统中没有/etc/at.allow文件，只有/etc/at.deny文件，那么写入/etc/at.deny文件（黑名单）中的用户不能使用at命令（注意：对root用户不起作用）</li>
+<li>如果系统中这两个文件都不存在，那么只有root用户可以使用at命令<h5 id="③-at命令"><a href="#③-at命令" class="headerlink" title="③ at命令"></a>③ <code>at</code>命令</h5></li>
+<li><code>at [选项] 时间</code></li>
+<li>m：当at工作完成后，无论是否命令有输出，都用email通知执行at命令的用户</li>
+<li>c 工作号：显示该at工作的实际内容</li>
+<li>时间：<ul>
+<li>HH:MM</li>
+<li>HH:MM YYYY-MM-DD</li>
+<li>HH:MM[am|pm] [month][date]</li>
+<li>HH:MM +[minutes|hours|days|weeks]<h5 id="④-例子"><a href="#④-例子" class="headerlink" title="④ 例子"></a>④ 例子</h5>在两分钟之后执行hello.sh脚本<br><code>at now + 2 minutes</code><br><code>at&gt; /root/hello.sh &gt;&gt; /root/hello.log</code><h5 id="⑤-其他at管理命令"><a href="#⑤-其他at管理命令" class="headerlink" title="⑤ 其他at管理命令"></a>⑤ 其他<code>at</code>管理命令</h5></li>
+</ul>
+</li>
+<li><code>atq</code>　#查询当前服务器上的<code>at</code>工作</li>
+<li><code>atrm [工作号]</code>　#删除指定的<code>at</code>任务</li>
+</ul>
+<h4 id="2-crontab-循环定时"><a href="#2-crontab-循环定时" class="headerlink" title="2. crontab 循环定时"></a>2. crontab 循环定时</h4><h5 id="①-crond-服务管理与访问控制"><a href="#①-crond-服务管理与访问控制" class="headerlink" title="①  crond 服务管理与访问控制"></a>①  crond 服务管理与访问控制</h5><ul>
+<li><code>service crond restar</code></li>
+<li><code>chkconfig crond on</code><h5 id="②-用户的-crontab-设置"><a href="#②-用户的-crontab-设置" class="headerlink" title="②  用户的 crontab 设置"></a>②  用户的 crontab 设置</h5></li>
+<li><code>crontab [选项]</code></li>
+<li><strong>选项：</strong><ul>
+<li>-e：编辑crontab定时任务</li>
+<li>-l：查询crontab任务</li>
+<li>-r：删除当前用户所有的crontab任务<h5 id="③-常用命令"><a href="#③-常用命令" class="headerlink" title="③  常用命令"></a>③  常用命令</h5></li>
+</ul>
+</li>
+<li><code>crontab -l</code>　#查看root用户的crontab任务</li>
+<li><code>crontab -r</code>　#删除root用户所有的定时任务</li>
+<li><code>crontab -e</code>　＃添加crontab任务<h5 id="④-crontab-注意事项"><a href="#④-crontab-注意事项" class="headerlink" title="④  crontab 注意事项"></a>④  crontab 注意事项</h5></li>
+<li>六个选项不能为空</li>
+<li>crontab定时任务最小有效时间为分钟，最大为月</li>
+<li>日期和星期最好不要同时出现</li>
+<li>执行任务写绝对路径</li>
+</ul>
+<p><strong>访问控制</strong></p>
+<ul>
+<li>如果系统中有/etc/cron.allow文件(白名单)，那么只有在此名单下的用户可以使用cron命令；</li>
+<li>如果系统中没有/etc/cron.allow文件，只有/etc/cron.deny文件(黑名单)，那么在此名单下的用户不能使用cron命令【对root不起作用】</li>
+<li>如果系统这两个文件都不存在，那么只有root用户可以使用cron命令</li>
+</ul>
+<p><strong>crontab格式：</strong></p>
+<ul>
+<li><code>* * * * * 执行的任务</code></li>
+<li>第一个*：一小时当中的第几分钟，范围0-59</li>
+<li>第二个*：一天当中的第几小时，范围0-23</li>
+<li>第三个*：一个月当中的第几天，范围1-31</li>
+<li>第四个*：一年当中的第几月，范围1-12</li>
+<li>第五个*：一周当中的星期几，范围0-7（0和7都代表星期日）</li>
+</ul>
+<p><strong>crontab 举例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- 45 22 * * * 命令：在22点45分执行命令</div><div class="line">- 0 17 * * 1 命令：每周一的17点0分执行命令</div><div class="line">- 0 5 1,15 * * 命令：每月1号和15号的凌晨5点0分执行命令</div><div class="line">- 40 4 * * 1-5 命令：每周一到五的凌晨4点40分执行命令</div><div class="line">- */10 4 * * * 命令：每天的凌晨4点，每隔10分钟执行一次命令</div><div class="line">- 0 0 1,15 * 1 命令：每月1号和15号，以及每周一的0点0分都执行命令</div></pre></td></tr></table></figure>
+<h4 id="3-执行系统的定时任务的方法："><a href="#3-执行系统的定时任务的方法：" class="headerlink" title="3. 执行系统的定时任务的方法："></a>3. 执行系统的定时任务的方法：</h4><p>第一种：手工执行定时任务（crontab -e，默认当前用户）<br>第二种：系统定时任务</p>
+<ol>
+<li>把需要定时执行的脚本复制到/etc/cron.{daily,weekly,monthly}目录中的任意一个</li>
+<li>修改/etc/crontab配置文件（必须指定用户）</li>
+</ol>
+<blockquote>
+<p>Reference:</p>
+<p> <a href="http://www.imooc.com/learn/583" target="_blank" rel="external">IMOOC-Linux系统管理</a></p>
 </blockquote>
-<p>自己无数次的用这就话警示自己。有良好开端的实在很多，能够始终如一，坚持到底的，却十分少。</p>
-<p>这个项目开始的十分偶然，就是看到 GitHub 自己的 <code>Organization</code> 是空的，灵光一闪：我自己建一个。看到 <code>组织</code> 这个词就马上联想到自己大学的社团，网络中心，就以此命名了。</p>
-<p>GitHub 好友不多，建好后拉来了龙哥。其实就没有然后了。可也就是第二天吧，龙哥在项目中提交了次代码，也就是我看到提交提示的那一刻，说真话：有点激动。就感觉我们能在 GitHub 这样的一个开源平台上，有点合作、交流交流、搞点不为钱财、有意义的事情，很酷。</p>
-<p>项目开始有俩周了，初期些提交后，归于平静。想找忙碌的理由总是很容易。自己很讨厌一分钟热度的感觉，搞搞就轻言放弃。</p>
-<p><strong>这个项目一定会做下去。</strong> 我不会放弃这里。</p>
-<p>我也希望，龙哥、wave、yun 和加入的伙伴们，也不要放弃这里，常来坐坐。也许我们还很渺小，搞不了什么高尖端，可我们可以在 Issues 分享些有意思的事，一些好的工具，一些遇到问题，这些都挺好的。</p>
-<p>让这里见证我们的成长。</p>
-<p>Yifans_Z<br>2017.09.15</p>
+<p>botao<br>2017.11.02</p>
 
         
     
@@ -504,21 +753,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/09/26/php-source-code-cli/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/08/30/nice-to-meet-you/" id="post_nav-older" class="next-content">
+        <a href="/2017/11/01/Linux/使用docker搭建lnmp-二/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

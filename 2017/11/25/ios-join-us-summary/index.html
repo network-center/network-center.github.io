@@ -37,7 +37,7 @@
     
     <title>
         
-            归档: 2017 | 
+            iOS 招聘总结 | 
         
         Network Center Blog
     </title>
@@ -48,8 +48,21 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="geeker">
-    <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" itemprop="description" content="自己也做了一次面试官。简历看到了很多，内容总结如下：
+技能基础
+Objective-C Swift
+内存管理机制，MRC &amp;amp; ARC
+代理、通知、Block 回调机制 闭包
+KVC，KVO 机制
+CoreData FMBD 归档存储 SQLite NSUserDefaults
+runtime 运行机制，runloop 运行机制
+GCD NSOperation NSThread 多线程编程
+Socket 通信
+单例 观察者
+MVVM
+RESTful
+">
+    <meta name="keywords" content=",iOS">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,29 +244,101 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017 | Network Center Blog">
+    <meta property="og:title" content="iOS 招聘总结 | Network Center Blog">
     <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
-    <meta property="og:description" content="">
-    
+    <meta property="og:description" content="自己也做了一次面试官。简历看到了很多，内容总结如下：
+技能基础
+Objective-C Swift
+内存管理机制，MRC &amp;amp; ARC
+代理、通知、Block 回调机制 闭包
+KVC，KVO 机制
+CoreData FMBD 归档存储 SQLite NSUserDefaults
+runtime 运行机制，runloop 运行机制
+GCD NSOperation NSThread 多线程编程
+Socket 通信
+单例 观察者
+MVVM
+RESTful
+">
+    <meta property="og:article:tag" content="iOS"> 
 
+    
+        <meta property="article:published_time" content="Sat Nov 25 2017 01:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Sat Nov 25 2017 01:00:00 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017 | Network Center Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="iOS 招聘总结 | Network Center Blog">
+    <meta name="twitter:description" content="自己也做了一次面试官。简历看到了很多，内容总结如下：
+技能基础
+Objective-C Swift
+内存管理机制，MRC &amp;amp; ARC
+代理、通知、Block 回调机制 闭包
+KVC，KVO 机制
+CoreData FMBD 归档存储 SQLite NSUserDefaults
+runtime 运行机制，runloop 运行机制
+GCD NSOperation NSThread 多线程编程
+Socket 通信
+单例 观察者
+MVVM
+RESTful
+">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://network-center.github.io" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/archives/2017/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2017/11/25/ios-join-us-summary/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://network-center.github.io/2017/11/25/ios-join-us-summary/index.html",
+    "headline": "iOS 招聘总结",
+    "datePublished": "Sat Nov 25 2017 01:00:00 GMT+0800",
+    "dateModified": "Sat Nov 25 2017 01:00:00 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "geeker",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Network Center Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",iOS",
+    "description": "自己也做了一次面试官。简历看到了很多，内容总结如下：
+技能基础
+Objective-C Swift
+内存管理机制，MRC &amp;amp; ARC
+代理、通知、Block 回调机制 闭包
+KVC，KVO 机制
+CoreData FMBD 归档存储 SQLite NSUserDefaults
+runtime 运行机制，runloop 运行机制
+GCD NSOperation NSThread 多线程编程
+Socket 通信
+单例 观察者
+MVVM
+RESTful
+",
+}
+</script>
 
 
     
@@ -287,445 +372,284 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#技能"><span class="post-toc-number">1.</span> <span class="post-toc-text">技能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#业务"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">业务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Framework"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Framework</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#职责"><span class="post-toc-number">2.</span> <span class="post-toc-text">职责</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些感受"><span class="post-toc-number">3.</span> <span class="post-toc-text">一些感受</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#奇巧淫技"><span class="post-toc-number">4.</span> <span class="post-toc-text">奇巧淫技</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#奇事"><span class="post-toc-number">5.</span> <span class="post-toc-text">奇事</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/25/ios-join-us-summary/">iOS 招聘总结</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            自己也做了一次面试官。简历看到了很多，内容总结如下：
-技能基础
-Objective-C Swift
-内存管理机制，MRC &amp; ARC
-代理、通知、Block 回调机制 闭包
-KVC，KVO 机制
-CoreData FMBD 归档存储 SQLite NSUserDefaults
-runtime 运行机制，runloop 运行机制
-GCD NSOperation NSThread 多线程编程
-Socket 通信
-单例 观察者
-MVVM
-RESTful
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/25/ios-join-us-summary/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>11月 25, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/02/linux-ps-manage/">Linux 进程管理</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/02/linux-ps-manage/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>11月 02, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/01/Linux/使用docker搭建lnmp-二/">使用docker搭建lnmp (二)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            docker 名为容器。何为容器，也就是所谓的瓶子，罐子。用可以容纳东西的容器，不同容器之间互不影响。比如，一个瓶子装酒精，一个瓶子装水，非人为状态...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/01/Linux/使用docker搭建lnmp-二/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>11月 01, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/23/Linux/使用docker搭建lnmp环境/">使用docker搭建lnmp环境</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            docker是一个开源的容器引擎，随着“微服务架构”正在变得越来越重要，docker也变得越来越火。但是网上的文章中，要么是很有借鉴意义的干货，要...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/23/Linux/使用docker搭建lnmp环境/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>10月 23, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/26/php-source-code-cli/">PHP源码分析：cli模式执行的过程</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            众所周知，PHP在web上应用很广泛。接近80%的web网站都是使用PHP+MySQL，虽然越来越多的新语种崛起，但是现在PHP依然是中小型web系...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/26/php-source-code-cli/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>9月 26, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/15/keep-going/">这个项目一定会做下去</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-有善始者实繁，能克终者盖寡。
-
-自己无数次的用这就话警示自己。有良好开端的实在很多...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/15/keep-going/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>9月 15, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/30/nice-to-meet-you/">Hello Center 好久不见</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/30/nice-to-meet-you/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>8月 30, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                iOS 招聘总结
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>geeker</strong>
+        <span>11月 25, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/iOS/">iOS</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=iOS 招聘总结&url=https://network-center.github.io/2017/11/25/ios-join-us-summary/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=iOS 招聘总结&url=https://network-center.github.io/2017/11/25/ios-join-us-summary/index.html&via=geeker" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/11/25/ios-join-us-summary/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/11/25/ios-join-us-summary/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>自己也做了一次面试官。简历看到了很多，内容总结如下：</p>
+<h2 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ol>
+<li>Objective-C Swift</li>
+<li>内存管理机制，MRC &amp; ARC</li>
+<li>代理、通知、Block 回调机制 闭包</li>
+<li>KVC，KVO 机制</li>
+<li>CoreData FMBD 归档存储 SQLite NSUserDefaults</li>
+<li>runtime 运行机制，runloop 运行机制</li>
+<li>GCD NSOperation NSThread 多线程编程</li>
+<li>Socket 通信</li>
+<li>单例 观察者</li>
+<li>MVVM</li>
+<li>RESTful</li>
+</ol>
+<a id="more"></a>
+<h3 id="业务"><a href="#业务" class="headerlink" title="业务"></a>业务</h3><ol>
+<li>瀑布流 抽屉</li>
+<li>断点续传 媒体流 瀑布流</li>
+<li>SSO 单点登陆</li>
+</ol>
+<h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><ol>
+<li>Cocoapods</li>
+<li>支付宝 高德 二维码扫描 友盟 极光推送 短信验证</li>
+<li>微信 微博登陆 支付 in-app purchase</li>
+<li>SDWebImage AFNetworking Alamofire SnapKit MBProgressHUD</li>
+<li>IM 环信</li>
+<li>Spring 动画</li>
+<li>ICSDrawer 侧滑菜单</li>
+<li>AVOS Cloud SDK</li>
+<li>ZXing ZBar 二维码</li>
+<li>XMPP</li>
+</ol>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
+<li>Axure</li>
+<li>良好英文文档阅读能力</li>
+</ol>
+<h2 id="职责"><a href="#职责" class="headerlink" title="职责"></a>职责</h2><ol>
+<li>模块封装</li>
+<li>上架</li>
+<li>迭代</li>
+<li>沟通</li>
+<li>整体框架</li>
+<li>KVO 监听实现自定义下拉刷新</li>
+<li>针对不同的网络状态 设置不同的缓存策略</li>
+<li>各种 SDK 集成</li>
+<li>HTML5 Native 相互调用</li>
+</ol>
+<h2 id="一些感受"><a href="#一些感受" class="headerlink" title="一些感受"></a>一些感受</h2><ul>
+<li>一些基本的技能感觉不用写，不会吸引什么注意力。所以要精懂一些特别的技能，技术点。</li>
+<li>一些 “与产品沟通” “安排工作”，我觉的也不用写，也没什么吸引力。</li>
+<li>简历要体出自己擅长的地方，特别的地方，其他的一笔带过就可以。</li>
+<li>简历上的字词的细节我比较在意，iOS &amp; IOS，Xcode &amp; XCode。</li>
+<li>有 GitHub Blog 绝对的好评，但要有内容。</li>
+<li>基础知识、业务能力、性格、气场。</li>
+</ul>
+<h2 id="奇巧淫技"><a href="#奇巧淫技" class="headerlink" title="奇巧淫技"></a>奇巧淫技</h2><p>自己对 iOS 的理解还并不深，如何面试更有经验的人？</p>
+<p>答：准备的问题可以自己并不太懂，只要问题靠谱，要做的就是多听。多听面试者的回答的状态，是含糊？是自信？是心虚？而且多听几位后也就大概其知道答案了。</p>
+<h2 id="奇事"><a href="#奇事" class="headerlink" title="奇事"></a>奇事</h2><ul>
+<li>因为有机试题所以不止一位怀疑这是个圈套，面试是为了做功能。</li>
+</ul>
+<blockquote>
+<p>Reference:</p>
+<ul>
+<li><a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/" target="_blank" rel="external">招聘一个靠谱的 iOS</a></li>
+<li><a href="http://www.jianshu.com/p/7c7f4b4e4efe" target="_blank" rel="external">卓同学的 Swift 面试题</a></li>
+</ul>
+</blockquote>
+<p>Yifans_Z<br>2017.11.25</p>
+
+        
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/11/02/linux-ps-manage/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

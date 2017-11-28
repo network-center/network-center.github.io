@@ -37,7 +37,7 @@
     
     <title>
         
-            PHP源码分析：cli模式执行的过程 | 
+            Java 反射 | 
         
         Network Center Blog
     </title>
@@ -48,8 +48,8 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="geeker">
-    <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",PHP">
+    <meta name="description" itemprop="description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
+    <meta name="keywords" content=",java">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,26 +231,26 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="PHP源码分析：cli模式执行的过程 | Network Center Blog">
+    <meta property="og:title" content="Java 反射 | Network Center Blog">
     <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
-    <meta property="og:description" content="">
-    <meta property="og:article:tag" content="PHP"> 
+    <meta property="og:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
+    <meta property="og:article:tag" content="java"> 
 
     
-        <meta property="article:published_time" content="Tue Sep 26 2017 21:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Sep 26 2017 21:00:00 GMT+0800" />
+        <meta property="article:published_time" content="Mon Nov 27 2017 18:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Nov 28 2017 09:07:14 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="PHP源码分析：cli模式执行的过程 | Network Center Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Java 反射 | Network Center Blog">
+    <meta name="twitter:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://network-center.github.io" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/2017/09/26/php-source-code-cli/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2017/11/27/java-reflect/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +262,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://network-center.github.io/2017/09/26/php-source-code-cli/index.html",
-    "headline": "PHP源码分析：cli模式执行的过程",
-    "datePublished": "Tue Sep 26 2017 21:00:00 GMT+0800",
-    "dateModified": "Tue Sep 26 2017 21:00:00 GMT+0800",
+    "mainEntityOfPage": "https://network-center.github.io/2017/11/27/java-reflect/index.html",
+    "headline": "Java 反射",
+    "datePublished": "Mon Nov 27 2017 18:00:00 GMT+0800",
+    "dateModified": "Tue Nov 28 2017 09:07:14 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -283,8 +283,8 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",PHP",
-    "description": "",
+    "keywords": ",java",
+    "description": "Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象",
 }
 </script>
 
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前期准备"><span class="post-toc-number">1.</span> <span class="post-toc-text">前期准备</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一切从SAPI开始"><span class="post-toc-number">2.</span> <span class="post-toc-text">一切从SAPI开始</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#入口的位置"><span class="post-toc-number">3.</span> <span class="post-toc-text">入口的位置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运行的流程"><span class="post-toc-number">4.</span> <span class="post-toc-text">运行的流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#参数的处理"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">参数的处理</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#cli-sapi-module的初始化"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">cli_sapi_module的初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#cli-sapi-module启动-startup"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">cli_sapi_module启动(startup)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#函数的执行"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">函数的执行</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#垃圾回收"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">垃圾回收</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#输出信息"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">输出信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文献参考"><span class="post-toc-number">6.</span> <span class="post-toc-text">文献参考</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-类的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">Class 类的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这个对象的表示方式有三种："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">这个对象的表示方式有三种：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可以通过类类型创建该类的类对象"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">可以通过类类型创建该类的类对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态加载类"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取方法信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">获取方法信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员变量构造函数信息"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取成员变量构造函数信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java反射机制－获取成员变量-amp-构造函数"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Java反射机制－获取成员变量&构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取成员变量的信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">反射——获取成员变量的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取构造函数的信息"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">反射——获取构造函数的信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法反射的基本操作"><span class="post-toc-number">5.</span> <span class="post-toc-text">方法反射的基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取A类中的print-int-int-方法："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">获取A类中的print(int,int)方法：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法的反射操作："><span class="post-toc-number">5.2.</span> <span class="post-toc-text">方法的反射操作：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过反射了解集合泛型的本质"><span class="post-toc-number">6.</span> <span class="post-toc-text">通过反射了解集合泛型的本质</span></a></li></ol>
     </ul>
     
 
@@ -381,7 +381,7 @@
         
     
             <p class="article-headline-p">
-                PHP源码分析：cli模式执行的过程
+                Java 反射
             </p>
         </div>
 
@@ -400,7 +400,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>geeker</strong>
-        <span>9月 26, 2017</span>
+        <span>11月 27, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -424,7 +424,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/PHP/">PHP</a>
+        <a class="post_tag-link" href="/tags/java/">java</a>
     </ul>
     
 
@@ -440,7 +440,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=PHP源码分析：cli模式执行的过程&url=https://network-center.github.io/2017/09/26/php-source-code-cli/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java 反射&url=https://network-center.github.io/2017/11/27/java-reflect/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -449,7 +449,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=PHP源码分析：cli模式执行的过程&url=https://network-center.github.io/2017/09/26/php-source-code-cli/index.html&via=geeker" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java 反射&url=https://network-center.github.io/2017/11/27/java-reflect/index.html&via=geeker" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -458,7 +458,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/09/26/php-source-code-cli/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/11/27/java-reflect/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/09/26/php-source-code-cli/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/11/27/java-reflect/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -491,104 +491,113 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>众所周知，PHP在web上应用很广泛。接近80%的web网站都是使用PHP+MySQL，虽然越来越多的新语种崛起，但是现在PHP依然是中小型web系统的首选。PHP除了在web上有很多应用，也经常被用作脚本工具，虽然没有原生shell效率高，但是起点比较低。今天就和大家分享下PHP cli模式的执行过程。</p>
-<!-- TOC -->
-<ul>
-<li><a href="#前期准备">前期准备</a></li>
-<li><a href="#一切从sapi开始">一切从SAPI开始</a></li>
-<li><a href="#入口的位置">入口的位置</a></li>
-<li><a href="#运行的流程">运行的流程</a><ul>
-<li><a href="#参数的处理">参数的处理</a></li>
-<li><a href="#cli_sapi_module的初始化">cli_sapi_module的初始化</a></li>
-<li><a href="#cli_sapi_module启动startup">cli_sapi_module启动(startup)</a></li>
-<li><a href="#函数的执行">函数的执行</a></li>
-<li><a href="#垃圾回收">垃圾回收</a></li>
-<li><a href="#输出信息">输出信息</a></li>
-</ul>
+        <h2 id="Class-类的使用"><a href="#Class-类的使用" class="headerlink" title="Class 类的使用"></a>Class 类的使用</h2><h3 id="在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><a href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型" class="headerlink" title="在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)"></a>在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</h3><p>类是对象，类是java.lang.Class类的实例对象</p>
+<a id="more"></a>
+<h3 id="这个对象的表示方式有三种："><a href="#这个对象的表示方式有三种：" class="headerlink" title="这个对象的表示方式有三种："></a>这个对象的表示方式有三种：</h3><ol>
+<li><p>第一种表示方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c1 = Foo.class; //任何一个类都有一个隐含的静态成员变量class</div></pre></td></tr></table></figure>
 </li>
-<li><a href="#总结">总结</a></li>
-<li><a href="#文献参考">文献参考</a></li>
-</ul>
-<!-- /TOC -->
-<h4 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h4><pre><code>PHP的版本：5.3
-代码查看工具：VSCODE 或者sublime text
-</code></pre><h4 id="一切从SAPI开始"><a href="#一切从SAPI开始" class="headerlink" title="一切从SAPI开始"></a>一切从SAPI开始</h4><p><code>SAPI</code>是<code>Server Application Programming Interface</code>的缩写，翻译过来就是服务应用程序接口，可以理解称是一种接口的规范，只要是符合规范的语言，都是可以通过SAPI和服务器进行数据交互。</p>
-<p>通常，在web模式下，PHP通常都是运行在Apache或者nginx这类web服务器上面，程序执行结束后，将结果显示在浏览器上面。其实命令行和web执行过程是稍微有点不同的。命令行是将参数传给PHP的解释器，然后把运行结果显示在窗口上面。有兴趣的可以阅读下<a href="http://www.php-internals.com/book/?p=chapt02/02-01-php-life-cycle-and-zend-engine" target="_blank" rel="external">深入PHP内核：用户代码的执行</a> 了解一下PHP的生命周期。</p>
-<p>PHP的cli模式最开始是随着PHP    4.2.0的版本发布的，但是当时只是一个实验版本，并且需要使用<code>./configure --enable-cli</code>参数才会进行安装。直到PHP 4.3.0之后，才把cli模式当成正式的模块，<code>--enable-cli</code> 参数会被默认得设置为 on，也可以用参数 <code>--disable-cli</code> 来屏蔽。</p>
-<h4 id="入口的位置"><a href="#入口的位置" class="headerlink" title="入口的位置"></a>入口的位置</h4><p>当我们忘记一个命令的option的时候，我们通常会使用<code>-h/--help</code>来查看帮助</p>
-<pre><code>[root@root ~]$ php -h
-Usage: php [options] [-f] &lt;file&gt; [--] [args...]
-   php [options] -r &lt;code&gt; [--] [args...]
-   php [options] [-B &lt;begin_code&gt;] -R &lt;code&gt; [-E &lt;end_code&gt;] [--] [args...]
-   php [options] [-B &lt;begin_code&gt;] -F &lt;file&gt; [-E &lt;end_code&gt;] [--] [args...]
-   php [options] -- [args...]
-   php [options] -a
-
-  -a               Run as interactive shell
-  -c &lt;path&gt;|&lt;file&gt; Look for php.ini file in this directory
-  -n               No php.ini file will be used
-  -d foo[=bar]     Define INI entry foo with value &apos;bar&apos;
-  -e               Generate extended information for debugger/profiler
-  -f &lt;file&gt;        Parse and execute &lt;file&gt;.
-  -h               This help
-  -i               PHP information
-  -l               Syntax check only (lint)
-  -m               Show compiled in modules
-  -r &lt;code&gt;        Run PHP &lt;code&gt; without using script tags &lt;?..?&gt;
-  -B &lt;begin_code&gt;  Run PHP &lt;begin_code&gt; before processing input lines
-  -R &lt;code&gt;        Run PHP &lt;code&gt; for every input line
-  -F &lt;file&gt;        Parse and execute &lt;file&gt; for every input line
-  -E &lt;end_code&gt;    Run PHP &lt;end_code&gt; after processing all input lines
-  -H               Hide any passed arguments from external tools.
-  -s               Output HTML syntax highlighted source.
-  -v               Version number
-  -w               Output source with stripped comments and whitespace.
-  -z &lt;file&gt;        Load Zend extension &lt;file&gt;.
-
-  args...          Arguments passed to script. Use -- args when first argument
-                   starts with - or script is read from stdin
-
-  --ini            Show configuration file names
-
-  --rf &lt;name&gt;      Show information about function &lt;name&gt;.
-  --rc &lt;name&gt;      Show information about class &lt;name&gt;.
-  --re &lt;name&gt;      Show information about extension &lt;name&gt;.
-  --ri &lt;name&gt;      Show configuration for extension &lt;name&gt;.
-</code></pre><p>以上就是PHP的命令已经一些参数。<br>在<code>/sapi/cli/php_cli.c</code>文件里面有个<code>main</code>方法，可以说这个方法就是程序的入口位置了。</p>
-<h4 id="运行的流程"><a href="#运行的流程" class="headerlink" title="运行的流程"></a>运行的流程</h4><p>从代码可以看得出来，这个过程大概可以分为：</p>
+<li><p>第二种表示方式：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c2 = foo1.getClass //已知该类的对象，通过getClass方法得到这个实例类的class(类类型)</div></pre></td></tr></table></figure>
+<ol>
+<li>第三种表达方式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c3 = Class.forName(&quot;imooc.reflect.Foo&quot;);</div></pre></td></tr></table></figure>
+<p>三种方式创建的类类型都相等，都是Foo的类类型</p>
+<h3 id="可以通过类类型创建该类的类对象"><a href="#可以通过类类型创建该类的类对象" class="headerlink" title="可以通过类类型创建该类的类对象"></a>可以通过类类型创建该类的类对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo foo=(Foo)c1.newInstance();</div></pre></td></tr></table></figure>
+<p>前提是需要有无参数的构造方法，它要调用</p>
+<h2 id="动态加载类"><a href="#动态加载类" class="headerlink" title="动态加载类"></a>动态加载类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class.forName(&quot;类的全称&quot;)：</div></pre></td></tr></table></figure>
 <ul>
-<li>参数的处理</li>
-<li>cli_sapi_module的初始化</li>
-<li>cli_sapi_module的启动(starup)</li>
-<li>函数的执行</li>
-<li>垃圾回收</li>
-<li>输出信息</li>
+<li>不仅表示了类的类类型，还代表了动态加载类</li>
+<li>请区分编译、运行</li>
+<li>编译时刻加载类是静态加载类、运行时刻加载类是动态加载类</li>
 </ul>
-<h5 id="参数的处理"><a href="#参数的处理" class="headerlink" title="参数的处理"></a>参数的处理</h5><p>PHP的命令可以接受一系列的参数，比如常见的<code>php -i</code>或者<code>php -m</code>等等，传递给全局变量<code>$argv</code><br>，该数组中下标为零的成员为脚本的名称（当 PHP 代码来自标准输入获直接用 -r 参数以命令行方式运行时，该名称为”-“）。另外，全局变量 \$argc 存有 \$argv 数组中成员变量的个数（而非传送给脚本程序的参数的个数）。</p>
-<p>对于参数的解析，可以查看下PHP的源码 <code>/sapi/cli/php_cli.c</code> 大概725行左右<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.....</div><div class="line"><span class="keyword">while</span> ((c = php_getopt(argc, argv, OPTIONS, &amp;php_optarg, &amp;php_optind, <span class="number">0</span>, <span class="number">2</span>))!=<span class="number">-1</span>) &#123; <span class="comment">//对参数进行解析</span></div><div class="line">	<span class="keyword">switch</span> (c) &#123;</div><div class="line">		<span class="keyword">case</span> <span class="string">'c'</span>:</div><div class="line">			<span class="keyword">if</span> (cli_sapi_module.php_ini_path_override) &#123;</div><div class="line">				<span class="built_in">free</span>(cli_sapi_module.php_ini_path_override);</div><div class="line">			&#125;</div><div class="line">.....</div></pre></td></tr></table></figure></p>
-<p>完整的解析方法就是<code>php_getopt</code>，在<code>/main/getopt.c</code> 的第58行左右，在php_getopt方法里面，通过对 ‘-‘ 或者 ‘–’ 的处理，获取具体的参数，然后返回。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">PHPAPI <span class="keyword">int</span> <span class="title">php_getopt</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* <span class="keyword">const</span> *argv, <span class="keyword">const</span> opt_struct opts[], <span class="keyword">char</span> **optarg, <span class="keyword">int</span> *optind, <span class="keyword">int</span> show_err, <span class="keyword">int</span> arg_start)</span></span></div></pre></td></tr></table></figure>
-<h5 id="cli-sapi-module的初始化"><a href="#cli-sapi-module的初始化" class="headerlink" title="cli_sapi_module的初始化"></a>cli_sapi_module的初始化</h5><p>其实cli_sapi_module的初始化和参数的处理两个过程的先后并不是很明显，因为在参数处理之前，也有一些简单的初始化操作，比如对cli模式下的PHP配置文件的初始化，因为在使用cli命令的时候是需要一些初始化的值才行。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cli_sapi_module.ini_defaults = sapi_cli_ini_defaults;</div><div class="line">cli_sapi_module.php_ini_path_override = <span class="literal">NULL</span>;</div><div class="line">cli_sapi_module.phpinfo_as_text = <span class="number">1</span>;</div><div class="line">sapi_startup(&amp;cli_sapi_module);</div></pre></td></tr></table></figure>
-<p>我之所以放到后面，是因为大部分的成员变量初始化都是在参数处理之后的。</p>
-<p>cli_sapi_module是一个静态全局变量，数据结构比较容易理解</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> sapi_module_struct cli_sapi_module = &#123;</div><div class="line">	<span class="string">"cli"</span>,							<span class="comment">/* name */</span></div><div class="line">	<span class="string">"Command Line Interface"</span>,    	<span class="comment">/* pretty name */</span></div><div class="line"></div><div class="line">	php_cli_startup,				<span class="comment">/* startup */</span></div><div class="line">	php_module_shutdown_wrapper,	<span class="comment">/* shutdown */</span></div><div class="line"></div><div class="line">	<span class="literal">NULL</span>,							<span class="comment">/* activate */</span></div><div class="line">	sapi_cli_deactivate,			<span class="comment">/* deactivate */</span></div><div class="line"></div><div class="line">	sapi_cli_ub_write,		    	<span class="comment">/* unbuffered write */</span></div><div class="line">	sapi_cli_flush,				    <span class="comment">/* flush */</span></div><div class="line">	<span class="literal">NULL</span>,							<span class="comment">/* get uid */</span></div><div class="line">	<span class="literal">NULL</span>,							<span class="comment">/* getenv */</span></div><div class="line">	.....</div></pre></td></tr></table></figure>
-<p><strong>其实伴随着cli_sapi_module初始化，PHP也会对模块进行启动的操作</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">php_cli_startup</span><span class="params">(sapi_module_struct *sapi_module)</span> <span class="comment">/* &#123;&#123;&#123; */</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">if</span> (php_module_startup(sapi_module, <span class="literal">NULL</span>, <span class="number">0</span>)==FAILURE) &#123;</div><div class="line">		<span class="keyword">return</span> FAILURE;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> SUCCESS;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="cli-sapi-module启动-startup"><a href="#cli-sapi-module启动-startup" class="headerlink" title="cli_sapi_module启动(startup)"></a>cli_sapi_module启动(startup)</h5><p>启动的过程比较简单明白，如果启动失败的话，那就goto错误信息处理阶段，在控制台输出错误信息</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* startup after we get the above ini override se we get things right */</span></div><div class="line"><span class="keyword">if</span> (cli_sapi_module.startup(&amp;cli_sapi_module)==FAILURE) &#123;</div><div class="line">	<span class="comment">/* there is no way to see if we must call zend_ini_deactivate()</span></div><div class="line"><span class="comment">	 * since we cannot check if EG(ini_directives) has been initialised</span></div><div class="line"><span class="comment">	 * because the executor's constructor does not set initialize it.</span></div><div class="line"><span class="comment">	 * Apart from that there seems no need for zend_ini_deactivate() yet.</span></div><div class="line"><span class="comment">	 * So we goto out_err.*/</span></div><div class="line">	exit_status = <span class="number">1</span>;</div><div class="line">	<span class="keyword">goto</span> out_err;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="函数的执行"><a href="#函数的执行" class="headerlink" title="函数的执行"></a>函数的执行</h5><p>启动结束后，PHP会根据参数不同，调用不同的函数，比如当用户输入<code>php -i</code>的时候，那么就打印出PHP的info信息；输入<code>php -m</code>的时候打印出已经安装的模块…</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> ((c = php_getopt(argc, argv, OPTIONS, &amp;php_optarg, &amp;php_optind, <span class="number">0</span>, <span class="number">2</span>)) != <span class="number">-1</span>) &#123;</div><div class="line">	<span class="keyword">switch</span> (c) &#123;</div><div class="line">		......				</div><div class="line">		<span class="keyword">case</span> <span class="string">'i'</span>: <span class="comment">/* php info &amp; quit */</span></div><div class="line">			<span class="keyword">if</span> (php_request_startup(TSRMLS_C)==FAILURE) &#123; ## 请求初始化操作</div><div class="line">				<span class="keyword">goto</span> err;</div><div class="line">			&#125;</div><div class="line">			request_started = <span class="number">1</span>;</div><div class="line">			php_print_info(<span class="number">0xFFFFFFFF</span> TSRMLS_CC);</div><div class="line">			php_end_ob_buffers(<span class="number">1</span> TSRMLS_CC);</div><div class="line">			exit_status=<span class="number">0</span>;</div><div class="line">			<span class="keyword">goto</span> out;</div><div class="line">		<span class="keyword">case</span> <span class="string">'m'</span>: <span class="comment">/* list compiled in modules */</span></div><div class="line">			<span class="keyword">if</span> (php_request_startup(TSRMLS_C)==FAILURE) &#123;</div><div class="line">				<span class="keyword">goto</span> err;</div><div class="line">			&#125;</div><div class="line">			request_started = <span class="number">1</span>;</div><div class="line">			php_printf(<span class="string">"[PHP Modules]\n"</span>);</div><div class="line">			print_modules(TSRMLS_C);</div><div class="line">			php_printf(<span class="string">"\n[Zend Modules]\n"</span>);</div><div class="line">			print_extensions(TSRMLS_C);</div><div class="line">			php_printf(<span class="string">"\n"</span>);</div><div class="line">			php_end_ob_buffers(<span class="number">1</span> TSRMLS_CC);</div><div class="line">			exit_status=<span class="number">0</span>;</div><div class="line">			<span class="keyword">goto</span> out;</div><div class="line">		<span class="keyword">case</span> <span class="string">'v'</span>: <span class="comment">/* show php version &amp; quit */</span></div><div class="line">			<span class="keyword">if</span> (php_request_startup(TSRMLS_C) == FAILURE) &#123;</div><div class="line">				<span class="keyword">goto</span> err;</div><div class="line">			&#125;</div><div class="line">			request_started = <span class="number">1</span>;</div><div class="line">			php_printf(<span class="string">"PHP %s (%s) (built: %s %s) %s\nCopyright (c) 1997-2010 The PHP Group\n%s"</span>,</div><div class="line">			PHP_VERSION, sapi_module.name, __DATE__, __TIME__,</div><div class="line">			....</div></pre></td></tr></table></figure>
-<p>此外，根据对参数的switch的case的比较，确定behavior （解释器行为）根据解释器行为，然后根据不同的behavior 做出想用的动作。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="keyword">case</span> PHP_MODE_LINT:</div><div class="line">	exit_status = php_lint_script(&amp;file_handle TSRMLS_CC);</div><div class="line">	<span class="keyword">if</span> (exit_status==SUCCESS) &#123;</div><div class="line">		zend_printf(<span class="string">"No syntax errors detected in %s\n"</span>, file_handle.filename);</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		zend_printf(<span class="string">"Errors parsing %s\n"</span>, file_handle.filename);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">break</span>;</div><div class="line"><span class="keyword">case</span> PHP_MODE_STRIP:</div><div class="line">	<span class="keyword">if</span> (open_file_for_scanning(&amp;file_handle TSRMLS_CC)==SUCCESS) &#123;</div><div class="line">		zend_strip(TSRMLS_C);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">goto</span> out;</div><div class="line">	<span class="keyword">break</span>;</div><div class="line">....</div></pre></td></tr></table></figure>
-<p>伴随着不同的解释器行为，进行请求的处理</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (php_request_startup(TSRMLS_C)==FAILURE) &#123;</div><div class="line">	*arg_excp = arg_free;</div><div class="line">	fclose(file_handle.handle.fp);</div><div class="line">	PUTS(<span class="string">"Could not startup.\n"</span>);</div><div class="line">	<span class="keyword">goto</span> err;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h5><p>在代码的执行过程中，PHP会通过全局函数<code>CG()</code>或者函数<code>free()</code>将内存和数据进行释放，进行垃圾的回收。</p>
-<h5 id="输出信息"><a href="#输出信息" class="headerlink" title="输出信息"></a>输出信息</h5><p>运行的最后应该就是对信息的输出和对SAPI的关闭。这部分其实和web请求类似，输出（错误信息）之后，PHP会通过<code>php_request_shutdown</code>，<code>php_module_shutdown</code>和<code>sapi_shutdown</code>等对相应的请求、模块和SAPI等进行关闭。<strong>但是和web请求不一样的是，每次结束cli模式的时候都是会对模块进行关闭(<code>php_module_shutdown</code>)，但是web模式缺不是，web模式在PHP启动和关闭的时候才会知心模块的初始化以及关闭，并是不每处理完一个请求就开启/关闭一次。</strong></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>cli模式和web模式其实大同小异，整个PHP的生命周期基本一致：开始-&gt;模块初始化-&gt;请求初始化-&gt;执行PHP脚本-&gt;关闭请求-&gt;关闭模块。但是最大的不同是因为是否重复的启动，因为在web模式下，往往是连续的请求，也就是通常用户经常做页面的跳转，如果重复的启动也关闭模块，势必会造成性能上的差异。但是cli模式往往都是单次的请求，是不连续的。</p>
-<h4 id="文献参考"><a href="#文献参考" class="headerlink" title="文献参考"></a>文献参考</h4><p><a href="http://www.php-internals.com" target="_blank" rel="external">深入理解PHP的内核</a></p>
-<p><a href="http://www.php100.com/manual/php/features.commandline.html" target="_blank" rel="external">PHP的命令行模式</a></p>
-<p>feilong<br>2017.09.27</p>
+<p>用new创建对象，属于静态加载类，在编译时刻就需要加载所有的可能使用到的类，只要有一个类缺失或者类中某个成员缺失，就会报错（不管实际上有没有用到这个类），导致整个程序都无法运行。</p>
+<p>于是我们希望：要用哪个类的时候再加载这个类，不用就不加载。通过动态加载类可以解决上述问题。<br>本例中举了Word类、Excel类加载的例子，现在做动态加载：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forName(args[0]);</div><div class="line">//通过类类型，创建该类对象，这里就产生一个问题：是生成Word呢还是生成Excel?老师的解决思路是：只创建一个新类OfficeAble，作为接口，令Word类、Excel类都实现这个接口就可以了：</div><div class="line">OfficeAble oa = (OfficeAble)c.newInstance();</div><div class="line">oa.start();</div><div class="line"></div><div class="line">class Word implements OfficeAble</div><div class="line">&#123;</div><div class="line">	public void start()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>代码设计思路</strong>：功能性的类最好使用动态加载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forname(参数);//动态加载类返回该类的类类型。</div><div class="line">接口 x = (接口)c.newInstance();通过转换为接口的类型，用来实现方法。</div></pre></td></tr></table></figure>
+<h2 id="获取方法信息"><a href="#获取方法信息" class="headerlink" title="获取方法信息"></a>获取方法信息</h2><p>基本数据类型，void关键字都存在类类型</p>
+<ul>
+<li>class.getMethods()方法获取是该类的所有public方法，包括从父类继承的方法；</li>
+<li>class.getDeclareMethods()方法获取该类自行声明的所有方法，不论访问权限；</li>
+<li>method.getName()获取方法名</li>
+<li>method.getReturnType()获取方法的返回值</li>
+<li>method.getParameterTypes()，获取方法的参数类型的类类型数组class[]</li>
+</ul>
+<p><strong>获取方法信息：</strong></p>
+<ol>
+<li>基本的数据类型，void关键字等都存在类类型<br>Class c = 基类.class （int,String,double,void等）</li>
+<li>Class类的基本API操作</li>
+</ol>
+<ul>
+<li>c.getName()可以获取类的名称</li>
+<li>c.getSimpleName();//不包含包名的类的名称</li>
+<li>c.getMethods()获取类的【public方法】集合，【包括继承来的】</li>
+</ul>
+<p><strong>注意【所有方法都是Method类的对象】</strong></p>
+<ul>
+<li>c.getDeclaredMethods()获取的是所有该类【自己声明】的方法，【不问访问权限】</li>
+</ul>
+<ol>
+<li>Method类提供了一些操作方法的方法</li>
+</ol>
+<ul>
+<li>.getReturnType()得到该方法的返回值类型的类类型（class），如int.class String.class</li>
+<li>.getName()得到方法的名称</li>
+<li>.getParameterTypes()获得参数列表类型的类类型，如参数为(int,int)则得到</li>
+</ul>
+<p><strong>实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c1 = int.class; int的类类型</div><div class="line">Class c2 = String.class; String类的类类型 String类字节码</div><div class="line">Class c3 = double.class; double这个数据类类型的字节码表示方式</div><div class="line">Class c4 = Double.class; Double这个类的类类型字节码表示方式</div><div class="line">Class c5 = void.class; 表达了void这个类的类类型</div><div class="line">getName为这个类的类类型的具体名称</div><div class="line">c1.getName ---&gt; int</div><div class="line">c2.getName ---&gt; java.lang.String 类的全称</div><div class="line">c2.getSimpleName ---&gt; String 不包含包名的类的名称</div></pre></td></tr></table></figure>
+<h2 id="获取成员变量构造函数信息"><a href="#获取成员变量构造函数信息" class="headerlink" title="获取成员变量构造函数信息"></a>获取成员变量构造函数信息</h2><h3 id="Java反射机制－获取成员变量-amp-构造函数"><a href="#Java反射机制－获取成员变量-amp-构造函数" class="headerlink" title="Java反射机制－获取成员变量&amp;构造函数"></a>Java反射机制－获取成员变量&amp;构造函数</h3><ol>
+<li>成员变量是java.lang.reflect.Field的对象</li>
+</ol>
+<ul>
+<li>Field类封装了关于成员变量的操作</li>
+<li>Field[] fs = c.getFields()方法获取所有public的成员变量Field[]信息</li>
+<li>c.getDeclaredFields获取的是该类自己声明的成员变量信息</li>
+<li>field.getType()获得成员类型的类类型</li>
+<li>field.getName()获得成员的名称</li>
+</ul>
+<ol>
+<li>构造函数是java.lang.Constructor类的对象</li>
+</ol>
+<ul>
+<li>通过Class.getConstructor()获得Constructor[]所有公有构造方法信息</li>
+<li>建议getDeclaredConstructors()获取自己声明的构造方法</li>
+<li>Constructor.getName():String</li>
+<li>Constructor.getParameterTypes():Class[]</li>
+</ul>
+<p><strong>成员变量也是对象，是java.lang.reflect.Field的对象</strong></p>
+<h3 id="反射——获取成员变量的信息"><a href="#反射——获取成员变量的信息" class="headerlink" title="反射——获取成员变量的信息"></a>反射——获取成员变量的信息</h3><ol>
+<li>Class c = obj.getClass();<br>Field[] fs = c.getFields();</li>
+<li>获取成员变量： 获取成员变量的类型的类类型<code>Class fieldType = field.getType();</code>　<br>//获取成员变量的类型的名字fieldType.getName();　<br>//获取成员变量的名称getName()</li>
+</ol>
+<h3 id="反射——获取构造函数的信息"><a href="#反射——获取构造函数的信息" class="headerlink" title="反射——获取构造函数的信息"></a>反射——获取构造函数的信息</h3><ol>
+<li>Class c = obj.getClass(）;<br>Constructor[] cs = c.getConstructors();</li>
+<li>获取构造函数的参数列表，得到的是参数列表的类型的类类型</li>
+</ol>
+<p><code>Class[] paramTypes =constructor.getParammeterTypes();</code>　<br>//获取参数类型的名称paramTypes.getName();</p>
+<h2 id="方法反射的基本操作"><a href="#方法反射的基本操作" class="headerlink" title="方法反射的基本操作"></a>方法反射的基本操作</h2><h3 id="获取A类中的print-int-int-方法："><a href="#获取A类中的print-int-int-方法：" class="headerlink" title="获取A类中的print(int,int)方法："></a>获取A类中的print(int,int)方法：</h3><ol>
+<li>要获取一个方法就是获取类的信息，获取类的信息首先要获取类的类类型<br>A a1=new A();  Class c= a1.getClass();</li>
+<li>获取方法 由名称和参数列表来决定,<code>getMethod获取的是public方法</code>，<code>getDelcaredMethod获取自己声明的方法</code><br><code>Method m =c.getMethod(methodName,paramtypes);</code>　<br>//paramtypes可以用数组的形式  表示new Class[]{int.class,int.class}，也可以直接列举类类型</li>
+</ol>
+<h3 id="方法的反射操作："><a href="#方法的反射操作：" class="headerlink" title="方法的反射操作："></a>方法的反射操作：</h3><p>是用m对象来进行方法调用，和a1.print(10,20)调用的方法相同 <code>m.invoke（a1，new Object[]｛10,20｝）
+Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返回null，如果有返回值返回具体值，参数可用数组的方式表示，也可以直接列举，没有参数就不写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public Class A&#123;</div><div class="line">	 public void print()&#123;&#125;;</div><div class="line">	 public void Print(Sting a,String b)&#123;&#125;</div><div class="line">	 public void Print(int a,int b)&#123;&#125;;</div><div class="line">&#125;</div><div class="line">public Class B&#123;</div><div class="line">	 public static void main(String[] args)&#123;</div><div class="line">	  A a1 = new A();  Class c= a1.getclass;</div><div class="line">	  Method getMet=c.getMethod(&quot;print&quot;,String.class,String.class);</div><div class="line">	  Object obj=getMet.invoke(a1,&quot;df&quot;,&quot;df&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="通过反射了解集合泛型的本质"><a href="#通过反射了解集合泛型的本质" class="headerlink" title="通过反射了解集合泛型的本质"></a>通过反射了解集合泛型的本质</h2><ol>
+<li>反射的操作都是编译之后的操作</li>
+<li>集合的泛型只为了防止错误输入，编译阶段有效，绕过编译，使用反射是不会控制集合中的数据类型的。</li>
+<li>反射操作类方法：通过对象的类类型得到方法的对象Method，通过方法对象的invoke方法操作对象，调用对象的方法。</li>
+</ol>
+<p><strong>实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class c1=对象a.getClass()</div><div class="line">Method m = c1.getMethod(方法名，参数列表)</div><div class="line">Object o =m.invoke(对象a，参数列表，可以一一列举，也可以用数组)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Reference:<br> <a href="http://www.imooc.com/learn/199" target="_blank" rel="external">IMOOC-反射——Java高级开发必须懂的</a></p>
+</blockquote>
+<p>botao<br>2017.11.27</p>
 
         
     
@@ -609,21 +618,13 @@ Usage: php [options] [-f] &lt;file&gt; [--] [args...]
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/10/23/Linux/使用docker搭建lnmp环境/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/09/15/keep-going/" id="post_nav-older" class="next-content">
+        <a href="/2017/11/26/simple-macbook-report/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

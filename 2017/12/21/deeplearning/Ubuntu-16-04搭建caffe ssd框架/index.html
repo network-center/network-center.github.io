@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            Ubuntu 16.04搭建caffe ssd框架 | 
+        
+        Network Center Blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="geeker">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Network Center Blog">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://network-center.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Ubuntu 16.04搭建caffe ssd框架 | Network Center Blog">
+    <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Thu Dec 21 2017 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Dec 21 2017 15:01:52 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="Ubuntu 16.04搭建caffe ssd框架 | Network Center Blog">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://network-center.github.io" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://network-center.github.io/2017/12/21/deeplearning/Ubuntu-16-04搭建caffe ssd框架/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://network-center.github.io/2017/12/21/deeplearning/Ubuntu-16-04搭建caffe ssd框架/index.html",
+    "headline": "Ubuntu 16.04搭建caffe ssd框架",
+    "datePublished": "Thu Dec 21 2017 00:00:00 GMT+0800",
+    "dateModified": "Thu Dec 21 2017 15:01:52 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "geeker",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Network Center Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装cuda-8-0"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装cuda 8.0</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载cuda-8-0和补丁"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">下载cuda 8.0和补丁</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装cuda-所需要的库"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装cuda 所需要的库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装cuda-8-0-1"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">安装cuda 8.0</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装补丁"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">安装补丁</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装caffe所需要的依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装caffe所需要的依赖</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装protobuf、BLAS、Boost、hdf5等"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装protobuf、BLAS、Boost、hdf5等</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装OpenCV-3-0-https-github-com-opencv-opencv-releases-tag-3-0-0"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装OpenCV 3.0 (https://github.com/opencv/opencv/releases/tag/3.0.0)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装依赖"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载OpenCV"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">下载OpenCV</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装cuDNN"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装cuDNN</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装拓展"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">安装拓展</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载cudnn类库"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">下载cudnn类库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解压安装"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">解压安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装NVIDIA驱动-可选"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装NVIDIA驱动(可选)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译caffe-ssd"><span class="post-toc-number">6.</span> <span class="post-toc-text">编译caffe-ssd</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行作者样例"><span class="post-toc-number">7.</span> <span class="post-toc-text">运行作者样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#将图片转化为LMDB文件"><span class="post-toc-number">8.</span> <span class="post-toc-text">将图片转化为LMDB文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#训练模型"><span class="post-toc-number">9.</span> <span class="post-toc-text">训练模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在摄像头上测试"><span class="post-toc-number">10.</span> <span class="post-toc-text">在摄像头上测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错误处理"><span class="post-toc-number">11.</span> <span class="post-toc-text">错误处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fatal-error-boost-shared-ptr-hpp-没有那个文件或目录"><span class="post-toc-number">11.0.1.</span> <span class="post-toc-text">fatal error: boost/shared_ptr.hpp: 没有那个文件或目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fatal-error-gflags-gflags-h-没有那个文件或目录"><span class="post-toc-number">11.0.2.</span> <span class="post-toc-text">fatal error: gflags/gflags.h: 没有那个文件或目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fatal-error-glog-logging-h-没有那个文件或目录"><span class="post-toc-number">11.0.3.</span> <span class="post-toc-text">fatal error: glog/logging.h: 没有那个文件或目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Check-failed-error-cudaSuccess-10-vs-0-invalid-device-ordinal"><span class="post-toc-number">11.0.4.</span> <span class="post-toc-text">Check failed: error == cudaSuccess (10 vs. 0)  invalid device ordinal</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#heck-failed-error-cudaSuccess-2-vs-0-out-of-memory"><span class="post-toc-number">11.0.5.</span> <span class="post-toc-text">heck failed: error == cudaSuccess (2 vs. 0)  out of memory</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#搭建caffe环境时“error-hdf5-h”找不到的解决方法"><span class="post-toc-number">11.0.6.</span> <span class="post-toc-text">搭建caffe环境时“error: hdf5.h”找不到的解决方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如果出现-‘NppiGraphcutState’-has-not-been-declared是因为cuda和OpenCV的版本兼容问题"><span class="post-toc-number">11.0.7.</span> <span class="post-toc-text">如果出现 ‘NppiGraphcutState’ has not been declared是因为cuda和OpenCV的版本兼容问题</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Ubuntu 16.04搭建caffe ssd框架
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>geeker</strong>
+        <span>12月 21, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Ubuntu 16.04搭建caffe ssd框架&url=https://network-center.github.io/2017/12/21/deeplearning/Ubuntu-16-04搭建caffe ssd框架/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Ubuntu 16.04搭建caffe ssd框架&url=https://network-center.github.io/2017/12/21/deeplearning/Ubuntu-16-04搭建caffe ssd框架/index.html&via=geeker" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/12/21/deeplearning/Ubuntu-16-04搭建caffe ssd框架/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/12/21/deeplearning/Ubuntu-16-04搭建caffe ssd框架/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>caffe 是一个比较有名的深度学习框架，在视频和图像方面应用比较广泛，因为NVIDIA主要是做GPU和视觉，所以caffe和NIVEA关系比较亲密。使用的GPU驱动也是NVIDIA驱动和NVIDIA cuda8.0。</p>
+<ul>
+<li><a href="#安装cuda-80">安装cuda 8.0</a><ul>
+<li><a href="#下载cuda-80和补丁">下载cuda 8.0和补丁</a></li>
+<li><a href="#安装cuda-所需要的库">安装cuda 所需要的库</a></li>
+<li><a href="#安装cuda-80-1">安装cuda 8.0</a></li>
+<li><a href="#安装补丁">安装补丁</a></li>
+</ul>
+</li>
+<li><a href="#安装caffe所需要的依赖">安装caffe所需要的依赖</a><ul>
+<li><a href="#安装protobufblasboosthdf5等">安装protobuf、BLAS、Boost、hdf5等</a></li>
+</ul>
+</li>
+<li><a href="#安装opencv-30-httpsgithubcomopencvopencvreleasestag300">安装OpenCV 3.0 (https://github.com/opencv/opencv/releases/tag/3.0.0)</a><ul>
+<li><a href="#安装依赖">安装依赖</a></li>
+<li><a href="#下载opencv">下载OpenCV</a></li>
+</ul>
+</li>
+<li><a href="#安装cudnn">安装cuDNN</a><ul>
+<li><a href="#安装拓展">安装拓展</a></li>
+<li><a href="#下载cudnn类库">下载cudnn类库</a></li>
+<li><a href="#解压安装">解压安装</a></li>
+</ul>
+</li>
+<li><a href="#安装nvidia驱动可选">安装NVIDIA驱动(可选)</a></li>
+<li><a href="#编译caffe-ssd">编译caffe-ssd</a></li>
+<li><a href="#运行作者样例">运行作者样例</a></li>
+<li><a href="#将图片转化为lmdb文件">将图片转化为LMDB文件</a></li>
+<li><a href="#训练模型">训练模型</a></li>
+<li><a href="#在摄像头上测试">在摄像头上测试</a></li>
+<li><a href="#错误处理">错误处理</a></li>
+</ul>
+<h2 id="安装cuda-8-0"><a href="#安装cuda-8-0" class="headerlink" title="安装cuda 8.0"></a>安装cuda 8.0</h2><h3 id="下载cuda-8-0和补丁"><a href="#下载cuda-8-0和补丁" class="headerlink" title="下载cuda 8.0和补丁"></a>下载cuda 8.0和补丁</h3><p>浏览器访问 <a href="https://developer.nvidia.com/cuda-80-ga2-download-archive" target="_blank" rel="external">https://developer.nvidia.com/cuda-80-ga2-download-archive</a> 下载Base Installer和Patch 2</p>
+<p><img src="/img/CUDA_Toolkit_8_0.png" alt=""></p>
+<h3 id="安装cuda-所需要的库"><a href="#安装cuda-所需要的库" class="headerlink" title="安装cuda 所需要的库"></a>安装cuda 所需要的库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa</div><div class="line">libglu1-mesa-dev libxi-dev libxmu-dev -y</div></pre></td></tr></table></figure>
+<h3 id="安装cuda-8-0-1"><a href="#安装cuda-8-0-1" class="headerlink" title="安装cuda 8.0"></a>安装cuda 8.0</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">$ sudo ./cuda_8.0.61_375.26_linux-run</div><div class="line"></div><div class="line">Do you accept the previously <span class="built_in">read</span> EULA?</div><div class="line">accept/decline/quit: accept <span class="comment">#接受</span></div><div class="line"></div><div class="line">Install NVIDIA Accelerated Graphics Driver <span class="keyword">for</span> Linux-x86_64 375.26?</div><div class="line">(y)es/(n)o/(q)uit: n <span class="comment">#不安装默认驱动</span></div><div class="line"></div><div class="line">Install the CUDA 8.0 Toolkit?</div><div class="line">(y)es/(n)o/(q)uit: y <span class="comment">#确认安装</span></div><div class="line"></div><div class="line">Enter Toolkit Location</div><div class="line"> [ default is /usr/<span class="built_in">local</span>/cuda-8.0 ]: <span class="comment">#回车默认</span></div><div class="line"></div><div class="line"> Do you want to install a symbolic link at /usr/<span class="built_in">local</span>/cuda?</div><div class="line">(y)es/(n)o/(q)uit:y <span class="comment">#创建连接</span></div><div class="line"></div><div class="line">Install the CUDA 8.0 Samples?</div><div class="line">(y)es/(n)o/(q)uit:y</div><div class="line"></div><div class="line">Enter CUDA Samples Location</div><div class="line"> [ default is /home/ubuntu ]:y</div><div class="line"></div><div class="line">Installing the CUDA Toolkit <span class="keyword">in</span> /usr/<span class="built_in">local</span>/cuda-8.0 ...</div></pre></td></tr></table></figure>
+<h3 id="安装补丁"><a href="#安装补丁" class="headerlink" title="安装补丁"></a>安装补丁</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ sudo ./cuda_8.0.61.2_linux-run</div><div class="line">Do you accept the previously <span class="built_in">read</span> EULA?</div><div class="line">accept/decline/quit: accept</div><div class="line"></div><div class="line">Enter CUDA Toolkit installation directory</div><div class="line"> [ default is /usr/<span class="built_in">local</span>/cuda-8.0 ]:</div><div class="line"></div><div class="line">Installation complete!</div><div class="line">Installation directory: /usr/<span class="built_in">local</span>/cuda-8.0</div></pre></td></tr></table></figure>
+<h2 id="安装caffe所需要的依赖"><a href="#安装caffe所需要的依赖" class="headerlink" title="安装caffe所需要的依赖"></a>安装caffe所需要的依赖</h2><h3 id="安装protobuf、BLAS、Boost、hdf5等"><a href="#安装protobuf、BLAS、Boost、hdf5等" class="headerlink" title="安装protobuf、BLAS、Boost、hdf5等"></a>安装protobuf、BLAS、Boost、hdf5等</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</div><div class="line">$ sudo apt-get install --no-install-recommends libboost-all-dev</div><div class="line">$ sudo apt-get install libatlas-base-dev</div><div class="line">$ sudo apt-get install the python-dev</div></pre></td></tr></table></figure>
+<h2 id="安装OpenCV-3-0-https-github-com-opencv-opencv-releases-tag-3-0-0"><a href="#安装OpenCV-3-0-https-github-com-opencv-opencv-releases-tag-3-0-0" class="headerlink" title="安装OpenCV 3.0 (https://github.com/opencv/opencv/releases/tag/3.0.0)"></a>安装OpenCV 3.0 (<a href="https://github.com/opencv/opencv/releases/tag/3.0.0" target="_blank" rel="external">https://github.com/opencv/opencv/releases/tag/3.0.0</a>)</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev</div><div class="line">$ sudo apt-get install build-essential</div><div class="line">$ sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev</div></pre></td></tr></table></figure>
+<h3 id="下载OpenCV"><a href="#下载OpenCV" class="headerlink" title="下载OpenCV"></a>下载OpenCV</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ wget -c https://github.com/opencv/opencv/archive/3.0.0.tar.gz</div><div class="line">$ tar -zxvf 3.0.0.tar.gz</div><div class="line">$ <span class="built_in">cd</span> opencv-3.0.0/</div><div class="line">$ mkdir build</div><div class="line">$ <span class="built_in">cd</span> build</div><div class="line">$ sudo cmake .. <span class="comment">## 如果没有安装cmake，使用 apt install cmake 进行安装</span></div><div class="line">$ sudo make all</div></pre></td></tr></table></figure>
+<h2 id="安装cuDNN"><a href="#安装cuDNN" class="headerlink" title="安装cuDNN"></a>安装cuDNN</h2><h3 id="安装拓展"><a href="#安装拓展" class="headerlink" title="安装拓展"></a>安装拓展</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install snappy libleveldb-dev liblmdb-dev -y</div></pre></td></tr></table></figure>
+<h3 id="下载cudnn类库"><a href="#下载cudnn类库" class="headerlink" title="下载cudnn类库"></a>下载cudnn类库</h3><p><img src="/img/cudnn.png" alt=""></p>
+<h3 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ tar xvf cudnn-8.0-linux-x64-v7.tar</div><div class="line"><span class="comment">## 系统将解压内容放到了cuda文件夹里面了</span></div><div class="line">cuda/include/cudnn.h</div><div class="line">cuda/NVIDIA_SLA_cuDNN_Support.txt</div><div class="line">cuda/lib64/libcudnn.so</div><div class="line">cuda/lib64/libcudnn.so.7</div><div class="line">cuda/lib64/libcudnn.so.7.0.4</div><div class="line">cuda/lib64/libcudnn_static.a</div><div class="line"></div><div class="line"><span class="comment">## 拷贝类库</span></div><div class="line">$ sudo cp cuda/lib64/lib* /usr/<span class="built_in">local</span>/cuda/lib64/ </div><div class="line"><span class="comment">## 拷贝.h文件</span></div><div class="line">$ sudo cp cuda/include/cudnn.h /usr/<span class="built_in">local</span>/cuda/include/ </div><div class="line"></div><div class="line"><span class="comment">#更新软连接</span></div><div class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/cuda/lib64/ </div><div class="line">$ sudo rm -rf libcudnn.so libcudnn.so.6.5 </div><div class="line">$ sudo ln -s libcudnn.so.6.5.48 libcudnn.so.6.5 </div><div class="line">$ sudo ln -s libcudnn.so.6.5 libcudnn.so</div></pre></td></tr></table></figure>
+<h2 id="安装NVIDIA驱动-可选"><a href="#安装NVIDIA驱动-可选" class="headerlink" title="安装NVIDIA驱动(可选)"></a>安装NVIDIA驱动(可选)</h2><p>这次没有遇到驱动版本问题。但是之前也遇到过一个坑，笔记本自带的驱动不兼容，后来安装了nvdia-375.66结束</p>
+<h2 id="编译caffe-ssd"><a href="#编译caffe-ssd" class="headerlink" title="编译caffe-ssd"></a>编译caffe-ssd</h2><p>$ git clone <a href="https://github.com/weiliu89/caffe.git" target="_blank" rel="external">https://github.com/weiliu89/caffe.git</a><br>$ cd caffe<br>$ git checkout ssd<br>$ mkdir build<br>$ sudo cmake ..<br>$ sudo make -j8<br>$ sudo make runtest -j8<br>$ sudo make install</p>
+<h2 id="运行作者样例"><a href="#运行作者样例" class="headerlink" title="运行作者样例"></a>运行作者样例</h2><p>在caffe/models下新建一个文件夹VGGNet<br>下载预训练模型 链接：<a href="http://pan.baidu.com/s/1miDE9h2" target="_blank" rel="external">http://pan.baidu.com/s/1miDE9h2</a> 密码：0hf2，将其中的<code>VGG_ILSVRC_16_layers_fc_reduced.caffemodel</code> 放入<code>caffe/models/VGGNet/</code>目录下<br>下载VOC2007和VOC2012数据集，放到 <code>~/data</code>下。下载数据集并解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar   </div><div class="line">$ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar   </div><div class="line">$ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar</div><div class="line">$ tar -xvf VOCtrainval_11-May-2012.tar   </div><div class="line">$ tar -xvf VOCtrainval_06-Nov-2007.tar    </div><div class="line">$ tar -xvf VOCtest_06-Nov-2007.tar</div></pre></td></tr></table></figure></p>
+<h2 id="将图片转化为LMDB文件"><a href="#将图片转化为LMDB文件" class="headerlink" title="将图片转化为LMDB文件"></a>将图片转化为LMDB文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ./data/VOC0712/create_list.sh     </div><div class="line">$ ./data/VOC0712/create_data.sh</div></pre></td></tr></table></figure>
+<p>这里用的脚本实现批处理，可能会出现:no module named caffe等错误，这是由于caffe的Python环境变量未配置好，可按照下面方法解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="string">"export PYTHONPATH=/home/<span class="variable">$USER</span>/caffe/python"</span> &gt;&gt; ~/.profile    </div><div class="line">$ <span class="built_in">source</span> ~/.profile</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$PYTHONPATH</span> <span class="comment">#检查环境变量的值</span></div></pre></td></tr></table></figure></p>
+<h2 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h2><p>在下载的caffe根目录执行如下命令训练，在examples/ssd下存在几个.py文件，训练的时间较长.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python examples/ssd/ssd_pascal.py</div></pre></td></tr></table></figure>
+<h2 id="在摄像头上测试"><a href="#在摄像头上测试" class="headerlink" title="在摄像头上测试"></a>在摄像头上测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python examples/ssd/ssd_pascal_webcam.py</div></pre></td></tr></table></figure>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h4 id="fatal-error-boost-shared-ptr-hpp-没有那个文件或目录"><a href="#fatal-error-boost-shared-ptr-hpp-没有那个文件或目录" class="headerlink" title="fatal error: boost/shared_ptr.hpp: 没有那个文件或目录"></a>fatal error: boost/shared_ptr.hpp: 没有那个文件或目录</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install libboost1.58* -y</div></pre></td></tr></table></figure>
+</code></pre><h4 id="fatal-error-gflags-gflags-h-没有那个文件或目录"><a href="#fatal-error-gflags-gflags-h-没有那个文件或目录" class="headerlink" title="fatal error: gflags/gflags.h: 没有那个文件或目录"></a>fatal error: gflags/gflags.h: 没有那个文件或目录</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install libgflags-dev -y</div></pre></td></tr></table></figure>
+</code></pre><h4 id="fatal-error-glog-logging-h-没有那个文件或目录"><a href="#fatal-error-glog-logging-h-没有那个文件或目录" class="headerlink" title="fatal error: glog/logging.h: 没有那个文件或目录"></a>fatal error: glog/logging.h: 没有那个文件或目录</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install libgoogle-glog-dev -y</div></pre></td></tr></table></figure>
+</code></pre><h4 id="Check-failed-error-cudaSuccess-10-vs-0-invalid-device-ordinal"><a href="#Check-failed-error-cudaSuccess-10-vs-0-invalid-device-ordinal" class="headerlink" title="Check failed: error == cudaSuccess (10 vs. 0)  invalid device ordinal"></a>Check failed: error == cudaSuccess (10 vs. 0)  invalid device ordinal</h4><pre><code>更改examples/ssd/ssd_pascal.py，把gpus = &quot;0,1,2,3&quot; 改为gpus = &quot;0&quot;
+</code></pre><h4 id="heck-failed-error-cudaSuccess-2-vs-0-out-of-memory"><a href="#heck-failed-error-cudaSuccess-2-vs-0-out-of-memory" class="headerlink" title="heck failed: error == cudaSuccess (2 vs. 0)  out of memory"></a>heck failed: error == cudaSuccess (2 vs. 0)  out of memory</h4><pre><code>更改examples/ssd/ssd_pascal.py，把 batch_size = 32 改为batch_size = 16 或依次改小
+</code></pre><h4 id="搭建caffe环境时“error-hdf5-h”找不到的解决方法"><a href="#搭建caffe环境时“error-hdf5-h”找不到的解决方法" class="headerlink" title="搭建caffe环境时“error: hdf5.h”找不到的解决方法"></a>搭建caffe环境时“error: hdf5.h”找不到的解决方法</h4><pre><code>所以相应的需要更改&quot;Makefile.config&quot;文件中的包含目录
+INCLUDE_DIRS:=$(PYTHON_INCLUDE) /usr/local/include
+然后在后面加上&quot;serial&quot;的包含目录，即：
+INCLUDE_DIRS:=$(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+接着需要更改相应的&quot;Makefile&quot;文件，找到
+LIBRARIES +=glog gflags protobuf boost_system boost_filesystem m hdf5_hl hdf5
+更改最后两项为：
+LIBRARIES +=glog gflags protobuf boost_system boost_filesystem m hdf5_serial_hl hdf5_serial
+就可以了，继续make了。
+</code></pre><h4 id="如果出现-‘NppiGraphcutState’-has-not-been-declared是因为cuda和OpenCV的版本兼容问题"><a href="#如果出现-‘NppiGraphcutState’-has-not-been-declared是因为cuda和OpenCV的版本兼容问题" class="headerlink" title="如果出现 ‘NppiGraphcutState’ has not been declared是因为cuda和OpenCV的版本兼容问题"></a>如果出现 <code>‘NppiGraphcutState’ has not been declared</code>是因为cuda和OpenCV的版本兼容问题</h4><pre><code>找到 `$CAFFE/modules/cudalegacy/src/graphcuts.cpp` 然后进行修改
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># <span class="meta-keyword">if</span> !defined (HAVE_CUDA) || defined (CUDA_DISABLER) </span></div><div class="line"></div><div class="line">改为</div><div class="line"></div><div class="line"><span class="meta"># <span class="meta-keyword">if</span> !defined (HAVE_CUDA) || defined (CUDA_DISABLER) || (CUDART_VERSION &gt;= 8000)</span></div></pre></td></tr></table></figure>
+
+然后继续编译安装
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo make</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure>
+</code></pre><p>feilong<br>2017.12.21</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/11/27/java-reflect/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="geeker's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        168@yifans.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Network Center Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

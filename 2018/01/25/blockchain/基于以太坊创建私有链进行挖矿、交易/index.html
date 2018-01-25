@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Jan 25 2018 17:38:45 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Jan 25 2018 18:17:05 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Jan 25 2018 18:21:44 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://network-center.github.io/2018/01/25/blockchain/基于以太坊创建私有链进行挖矿、交易/index.html",
     "headline": "基于以太坊创建私有链进行挖矿、交易",
     "datePublished": "Thu Jan 25 2018 17:38:45 GMT+0800",
-    "dateModified": "Thu Jan 25 2018 18:17:05 GMT+0800",
+    "dateModified": "Thu Jan 25 2018 18:21:44 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -524,7 +524,7 @@
 <h5 id="结束挖矿-1"><a href="#结束挖矿-1" class="headerlink" title="结束挖矿"></a>结束挖矿</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; miner.stop()</div></pre></td></tr></table></figure>
 <h4 id="用户交易"><a href="#用户交易" class="headerlink" title="用户交易"></a>用户交易</h4><h5 id="回到第一个节点"><a href="#回到第一个节点" class="headerlink" title="回到第一个节点"></a>回到第一个节点</h5><p>查看节点信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.nodeInfo.enode</div><div class="line"><span class="string">"enode://49e538b3f090a04e97f56a7fd1e6223c29599535d5e93010349147dee334b690744504f057ae11adb2804baada222375a56398ef42be536c595c6197a4a7cb2d@[::]:30303"</span></div></pre></td></tr></table></figure></p>
 <h5 id="切换到第二个节点窗口"><a href="#切换到第二个节点窗口" class="headerlink" title="切换到第二个节点窗口"></a>切换到第二个节点窗口</h5><p>建立联系, 添加第一个节点enode</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> admin.addPeer(<span class="string">"enode://49e538b3f090a04e97f56a7fd1e6223c29599535d5e93010349147dee334b690744504f057ae11adb2804baada222375a56398ef42be536c595c6197a4a7cb2d@[::]:30303"</span>)</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.addPeer(<span class="string">"enode://49e538b3f090a04e97f56a7fd1e6223c29599535d5e93010349147dee334b690744504f057ae11adb2804baada222375a56398ef42be536c595c6197a4a7cb2d@[::]:30303"</span>)</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
 <h5 id="切换到第一个控制台"><a href="#切换到第一个控制台" class="headerlink" title="切换到第一个控制台"></a>切换到第一个控制台</h5><p>查看建立的联系数量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; net.peerCount</div><div class="line">1</div></pre></td></tr></table></figure>
 <p>peerCount=1，说明已经建立了联系</p>

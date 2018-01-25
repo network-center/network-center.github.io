@@ -492,24 +492,6 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>众所周知，PHP在web上应用很广泛。接近80%的web网站都是使用PHP+MySQL，虽然越来越多的新语种崛起，但是现在PHP依然是中小型web系统的首选。PHP除了在web上有很多应用，也经常被用作脚本工具，虽然没有原生shell效率高，但是起点比较低。今天就和大家分享下PHP cli模式的执行过程。</p>
-<!-- TOC -->
-<ul>
-<li><a href="#前期准备">前期准备</a></li>
-<li><a href="#一切从sapi开始">一切从SAPI开始</a></li>
-<li><a href="#入口的位置">入口的位置</a></li>
-<li><a href="#运行的流程">运行的流程</a><ul>
-<li><a href="#参数的处理">参数的处理</a></li>
-<li><a href="#cli_sapi_module的初始化">cli_sapi_module的初始化</a></li>
-<li><a href="#cli_sapi_module启动startup">cli_sapi_module启动(startup)</a></li>
-<li><a href="#函数的执行">函数的执行</a></li>
-<li><a href="#垃圾回收">垃圾回收</a></li>
-<li><a href="#输出信息">输出信息</a></li>
-</ul>
-</li>
-<li><a href="#总结">总结</a></li>
-<li><a href="#文献参考">文献参考</a></li>
-</ul>
-<!-- /TOC -->
 <h4 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h4><pre><code>PHP的版本：5.3
 代码查看工具：VSCODE 或者sublime text
 </code></pre><h4 id="一切从SAPI开始"><a href="#一切从SAPI开始" class="headerlink" title="一切从SAPI开始"></a>一切从SAPI开始</h4><p><code>SAPI</code>是<code>Server Application Programming Interface</code>的缩写，翻译过来就是服务应用程序接口，可以理解称是一种接口的规范，只要是符合规范的语言，都是可以通过SAPI和服务器进行数据交互。</p>
@@ -715,7 +697,7 @@ Usage: php [options] [-f] &lt;file&gt; [--] [args...]
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         

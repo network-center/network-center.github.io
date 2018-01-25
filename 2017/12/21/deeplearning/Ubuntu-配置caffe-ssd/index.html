@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Dec 21 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Jan 16 2018 23:17:40 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Jan 25 2018 17:48:28 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://network-center.github.io/2017/12/21/deeplearning/Ubuntu-配置caffe-ssd/index.html",
     "headline": "Ubuntu 配置caffe ssd",
     "datePublished": "Thu Dec 21 2017 00:00:00 GMT+0800",
-    "dateModified": "Tue Jan 16 2018 23:17:40 GMT+0800",
+    "dateModified": "Thu Jan 25 2018 17:48:28 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -483,37 +483,6 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>caffe 是一个比较有名的深度学习框架，在视频和图像方面应用比较广泛，因为NVIDIA主要是做GPU和视觉，所以caffe和NIVEA关系比较亲密。使用的GPU驱动也是NVIDIA驱动和NVIDIA cuda8.0。</p>
-<ul>
-<li><a href="#安装cuda-80">安装cuda 8.0</a><ul>
-<li><a href="#下载cuda-80和补丁">下载cuda 8.0和补丁</a></li>
-<li><a href="#安装cuda-所需要的库">安装cuda 所需要的库</a></li>
-<li><a href="#安装cuda-80-1">安装cuda 8.0</a></li>
-<li><a href="#安装补丁">安装补丁</a></li>
-</ul>
-</li>
-<li><a href="#安装caffe所需要的依赖">安装caffe所需要的依赖</a><ul>
-<li><a href="#安装protobufblasboosthdf5等">安装protobuf、BLAS、Boost、hdf5等</a></li>
-</ul>
-</li>
-<li><a href="#安装opencv-30-httpsgithubcomopencvopencvreleasestag300">安装OpenCV 3.0 (https://github.com/opencv/opencv/releases/tag/3.0.0)</a><ul>
-<li><a href="#安装依赖">安装依赖</a></li>
-<li><a href="#下载opencv">下载OpenCV</a></li>
-</ul>
-</li>
-<li><a href="#安装cudnn">安装cuDNN</a><ul>
-<li><a href="#安装拓展">安装拓展</a></li>
-<li><a href="#下载cudnn类库">下载cudnn类库</a></li>
-<li><a href="#解压安装">解压安装</a></li>
-</ul>
-</li>
-<li><a href="#安装nvidia驱动可选">安装NVIDIA驱动(可选)</a></li>
-<li><a href="#编译caffe-ssd">编译caffe-ssd</a></li>
-<li><a href="#运行作者样例">运行作者样例</a></li>
-<li><a href="#将图片转化为lmdb文件">将图片转化为LMDB文件</a></li>
-<li><a href="#训练模型">训练模型</a></li>
-<li><a href="#在摄像头上测试">在摄像头上测试</a></li>
-<li><a href="#错误处理">错误处理</a></li>
-</ul>
 <h2 id="安装cuda-8-0"><a href="#安装cuda-8-0" class="headerlink" title="安装cuda 8.0"></a>安装cuda 8.0</h2><h3 id="下载cuda-8-0和补丁"><a href="#下载cuda-8-0和补丁" class="headerlink" title="下载cuda 8.0和补丁"></a>下载cuda 8.0和补丁</h3><p>浏览器访问 <a href="https://developer.nvidia.com/cuda-80-ga2-download-archive" target="_blank" rel="external">https://developer.nvidia.com/cuda-80-ga2-download-archive</a> 下载Base Installer和Patch 2</p>
 <p><img src="/img/CUDA_Toolkit_8_0.png" alt=""></p>
 <h3 id="安装cuda-所需要的库"><a href="#安装cuda-所需要的库" class="headerlink" title="安装cuda 所需要的库"></a>安装cuda 所需要的库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa</div><div class="line">libglu1-mesa-dev libxi-dev libxmu-dev -y</div></pre></td></tr></table></figure>
@@ -681,7 +650,7 @@ LIBRARIES +=glog gflags protobuf boost_system boost_filesystem m hdf5_serial_hl 
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         

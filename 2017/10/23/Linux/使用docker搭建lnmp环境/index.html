@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Mon Oct 23 2017 18:25:06 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Nov 02 2017 19:00:07 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Jan 25 2018 17:48:53 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://network-center.github.io/2017/10/23/Linux/使用docker搭建lnmp环境/index.html",
     "headline": "使用docker搭建lnmp环境",
     "datePublished": "Mon Oct 23 2017 18:25:06 GMT+0800",
-    "dateModified": "Thu Nov 02 2017 19:00:07 GMT+0800",
+    "dateModified": "Thu Jan 25 2018 17:48:53 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -483,22 +483,6 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>docker是一个开源的容器引擎，随着“微服务架构”正在变得越来越重要，docker也变得越来越火。但是网上的文章中，要么是很有借鉴意义的干货，要么就是使用高端术语来讲述什么叫做微服务架构。今天我就通过文章来记述一下传统lnmp迁移docker的过程。</p>
-<!-- TOC -->
-<ul>
-<li><a href="#项目背景">项目背景</a></li>
-<li><a href="#前期准备">前期准备</a><ul>
-<li><a href="#安装docker">安装docker</a></li>
-<li><a href="#获取php-fpm镜像">获取php-fpm镜像</a></li>
-<li><a href="#同理获取nginx镜像和mysql镜像">同理获取nginx镜像和MySQL镜像</a></li>
-<li><a href="#端口检查">端口检查</a></li>
-<li><a href="#查看镜像">查看镜像</a></li>
-<li><a href="#运行镜像">运行镜像</a></li>
-</ul>
-</li>
-<li><a href="#镜像配置">镜像配置</a></li>
-<li><a href="#总结">总结</a></li>
-</ul>
-<!-- /TOC -->
 <h4 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h4><p>主要是以自身的博客系统作为迁移的样例，项目环境是传统的lnmp环境。</p>
 <h4 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h4><h5 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install docker.io -y</div><div class="line">Reading package lists... Done</div><div class="line">Building dependency tree</div><div class="line">Reading state information... Done</div><div class="line">...</div><div class="line">Setting up docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...</div><div class="line">docker start/running, process 26908</div></pre></td></tr></table></figure>
 <h5 id="获取php-fpm镜像"><a href="#获取php-fpm镜像" class="headerlink" title="获取php-fpm镜像"></a>获取php-fpm镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">$ sudo docker search php-fpm #查找php-fpm镜像</div><div class="line">NAME                              DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</div><div class="line">php                               While designed for web development, the PH...   2782      [OK]</div><div class="line">richarvey/nginx-php-fpm           Container running Nginx + PHP-FPM capable ...   454                  [OK]</div><div class="line">bitnami/php-fpm                   Bitnami PHP-FPM Docker Image                    41                   [OK]</div><div class="line">phpdockerio/php7-fpm</div><div class="line">...</div><div class="line"></div><div class="line">$ sudo docker pull  phpdockerio/php7-fpm:latest</div><div class="line">latest: Pulling from phpdockerio/php7-fpm</div><div class="line">632d62e9ff45: Pull complete</div><div class="line">4719c3e8a982: Pull complete</div><div class="line">2309d29c605a: Pull complete</div><div class="line">83aeee240cf5: Pull complete</div><div class="line">6962aaa46258: Pull complete</div><div class="line">ceb4c4ec812a: Pull complete</div><div class="line">821e3516e882: Pull complete</div><div class="line">ef64564fd4f8: Pull complete</div><div class="line">4ce8803d2ea8: Pull complete</div><div class="line">ba9d4bc26f3e: Pull complete</div><div class="line">20fd756c6431: Pull complete</div><div class="line">f7729a02ff06: Pull complete</div><div class="line">Digest: sha256:a2a240a31c8afdf723a8554b6c46691069a80ac622cbb5ab77fcd7b5762ddc58</div><div class="line">Status: Downloaded newer image for phpdockerio/php7-fpm:latest</div></pre></td></tr></table></figure>
@@ -640,7 +624,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         

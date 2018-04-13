@@ -37,7 +37,7 @@
     
     <title>
         
-            Java 反射 | 
+            基于以太坊实现局域网多节点挖矿 | 
         
         Network Center Blog
     </title>
@@ -48,8 +48,8 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="geeker">
-    <meta name="description" itemprop="description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
-    <meta name="keywords" content=",java">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,26 +231,26 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Java 反射 | Network Center Blog">
+    <meta property="og:title" content="基于以太坊实现局域网多节点挖矿 | Network Center Blog">
     <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
-    <meta property="og:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
-    <meta property="og:article:tag" content="java"> 
+    <meta property="og:description" content="">
+    
 
     
-        <meta property="article:published_time" content="Mon Nov 27 2017 18:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Dec 18 2017 14:50:38 GMT+0800" />
+        <meta property="article:published_time" content="Thu Jan 25 2018 18:25:36 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Apr 13 2018 20:16:00 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Java 反射 | Network Center Blog">
-    <meta name="twitter:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
+    <meta name="twitter:title" content="基于以太坊实现局域网多节点挖矿 | Network Center Blog">
+    <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://network-center.github.io" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/2017/11/27/java-reflect/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +262,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://network-center.github.io/2017/11/27/java-reflect/index.html",
-    "headline": "Java 反射",
-    "datePublished": "Mon Nov 27 2017 18:00:00 GMT+0800",
-    "dateModified": "Mon Dec 18 2017 14:50:38 GMT+0800",
+    "mainEntityOfPage": "https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/index.html",
+    "headline": "基于以太坊实现局域网多节点挖矿",
+    "datePublished": "Thu Jan 25 2018 18:25:36 GMT+0800",
+    "dateModified": "Fri Apr 13 2018 20:16:00 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -283,8 +283,8 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",java",
-    "description": "Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象",
+    "keywords": "",
+    "description": "",
 }
 </script>
 
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-类的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">Class 类的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这个对象的表示方式有三种："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">这个对象的表示方式有三种：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可以通过类类型创建该类的类对象"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">可以通过类类型创建该类的类对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态加载类"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取方法信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">获取方法信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员变量构造函数信息"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取成员变量构造函数信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java反射机制－获取成员变量-amp-构造函数"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Java反射机制－获取成员变量&构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取成员变量的信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">反射——获取成员变量的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取构造函数的信息"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">反射——获取构造函数的信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法反射的基本操作"><span class="post-toc-number">5.</span> <span class="post-toc-text">方法反射的基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取A类中的print-int-int-方法："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">获取A类中的print(int,int)方法：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法的反射操作："><span class="post-toc-number">5.2.</span> <span class="post-toc-text">方法的反射操作：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过反射了解集合泛型的本质"><span class="post-toc-number">6.</span> <span class="post-toc-text">通过反射了解集合泛型的本质</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前提条件"><span class="post-toc-number">1.</span> <span class="post-toc-text">前提条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建创世节点"><span class="post-toc-number">2.</span> <span class="post-toc-text">创建创世节点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建节点json文件"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">创建节点json文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成节点-以下使用节点1代指"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">生成节点(以下使用节点1代指)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#启动节点1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">启动节点1</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建账号"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">创建账号</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地创建第二个节点-以下使用节点2代指"><span class="post-toc-number">3.</span> <span class="post-toc-text">本地创建第二个节点(以下使用节点2代指)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新开窗口，创建节点2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">新开窗口，创建节点2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运行节点2"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">运行节点2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建节点2的账号"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">创建节点2的账号</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在Mac上创建新节点，以下使用-节点3代指"><span class="post-toc-number">4.</span> <span class="post-toc-text">在Mac上创建新节点，以下使用(节点3代指)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#初始化节点3"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">初始化节点3</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运行节点3"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">运行节点3</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建账号-1"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">创建账号</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点1和节点2建立联系"><span class="post-toc-number">5.</span> <span class="post-toc-text">节点1和节点2建立联系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#节点2运行-gt-admin-nodeInfo-enode-查看node信息"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">节点2运行 > admin.nodeInfo.enode 查看node信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#节点1添加节点2"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">节点1添加节点2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#节点1和节点2运行-gt-net"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">节点1和节点2运行> net</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点1和节点3建立联系"><span class="post-toc-number">6.</span> <span class="post-toc-text">节点1和节点3建立联系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#节点3运行-gt-admin-nodeInfo-enode-查看node信息"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">节点3运行 > admin.nodeInfo.enode 查看node信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#节点1添加节点3"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">节点1添加节点3</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分别查看节点1和节点3链接情况"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">分别查看节点1和节点3链接情况</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点挖矿测试"><span class="post-toc-number">7.</span> <span class="post-toc-text">节点挖矿测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用任一节点挖矿，然后观察其他两个控制台，发现都会有同步的数据，说明节点2和节点3也是连接的状态（由于电脑性能原因，挖矿的时候需要等percentage到达100之后才会开始）"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">使用任一节点挖矿，然后观察其他两个控制台，发现都会有同步的数据，说明节点2和节点3也是连接的状态（由于电脑性能原因，挖矿的时候需要等percentage到达100之后才会开始）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#遇到的坑"><span class="post-toc-number">8.</span> <span class="post-toc-text">遇到的坑</span></a></li></ol>
     </ul>
     
 
@@ -381,7 +381,7 @@
         
     
             <p class="article-headline-p">
-                Java 反射
+                基于以太坊实现局域网多节点挖矿
             </p>
         </div>
 
@@ -400,7 +400,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>geeker</strong>
-        <span>11月 27, 2017</span>
+        <span>1月 25, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -418,15 +418,6 @@
 
     <!-- Tags (bookmark) -->
     
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/java/">java</a>
-    </ul>
-    
 
     <!-- Share -->
     <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -440,7 +431,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java 反射&url=https://network-center.github.io/2017/11/27/java-reflect/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=基于以太坊实现局域网多节点挖矿&url=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -449,7 +440,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java 反射&url=https://network-center.github.io/2017/11/27/java-reflect/index.html&via=geeker" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=基于以太坊实现局域网多节点挖矿&url=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/index.html&via=geeker" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -458,7 +449,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/11/27/java-reflect/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -467,7 +458,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/11/27/java-reflect/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -491,113 +482,36 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="Class-类的使用"><a href="#Class-类的使用" class="headerlink" title="Class 类的使用"></a>Class 类的使用</h2><h3 id="在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><a href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型" class="headerlink" title="在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)"></a>在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</h3><p>类是对象，类是java.lang.Class类的实例对象</p>
-<a id="more"></a>
-<h3 id="这个对象的表示方式有三种："><a href="#这个对象的表示方式有三种：" class="headerlink" title="这个对象的表示方式有三种："></a>这个对象的表示方式有三种：</h3><ol>
-<li><p>第一种表示方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c1 = Foo.class; //任何一个类都有一个隐含的静态成员变量class</div></pre></td></tr></table></figure>
+        <h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><ul>
+<li><p>已经安装了go-ethereum，如果没有安装请移步<a href="/2018/01/25/blockchain/基于以太坊创建私有链进行挖矿、交易/">基于以太坊创建私有链进行挖矿、交易</a></p>
 </li>
-<li><p>第二种表示方式：</p>
+<li><p>同一局域网下两台机器，我使用的是Ubuntu(两个节点)和mac(一个节点)</p>
 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c2 = foo1.getClass //已知该类的对象，通过getClass方法得到这个实例类的class(类类型)</div></pre></td></tr></table></figure>
-<ol>
-<li>第三种表达方式</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c3 = Class.forName(&quot;imooc.reflect.Foo&quot;);</div></pre></td></tr></table></figure>
-<p>三种方式创建的类类型都相等，都是Foo的类类型</p>
-<h3 id="可以通过类类型创建该类的类对象"><a href="#可以通过类类型创建该类的类对象" class="headerlink" title="可以通过类类型创建该类的类对象"></a>可以通过类类型创建该类的类对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo foo=(Foo)c1.newInstance();</div></pre></td></tr></table></figure>
-<p>前提是需要有无参数的构造方法，它要调用</p>
-<h2 id="动态加载类"><a href="#动态加载类" class="headerlink" title="动态加载类"></a>动态加载类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class.forName(&quot;类的全称&quot;)：</div></pre></td></tr></table></figure>
-<ul>
-<li>不仅表示了类的类类型，还代表了动态加载类</li>
-<li>请区分编译、运行</li>
-<li>编译时刻加载类是静态加载类、运行时刻加载类是动态加载类</li>
 </ul>
-<p>用new创建对象，属于静态加载类，在编译时刻就需要加载所有的可能使用到的类，只要有一个类缺失或者类中某个成员缺失，就会报错（不管实际上有没有用到这个类），导致整个程序都无法运行。</p>
-<p>于是我们希望：要用哪个类的时候再加载这个类，不用就不加载。通过动态加载类可以解决上述问题。<br>本例中举了Word类、Excel类加载的例子，现在做动态加载：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forName(args[0]);</div><div class="line">//通过类类型，创建该类对象，这里就产生一个问题：是生成Word呢还是生成Excel?老师的解决思路是：只创建一个新类OfficeAble，作为接口，令Word类、Excel类都实现这个接口就可以了：</div><div class="line">OfficeAble oa = (OfficeAble)c.newInstance();</div><div class="line">oa.start();</div><div class="line"></div><div class="line">class Word implements OfficeAble</div><div class="line">&#123;</div><div class="line">	public void start()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>代码设计思路</strong>：功能性的类最好使用动态加载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forname(参数);//动态加载类返回该类的类类型。</div><div class="line">接口 x = (接口)c.newInstance();通过转换为接口的类型，用来实现方法。</div></pre></td></tr></table></figure>
-<h2 id="获取方法信息"><a href="#获取方法信息" class="headerlink" title="获取方法信息"></a>获取方法信息</h2><p>基本数据类型，void关键字都存在类类型</p>
-<ul>
-<li>class.getMethods()方法获取是该类的所有public方法，包括从父类继承的方法；</li>
-<li>class.getDeclareMethods()方法获取该类自行声明的所有方法，不论访问权限；</li>
-<li>method.getName()获取方法名</li>
-<li>method.getReturnType()获取方法的返回值</li>
-<li>method.getParameterTypes()，获取方法的参数类型的类类型数组class[]</li>
+<h3 id="创建创世节点"><a href="#创建创世节点" class="headerlink" title="创建创世节点"></a>创建创世节点</h3><h4 id="创建节点json文件"><a href="#创建节点json文件" class="headerlink" title="创建节点json文件"></a>创建节点json文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ mkdir my_eth2</div><div class="line">$ <span class="built_in">cd</span> my_eth2</div><div class="line">$ vim genesis.json</div><div class="line">&#123;</div><div class="line">  <span class="string">"config"</span>: &#123;</div><div class="line">        <span class="string">"chainId"</span>: 10,</div><div class="line">        <span class="string">"homesteadBlock"</span>: 0,</div><div class="line">        <span class="string">"eip155Block"</span>: 0,</div><div class="line">        <span class="string">"eip158Block"</span>: 0</div><div class="line">    &#125;,</div><div class="line">  <span class="string">"coinbase"</span>   : <span class="string">"0x0000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="string">"difficulty"</span> : <span class="string">"0x20000"</span>,</div><div class="line">  <span class="string">"extraData"</span>  : <span class="string">""</span>,</div><div class="line">  <span class="string">"gasLimit"</span>   : <span class="string">"0x2fefd8"</span>,</div><div class="line">  <span class="string">"nonce"</span>      : <span class="string">"0x0000000000000042"</span>,</div><div class="line">  <span class="string">"mixhash"</span>    : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="string">"parentHash"</span> : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="string">"timestamp"</span>  : <span class="string">"0x00"</span>,</div><div class="line">  <span class="string">"alloc"</span>      : &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="生成节点-以下使用节点1代指"><a href="#生成节点-以下使用节点1代指" class="headerlink" title="生成节点(以下使用节点1代指)"></a>生成节点(以下使用节点1代指)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data00 init genesis.json</div><div class="line">WARN [01-25|17:04:25] No etherbase <span class="built_in">set</span> and no accounts found as default</div><div class="line">INFO [01-25|17:04:25] Allocated cache and file handles         database=/home/ubuntu/my_eth2/data00/geth/chaindata cache=16 handles=16</div><div class="line">INFO [01-25|17:04:25] Writing custom genesis block</div><div class="line">INFO [01-25|17:04:25] Successfully wrote genesis state         database=chaindata                                  <span class="built_in">hash</span>=5e1fc7…d790e0</div><div class="line">INFO [01-25|17:04:25] Allocated cache and file handles         database=/home/ubuntu/my_eth2/data00/geth/lightchaindata cache=16 handles=16</div><div class="line">INFO [01-25|17:04:25] Writing custom genesis block</div><div class="line">INFO [01-25|17:04:25] Successfully wrote genesis state         database=lightchaindata                                  <span class="built_in">hash</span>=5e1fc7…d790e0</div></pre></td></tr></table></figure>
+<h4 id="启动节点1"><a href="#启动节点1" class="headerlink" title="启动节点1"></a>启动节点1</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir ./data00 --networkid 5201314 console</div></pre></td></tr></table></figure>
+<h4 id="创建账号"><a href="#创建账号" class="headerlink" title="创建账号"></a>创建账号</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.newAccount(<span class="string">"123"</span>)</div><div class="line"><span class="string">"0x0b514e769e4e1990f8fb0f0f9d876d7f2b9fa5ba"</span></div></pre></td></tr></table></figure>
+<h3 id="本地创建第二个节点-以下使用节点2代指"><a href="#本地创建第二个节点-以下使用节点2代指" class="headerlink" title="本地创建第二个节点(以下使用节点2代指)"></a>本地创建第二个节点(以下使用节点2代指)</h3><h4 id="新开窗口，创建节点2"><a href="#新开窗口，创建节点2" class="headerlink" title="新开窗口，创建节点2"></a>新开窗口，创建节点2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data01 init genesis.json</div><div class="line">WARN [01-25|17:07:33] No etherbase <span class="built_in">set</span> and no accounts found as default</div><div class="line">INFO [01-25|17:07:33] Allocated cache and file handles         database=/home/ubuntu/my_eth2/data01/geth/chaindata cache=16 handles=16</div><div class="line">INFO [01-25|17:07:33] Writing custom genesis block</div><div class="line">INFO [01-25|17:07:33] Successfully wrote genesis state         database=chaindata                                  <span class="built_in">hash</span>=5e1fc7…d790e0</div><div class="line">INFO [01-25|17:07:33] Allocated cache and file handles         database=/home/ubuntu/my_eth2/data01/geth/lightchaindata cache=16 handles=16</div><div class="line">INFO [01-25|17:07:33] Writing custom genesis block</div><div class="line">INFO [01-25|17:07:33] Successfully wrote genesis state         database=lightchaindata                                  <span class="built_in">hash</span>=5e1fc7…d790e0</div></pre></td></tr></table></figure>
+<h4 id="运行节点2"><a href="#运行节点2" class="headerlink" title="运行节点2"></a>运行节点2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data01 --networkid 5201314 --ipcdisable --port 61910 --rpcport 8200 console</div></pre></td></tr></table></figure>
+<h4 id="创建节点2的账号"><a href="#创建节点2的账号" class="headerlink" title="创建节点2的账号"></a>创建节点2的账号</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> &gt; personal.newAccount(<span class="string">"123"</span>)</div><div class="line"><span class="string">"0x3babf1eeb8d5d29acc4d1f6408529b36b4e6f880"</span></div></pre></td></tr></table></figure>
+<h3 id="在Mac上创建新节点，以下使用-节点3代指"><a href="#在Mac上创建新节点，以下使用-节点3代指" class="headerlink" title="在Mac上创建新节点，以下使用(节点3代指)"></a>在Mac上创建新节点，以下使用(节点3代指)</h3><p><code>创世节点的json文件要和Ubuntu一致</code></p>
+<h4 id="初始化节点3"><a href="#初始化节点3" class="headerlink" title="初始化节点3"></a>初始化节点3</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data00 init genesis.json</div><div class="line">WARN [01-25|17:14:10] No etherbase <span class="built_in">set</span> and no accounts found as default</div><div class="line">INFO [01-25|17:14:10] Allocated cache and file handles         database=/Users/feilong/my_chain2/data00/geth/chaindata cache=16 handles=16</div><div class="line">INFO [01-25|17:14:10] Writing custom genesis block</div><div class="line">INFO [01-25|17:14:10] Successfully wrote genesis state         database=chaindata                                      <span class="built_in">hash</span>=5e1fc7…d790e0</div><div class="line">INFO [01-25|17:14:10] Allocated cache and file handles         database=/Users/feilong/my_chain2/data00/geth/lightchaindata cache=16 handles=16</div><div class="line">INFO [01-25|17:14:10] Writing custom genesis block</div><div class="line">INFO [01-25|17:14:10] Successfully wrote genesis state         database=lightchaindata                                      <span class="built_in">hash</span>=5e1fc7…d790e0</div></pre></td></tr></table></figure>
+<h4 id="运行节点3"><a href="#运行节点3" class="headerlink" title="运行节点3"></a>运行节点3</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data00 --networkid 5201314 --ipcdisable --port 61911 --rpcport 8200 console <span class="comment">#使用61911端口，保证networkid一致</span></div></pre></td></tr></table></figure>
+<h4 id="创建账号-1"><a href="#创建账号-1" class="headerlink" title="创建账号"></a>创建账号</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.newAccount(<span class="string">"123"</span>)</div><div class="line"><span class="string">"0xf81b1d6c0e0835790c7e4af8a02301a67e5a0dcb"</span></div></pre></td></tr></table></figure>
+<h3 id="节点1和节点2建立联系"><a href="#节点1和节点2建立联系" class="headerlink" title="节点1和节点2建立联系"></a>节点1和节点2建立联系</h3><h4 id="节点2运行-gt-admin-nodeInfo-enode-查看node信息"><a href="#节点2运行-gt-admin-nodeInfo-enode-查看node信息" class="headerlink" title="节点2运行 &gt; admin.nodeInfo.enode 查看node信息"></a>节点2运行 <code>&gt; admin.nodeInfo.enode</code> 查看node信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.nodeInfo.enode</div><div class="line"><span class="string">"enode://d5bb9fecc8e997905220b5e8c0db8396880bd5326143614b33f81ead534fc4d8282cbdda620fb81eaea66c359c3acd7d590f64981099b3cc063fddae9ac376d9@192.168.164.210:61910"</span></div></pre></td></tr></table></figure>
+<h4 id="节点1添加节点2"><a href="#节点1添加节点2" class="headerlink" title="节点1添加节点2"></a>节点1添加节点2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.addPeer(<span class="string">"enode://d5bb9fecc8e997905220b5e8c0db8396880bd5326143614b33f81ead534fc4d8282cbdda620fb81eaea66c359c3acd7d590f64981099b3cc063fddae9ac376d9@192.168.164.210:61910"</span>)</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<h4 id="节点1和节点2运行-gt-net"><a href="#节点1和节点2运行-gt-net" class="headerlink" title="节点1和节点2运行&gt; net"></a>节点1和节点2运行<code>&gt; net</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; net</div><div class="line">&#123;</div><div class="line">  listening: <span class="literal">true</span>,</div><div class="line">  peerCount: 1, <span class="comment">#说明添加成功</span></div><div class="line">  version: <span class="string">"5201314"</span>,</div><div class="line">  getListening: <span class="keyword">function</span>(callback),</div><div class="line">  getPeerCount: <span class="keyword">function</span>(callback),</div><div class="line">  getVersion: <span class="keyword">function</span>(callback)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="节点1和节点3建立联系"><a href="#节点1和节点3建立联系" class="headerlink" title="节点1和节点3建立联系"></a>节点1和节点3建立联系</h3><h4 id="节点3运行-gt-admin-nodeInfo-enode-查看node信息"><a href="#节点3运行-gt-admin-nodeInfo-enode-查看node信息" class="headerlink" title="节点3运行 &gt; admin.nodeInfo.enode 查看node信息"></a>节点3运行 <code>&gt; admin.nodeInfo.enode</code> 查看node信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;  admin.nodeInfo.enode</div><div class="line"><span class="string">"enode://34dcd9b7e64b24a25fe25b6e2aab6fc10525a439b2174ad79bd55bbf867f98060f7eef26c83223ae665372afa819ffd5c9c49a039c4e5e9c4e72be35a3b65aa8@192.168.164.210:61911"</span></div></pre></td></tr></table></figure>
+<h4 id="节点1添加节点3"><a href="#节点1添加节点3" class="headerlink" title="节点1添加节点3"></a>节点1添加节点3</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.addPeer(<span class="string">"enode://34dcd9b7e64b24a25fe25b6e2aab6fc10525a439b2174ad79bd55bbf867f98060f7eef26c83223ae665372afa819ffd5c9c49a039c4e5e9c4e72be35a3b65aa8@192.168.164.210:61911"</span>)</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<h4 id="分别查看节点1和节点3链接情况"><a href="#分别查看节点1和节点3链接情况" class="headerlink" title="分别查看节点1和节点3链接情况"></a>分别查看节点1和节点3链接情况</h4><p>节点1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; net</div><div class="line">&#123;</div><div class="line">  listening: <span class="literal">true</span>,</div><div class="line">  peerCount: 2, <span class="comment">##节点1连接两个节点</span></div><div class="line">  version: <span class="string">"5201314"</span>,</div><div class="line">  getListening: <span class="keyword">function</span>(callback),</div><div class="line">  getPeerCount: <span class="keyword">function</span>(callback),</div><div class="line">  getVersion: <span class="keyword">function</span>(callback)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>节点3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; net</div><div class="line">&#123;</div><div class="line">  listening: <span class="literal">true</span>,</div><div class="line">  peerCount: 1,</div><div class="line">  version: <span class="string">"5201314"</span>,</div><div class="line">  getListening: <span class="keyword">function</span>(callback),</div><div class="line">  getPeerCount: <span class="keyword">function</span>(callback),</div><div class="line">  getVersion: <span class="keyword">function</span>(callback)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="节点挖矿测试"><a href="#节点挖矿测试" class="headerlink" title="节点挖矿测试"></a>节点挖矿测试</h3><h4 id="使用任一节点挖矿，然后观察其他两个控制台，发现都会有同步的数据，说明节点2和节点3也是连接的状态（由于电脑性能原因，挖矿的时候需要等percentage到达100之后才会开始）"><a href="#使用任一节点挖矿，然后观察其他两个控制台，发现都会有同步的数据，说明节点2和节点3也是连接的状态（由于电脑性能原因，挖矿的时候需要等percentage到达100之后才会开始）" class="headerlink" title="使用任一节点挖矿，然后观察其他两个控制台，发现都会有同步的数据，说明节点2和节点3也是连接的状态（由于电脑性能原因，挖矿的时候需要等percentage到达100之后才会开始）"></a>使用任一节点挖矿，然后观察其他两个控制台，发现都会有同步的数据，说明节点2和节点3也是连接的状态（由于电脑性能原因，挖矿的时候需要等percentage到达100之后才会开始）</h4><h3 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h3><ul>
+<li>要保证创世节点的json文件一致</li>
+<li>保证在统一局域网内，使用Telnet命令测试</li>
+<li>节点2和节点3的端口注意不要重复</li>
 </ul>
-<p><strong>获取方法信息：</strong></p>
-<ol>
-<li>基本的数据类型，void关键字等都存在类类型<br>Class c = 基类.class （int,String,double,void等）</li>
-<li>Class类的基本API操作</li>
-</ol>
-<ul>
-<li>c.getName()可以获取类的名称</li>
-<li>c.getSimpleName();//不包含包名的类的名称</li>
-<li>c.getMethods()获取类的【public方法】集合，【包括继承来的】</li>
-</ul>
-<p><strong>注意【所有方法都是Method类的对象】</strong></p>
-<ul>
-<li>c.getDeclaredMethods()获取的是所有该类【自己声明】的方法，【不问访问权限】</li>
-</ul>
-<ol>
-<li>Method类提供了一些操作方法的方法</li>
-</ol>
-<ul>
-<li>.getReturnType()得到该方法的返回值类型的类类型（class），如int.class String.class</li>
-<li>.getName()得到方法的名称</li>
-<li>.getParameterTypes()获得参数列表类型的类类型，如参数为(int,int)则得到</li>
-</ul>
-<p><strong>实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c1 = int.class; int的类类型</div><div class="line">Class c2 = String.class; String类的类类型 String类字节码</div><div class="line">Class c3 = double.class; double这个数据类类型的字节码表示方式</div><div class="line">Class c4 = Double.class; Double这个类的类类型字节码表示方式</div><div class="line">Class c5 = void.class; 表达了void这个类的类类型</div><div class="line">getName为这个类的类类型的具体名称</div><div class="line">c1.getName ---&gt; int</div><div class="line">c2.getName ---&gt; java.lang.String 类的全称</div><div class="line">c2.getSimpleName ---&gt; String 不包含包名的类的名称</div></pre></td></tr></table></figure>
-<h2 id="获取成员变量构造函数信息"><a href="#获取成员变量构造函数信息" class="headerlink" title="获取成员变量构造函数信息"></a>获取成员变量构造函数信息</h2><h3 id="Java反射机制－获取成员变量-amp-构造函数"><a href="#Java反射机制－获取成员变量-amp-构造函数" class="headerlink" title="Java反射机制－获取成员变量&amp;构造函数"></a>Java反射机制－获取成员变量&amp;构造函数</h3><ol>
-<li>成员变量是java.lang.reflect.Field的对象</li>
-</ol>
-<ul>
-<li>Field类封装了关于成员变量的操作</li>
-<li>Field[] fs = c.getFields()方法获取所有public的成员变量Field[]信息</li>
-<li>c.getDeclaredFields获取的是该类自己声明的成员变量信息</li>
-<li>field.getType()获得成员类型的类类型</li>
-<li>field.getName()获得成员的名称</li>
-</ul>
-<ol>
-<li>构造函数是java.lang.Constructor类的对象</li>
-</ol>
-<ul>
-<li>通过Class.getConstructor()获得Constructor[]所有公有构造方法信息</li>
-<li>建议getDeclaredConstructors()获取自己声明的构造方法</li>
-<li>Constructor.getName():String</li>
-<li>Constructor.getParameterTypes():Class[]</li>
-</ul>
-<p><strong>成员变量也是对象，是java.lang.reflect.Field的对象</strong></p>
-<h3 id="反射——获取成员变量的信息"><a href="#反射——获取成员变量的信息" class="headerlink" title="反射——获取成员变量的信息"></a>反射——获取成员变量的信息</h3><ol>
-<li>Class c = obj.getClass();<br>Field[] fs = c.getFields();</li>
-<li>获取成员变量： 获取成员变量的类型的类类型<code>Class fieldType = field.getType();</code>　<br>//获取成员变量的类型的名字fieldType.getName();　<br>//获取成员变量的名称getName()</li>
-</ol>
-<h3 id="反射——获取构造函数的信息"><a href="#反射——获取构造函数的信息" class="headerlink" title="反射——获取构造函数的信息"></a>反射——获取构造函数的信息</h3><ol>
-<li>Class c = obj.getClass(）;<br>Constructor[] cs = c.getConstructors();</li>
-<li>获取构造函数的参数列表，得到的是参数列表的类型的类类型</li>
-</ol>
-<p><code>Class[] paramTypes =constructor.getParammeterTypes();</code>　<br>//获取参数类型的名称paramTypes.getName();</p>
-<h2 id="方法反射的基本操作"><a href="#方法反射的基本操作" class="headerlink" title="方法反射的基本操作"></a>方法反射的基本操作</h2><h3 id="获取A类中的print-int-int-方法："><a href="#获取A类中的print-int-int-方法：" class="headerlink" title="获取A类中的print(int,int)方法："></a>获取A类中的print(int,int)方法：</h3><ol>
-<li>要获取一个方法就是获取类的信息，获取类的信息首先要获取类的类类型<br>A a1=new A();  Class c= a1.getClass();</li>
-<li>获取方法 由名称和参数列表来决定,<code>getMethod获取的是public方法</code>，<code>getDelcaredMethod获取自己声明的方法</code><br><code>Method m =c.getMethod(methodName,paramtypes);</code>　<br>//paramtypes可以用数组的形式  表示new Class[]{int.class,int.class}，也可以直接列举类类型</li>
-</ol>
-<h3 id="方法的反射操作："><a href="#方法的反射操作：" class="headerlink" title="方法的反射操作："></a>方法的反射操作：</h3><p>是用m对象来进行方法调用，和a1.print(10,20)调用的方法相同 <code>m.invoke（a1，new Object[]｛10,20｝）
-Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返回null，如果有返回值返回具体值，参数可用数组的方式表示，也可以直接列举，没有参数就不写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public Class A&#123;</div><div class="line">	 public void print()&#123;&#125;;</div><div class="line">	 public void Print(Sting a,String b)&#123;&#125;</div><div class="line">	 public void Print(int a,int b)&#123;&#125;;</div><div class="line">&#125;</div><div class="line">public Class B&#123;</div><div class="line">	 public static void main(String[] args)&#123;</div><div class="line">	  A a1 = new A();  Class c= a1.getclass;</div><div class="line">	  Method getMet=c.getMethod(&quot;print&quot;,String.class,String.class);</div><div class="line">	  Object obj=getMet.invoke(a1,&quot;df&quot;,&quot;df&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="通过反射了解集合泛型的本质"><a href="#通过反射了解集合泛型的本质" class="headerlink" title="通过反射了解集合泛型的本质"></a>通过反射了解集合泛型的本质</h2><ol>
-<li>反射的操作都是编译之后的操作</li>
-<li>集合的泛型只为了防止错误输入，编译阶段有效，绕过编译，使用反射是不会控制集合中的数据类型的。</li>
-<li>反射操作类方法：通过对象的类类型得到方法的对象Method，通过方法对象的invoke方法操作对象，调用对象的方法。</li>
-</ol>
-<p><strong>实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class c1=对象a.getClass()</div><div class="line">Method m = c1.getMethod(方法名，参数列表)</div><div class="line">Object o =m.invoke(对象a，参数列表，可以一一列举，也可以用数组)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Reference:<br> <a href="http://www.imooc.com/learn/199" target="_blank" rel="external">IMOOC-反射——Java高级开发必须懂的</a></p>
-</blockquote>
-<p>botao<br>2017.11.27</p>
+<p>feilong<br>2018.01.25</p>
 
         
     
@@ -618,7 +532,7 @@ Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返�
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/" id="post_nav-newer" class="prev-content">
+        <a href="/2018/04/13/PHP/180413-记面试N个PHP程序员的经历/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -632,7 +546,7 @@ Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返�
 
     <!-- Next Nav -->
     
-        <a href="/2017/11/26/simple-macbook-report/" id="post_nav-older" class="next-content">
+        <a href="/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

@@ -37,6 +37,8 @@
     
     <title>
         
+            索引对性能到底有多少的影响？ | 
+        
         Network Center Blog
     </title>
 
@@ -229,15 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Network Center Blog">
+    <meta property="og:title" content="索引对性能到底有多少的影响？ | Network Center Blog">
     <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
     <meta property="og:description" content="">
     
 
     
+        <meta property="article:published_time" content="Fri Apr 13 2018 20:21:32 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Apr 13 2018 20:24:12 GMT+0800" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Network Center Blog">
+    <meta name="twitter:title" content="索引对性能到底有多少的影响？ | Network Center Blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -245,13 +250,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/page/2/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html",
+    "headline": "索引对性能到底有多少的影响？",
+    "datePublished": "Fri Apr 13 2018 20:21:32 GMT+0800",
+    "dateModified": "Fri Apr 13 2018 20:24:12 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "geeker",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Network Center Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
 
 
     
@@ -285,325 +320,230 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#索引到底对性能有多少影响？"><span class="post-toc-number">1.</span> <span class="post-toc-text">索引到底对性能有多少影响？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事情的起点"><span class="post-toc-number">2.</span> <span class="post-toc-text">事情的起点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#问题跟进"><span class="post-toc-number">3.</span> <span class="post-toc-text">问题跟进</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定位问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">定位问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PHP慢日志"><span class="post-toc-number">5.</span> <span class="post-toc-text">PHP慢日志</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#索引对性能的影响！"><span class="post-toc-number">6.</span> <span class="post-toc-text">索引对性能的影响！</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">7.</span> <span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/01/Linux/171101-使用docker搭建lnmp-二/">使用docker搭建lnmp (二)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            docker 名为容器。何为容器，也就是所谓的瓶子，罐子。用可以容纳东西的容器，不同容器之间互不影响。比如，一个瓶子装酒精，一个瓶子装水，非人为状态...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/01/Linux/171101-使用docker搭建lnmp-二/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>11月 01, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/23/Linux/171023-使用docker搭建lnmp环境/">使用docker搭建lnmp环境</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            docker是一个开源的容器引擎，随着“微服务架构”正在变得越来越重要，docker也变得越来越火。但是网上的文章中，要么是很有借鉴意义的干货，要...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/23/Linux/171023-使用docker搭建lnmp环境/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>10月 23, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/26/php-source-code-cli/">PHP源码分析：cli模式执行的过程</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            众所周知，PHP在web上应用很广泛。接近80%的web网站都是使用PHP+MySQL，虽然越来越多的新语种崛起，但是现在PHP依然是中小型web系...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/26/php-source-code-cli/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>9月 26, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/15/keep-going/">这个项目一定会做下去</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-有善始者实繁，能克终者盖寡。
-
-自己无数次的用这就话警示自己。有良好开端的实在很多...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/15/keep-going/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>9月 15, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/30/nice-to-meet-you/">Hello Center 好久不见</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/30/nice-to-meet-you/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>8月 30, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                索引对性能到底有多少的影响？
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>geeker</strong>
+        <span>4月 13, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=索引对性能到底有多少的影响？&url=https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=索引对性能到底有多少的影响？&url=https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html&via=geeker" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h4 id="索引到底对性能有多少影响？"><a href="#索引到底对性能有多少影响？" class="headerlink" title="索引到底对性能有多少影响？"></a>索引到底对性能有多少影响？</h4><p>这个问题估计是很多MySQL小白好奇的问题。当然我也是一样。因为之前的时候，并没有对索引有太多的注意，而且之前的工作经历，因为数据量很小，索引所起到的作用并不是很大，所以也没有太大注意。</p>
+<h4 id="事情的起点"><a href="#事情的起点" class="headerlink" title="事情的起点"></a>事情的起点</h4><p>我在公司是做后端开发（PHPer），除了日常的开发工作，也要兼职公司的运维。每周安排一个人跟进报警邮件，出现问题及时通报。</p>
+<p>像很多创业公司的一样，我们选用的是阿里云的ECS+RDS。因为如果自己购买服务器，不管是运维成本还是物理成本都是比较高的。</p>
+<p>一天将近半夜12点的时候，报警日志突然出现了<code>MySQL server has gone away</code></p>
+<p>遇到问题肯定是先Baidu，我找到了MySQL官方的解释，原因是查询的时候，出现的mysql断开的情况。我登录阿里云rds后台，发现wait_timeout时间长得很。不应该会出现超时的情况。</p>
+<p><img src="/images/mysql-index-1.png" alt=""></p>
+<p>一个同事：“会不会和rds经常CPU报警有关？”</p>
+<p>我勒个去，我查了一下rds监控，果然CPU持续升高。</p>
+<p><img src="/images/mysql-index-2.jpg" alt=""></p>
+<h4 id="问题跟进"><a href="#问题跟进" class="headerlink" title="问题跟进"></a>问题跟进</h4><p>rds自带了日志系统，可以方便。查看了一下慢日志系统，果然有很多的慢SQL日志。</p>
+<p><img src="/images/mysql-index-3.png" alt=""></p>
+<p>我曹，每次扫描了8W多行。看来是没有使用到索引。加上次数频繁，解析的总次数高达 1762833762 行。</p>
+<h4 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h4><p>查看MySQL的执行计划</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mysql&gt; explain extended SELECT * FROM `test` WHERE `is_deleted` =0 AND `a` = 81644;</div><div class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</div><div class="line">| id | select_type | table     | type | possible_keys | key  | key_len | ref  | rows  | Extra       |</div><div class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</div><div class="line">|  1 | SIMPLE      | test | ALL  | a_index      | NULL | NULL    | NULL | 86172 | Using where |</div><div class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</div><div class="line">1 row in set, 3 warnings (0.01 sec)</div><div class="line">mysql&gt; show warnings;</div><div class="line">| Level   | Code | Message                                                                                             </div><div class="line">| Warning | 1739 | Cannot use ref access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;                                                                                                 |</div><div class="line">| Warning | 1739 | Cannot use range access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;</div></pre></td></tr></table></figure>
+<p>果然是没有用到索引，全表扫描。</p>
+<p>原来，由于a数据类型是varchar类型的。但是查询的时候，使用的int类型，在执行SQL语句的时候，由于类型原因，造成了隐式转换。没有用到索引。所以实际上，应该把原来的SQL语句更改成 <code>SELECT * FROM  test  WHERE is_deleted =0 AND a = &#39;81644&#39;</code>。</p>
+<p>虽然原因找到了，但是查询的SQL那么多，定位那具体的php文件以及对于的代码行数，也是一个难题。</p>
+<h4 id="PHP慢日志"><a href="#PHP慢日志" class="headerlink" title="PHP慢日志"></a>PHP慢日志</h4><p>为了能够定位代码的效率，PHP自带一个功能，那就是慢日志。如果PHP脚本，执行时间比较长的时候，那么PHP会认为这段代码是有问题的，PHP会把代码的基本信息打印到慢日志里面，能够方便开发者定位问题。</p>
+<p>这么说来，如果找到慢日志里面关于执行这个SQL的代码，也就能够准确定位到对应的PHP文件。</p>
+<h4 id="索引对性能的影响！"><a href="#索引对性能的影响！" class="headerlink" title="索引对性能的影响！"></a>索引对性能的影响！</h4><p>接下来用对比图来比较下使用索引和没有使用索引的对比吧</p>
+<p><img src="/images/mysql-index-4.png" alt=""></p>
+<p>优化之后的SQL执行效率，相比之前要高出很多，CPU占用率稳定保持在个位数，甚至 5%一下，相比之前80%左右，呈现指数的翻倍。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实隐式转换是MySQL索引经常遇到的问题。我最开始听说是前段时间，阿里云组织了一个<a href="https://yq.aliyun.com/roundtable/56333?utm_content=m_25986" target="_blank" rel="external">慢SQL的优化大赛</a>。虽然没有得到名次，但是确实通过大赛，学到了很多关于索引的知识。</p>
+
+        
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/13/PHP/180413-记面试N个PHP程序员的经历/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

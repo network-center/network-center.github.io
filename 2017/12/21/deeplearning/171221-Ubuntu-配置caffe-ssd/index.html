@@ -37,7 +37,7 @@
     
     <title>
         
-            Java 反射 | 
+            Ubuntu 配置caffe ssd | 
         
         Network Center Blog
     </title>
@@ -48,8 +48,8 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="geeker">
-    <meta name="description" itemprop="description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
-    <meta name="keywords" content=",java">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,26 +231,26 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Java 反射 | Network Center Blog">
+    <meta property="og:title" content="Ubuntu 配置caffe ssd | Network Center Blog">
     <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
-    <meta property="og:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
-    <meta property="og:article:tag" content="java"> 
+    <meta property="og:description" content="">
+    
 
     
-        <meta property="article:published_time" content="Mon Nov 27 2017 18:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Dec 18 2017 14:50:38 GMT+0800" />
+        <meta property="article:published_time" content="Thu Dec 21 2017 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Apr 13 2018 20:15:49 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Java 反射 | Network Center Blog">
-    <meta name="twitter:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
+    <meta name="twitter:title" content="Ubuntu 配置caffe ssd | Network Center Blog">
+    <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://network-center.github.io" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/2017/11/27/java-reflect/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +262,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://network-center.github.io/2017/11/27/java-reflect/index.html",
-    "headline": "Java 反射",
-    "datePublished": "Mon Nov 27 2017 18:00:00 GMT+0800",
-    "dateModified": "Mon Dec 18 2017 14:50:38 GMT+0800",
+    "mainEntityOfPage": "https://network-center.github.io/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/index.html",
+    "headline": "Ubuntu 配置caffe ssd",
+    "datePublished": "Thu Dec 21 2017 00:00:00 GMT+0800",
+    "dateModified": "Fri Apr 13 2018 20:15:49 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -283,8 +283,8 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",java",
-    "description": "Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象",
+    "keywords": "",
+    "description": "",
 }
 </script>
 
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-类的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">Class 类的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这个对象的表示方式有三种："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">这个对象的表示方式有三种：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可以通过类类型创建该类的类对象"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">可以通过类类型创建该类的类对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态加载类"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取方法信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">获取方法信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员变量构造函数信息"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取成员变量构造函数信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java反射机制－获取成员变量-amp-构造函数"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Java反射机制－获取成员变量&构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取成员变量的信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">反射——获取成员变量的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取构造函数的信息"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">反射——获取构造函数的信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法反射的基本操作"><span class="post-toc-number">5.</span> <span class="post-toc-text">方法反射的基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取A类中的print-int-int-方法："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">获取A类中的print(int,int)方法：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法的反射操作："><span class="post-toc-number">5.2.</span> <span class="post-toc-text">方法的反射操作：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过反射了解集合泛型的本质"><span class="post-toc-number">6.</span> <span class="post-toc-text">通过反射了解集合泛型的本质</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装cuda-8-0"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装cuda 8.0</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载cuda-8-0和补丁"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">下载cuda 8.0和补丁</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装cuda-所需要的库"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装cuda 所需要的库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装cuda-8-0-1"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">安装cuda 8.0</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装补丁"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">安装补丁</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装caffe所需要的依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装caffe所需要的依赖</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装protobuf、BLAS、Boost、hdf5等"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装protobuf、BLAS、Boost、hdf5等</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装OpenCV-3-0-https-github-com-opencv-opencv-releases-tag-3-0-0"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装OpenCV 3.0 (https://github.com/opencv/opencv/releases/tag/3.0.0)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装依赖"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载OpenCV"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">下载OpenCV</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装cuDNN"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装cuDNN</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装拓展"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">安装拓展</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载cudnn类库"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">下载cudnn类库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解压安装"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">解压安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装NVIDIA驱动-可选"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装NVIDIA驱动(可选)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译caffe-ssd"><span class="post-toc-number">6.</span> <span class="post-toc-text">编译caffe-ssd</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行作者样例"><span class="post-toc-number">7.</span> <span class="post-toc-text">运行作者样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#将图片转化为LMDB文件"><span class="post-toc-number">8.</span> <span class="post-toc-text">将图片转化为LMDB文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#训练模型"><span class="post-toc-number">9.</span> <span class="post-toc-text">训练模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在摄像头上测试"><span class="post-toc-number">10.</span> <span class="post-toc-text">在摄像头上测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错误处理"><span class="post-toc-number">11.</span> <span class="post-toc-text">错误处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fatal-error-boost-shared-ptr-hpp-没有那个文件或目录"><span class="post-toc-number">11.0.1.</span> <span class="post-toc-text">fatal error: boost/shared_ptr.hpp: 没有那个文件或目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fatal-error-gflags-gflags-h-没有那个文件或目录"><span class="post-toc-number">11.0.2.</span> <span class="post-toc-text">fatal error: gflags/gflags.h: 没有那个文件或目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fatal-error-glog-logging-h-没有那个文件或目录"><span class="post-toc-number">11.0.3.</span> <span class="post-toc-text">fatal error: glog/logging.h: 没有那个文件或目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Check-failed-error-cudaSuccess-10-vs-0-invalid-device-ordinal"><span class="post-toc-number">11.0.4.</span> <span class="post-toc-text">Check failed: error == cudaSuccess (10 vs. 0)  invalid device ordinal</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#heck-failed-error-cudaSuccess-2-vs-0-out-of-memory"><span class="post-toc-number">11.0.5.</span> <span class="post-toc-text">heck failed: error == cudaSuccess (2 vs. 0)  out of memory</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#搭建caffe环境时“error-hdf5-h”找不到的解决方法"><span class="post-toc-number">11.0.6.</span> <span class="post-toc-text">搭建caffe环境时“error: hdf5.h”找不到的解决方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如果出现-‘NppiGraphcutState’-has-not-been-declared是因为cuda和OpenCV的版本兼容问题"><span class="post-toc-number">11.0.7.</span> <span class="post-toc-text">如果出现 ‘NppiGraphcutState’ has not been declared是因为cuda和OpenCV的版本兼容问题</span></a></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -381,7 +381,7 @@
         
     
             <p class="article-headline-p">
-                Java 反射
+                Ubuntu 配置caffe ssd
             </p>
         </div>
 
@@ -400,7 +400,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>geeker</strong>
-        <span>11月 27, 2017</span>
+        <span>12月 21, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -418,15 +418,6 @@
 
     <!-- Tags (bookmark) -->
     
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/java/">java</a>
-    </ul>
-    
 
     <!-- Share -->
     <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -440,7 +431,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java 反射&url=https://network-center.github.io/2017/11/27/java-reflect/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Ubuntu 配置caffe ssd&url=https://network-center.github.io/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -449,7 +440,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java 反射&url=https://network-center.github.io/2017/11/27/java-reflect/index.html&via=geeker" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Ubuntu 配置caffe ssd&url=https://network-center.github.io/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/index.html&via=geeker" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -458,7 +449,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/11/27/java-reflect/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -467,7 +458,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/11/27/java-reflect/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -491,113 +482,48 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="Class-类的使用"><a href="#Class-类的使用" class="headerlink" title="Class 类的使用"></a>Class 类的使用</h2><h3 id="在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><a href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型" class="headerlink" title="在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)"></a>在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</h3><p>类是对象，类是java.lang.Class类的实例对象</p>
-<a id="more"></a>
-<h3 id="这个对象的表示方式有三种："><a href="#这个对象的表示方式有三种：" class="headerlink" title="这个对象的表示方式有三种："></a>这个对象的表示方式有三种：</h3><ol>
-<li><p>第一种表示方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c1 = Foo.class; //任何一个类都有一个隐含的静态成员变量class</div></pre></td></tr></table></figure>
-</li>
-<li><p>第二种表示方式：</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c2 = foo1.getClass //已知该类的对象，通过getClass方法得到这个实例类的class(类类型)</div></pre></td></tr></table></figure>
-<ol>
-<li>第三种表达方式</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c3 = Class.forName(&quot;imooc.reflect.Foo&quot;);</div></pre></td></tr></table></figure>
-<p>三种方式创建的类类型都相等，都是Foo的类类型</p>
-<h3 id="可以通过类类型创建该类的类对象"><a href="#可以通过类类型创建该类的类对象" class="headerlink" title="可以通过类类型创建该类的类对象"></a>可以通过类类型创建该类的类对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo foo=(Foo)c1.newInstance();</div></pre></td></tr></table></figure>
-<p>前提是需要有无参数的构造方法，它要调用</p>
-<h2 id="动态加载类"><a href="#动态加载类" class="headerlink" title="动态加载类"></a>动态加载类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class.forName(&quot;类的全称&quot;)：</div></pre></td></tr></table></figure>
-<ul>
-<li>不仅表示了类的类类型，还代表了动态加载类</li>
-<li>请区分编译、运行</li>
-<li>编译时刻加载类是静态加载类、运行时刻加载类是动态加载类</li>
-</ul>
-<p>用new创建对象，属于静态加载类，在编译时刻就需要加载所有的可能使用到的类，只要有一个类缺失或者类中某个成员缺失，就会报错（不管实际上有没有用到这个类），导致整个程序都无法运行。</p>
-<p>于是我们希望：要用哪个类的时候再加载这个类，不用就不加载。通过动态加载类可以解决上述问题。<br>本例中举了Word类、Excel类加载的例子，现在做动态加载：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forName(args[0]);</div><div class="line">//通过类类型，创建该类对象，这里就产生一个问题：是生成Word呢还是生成Excel?老师的解决思路是：只创建一个新类OfficeAble，作为接口，令Word类、Excel类都实现这个接口就可以了：</div><div class="line">OfficeAble oa = (OfficeAble)c.newInstance();</div><div class="line">oa.start();</div><div class="line"></div><div class="line">class Word implements OfficeAble</div><div class="line">&#123;</div><div class="line">	public void start()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>代码设计思路</strong>：功能性的类最好使用动态加载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forname(参数);//动态加载类返回该类的类类型。</div><div class="line">接口 x = (接口)c.newInstance();通过转换为接口的类型，用来实现方法。</div></pre></td></tr></table></figure>
-<h2 id="获取方法信息"><a href="#获取方法信息" class="headerlink" title="获取方法信息"></a>获取方法信息</h2><p>基本数据类型，void关键字都存在类类型</p>
-<ul>
-<li>class.getMethods()方法获取是该类的所有public方法，包括从父类继承的方法；</li>
-<li>class.getDeclareMethods()方法获取该类自行声明的所有方法，不论访问权限；</li>
-<li>method.getName()获取方法名</li>
-<li>method.getReturnType()获取方法的返回值</li>
-<li>method.getParameterTypes()，获取方法的参数类型的类类型数组class[]</li>
-</ul>
-<p><strong>获取方法信息：</strong></p>
-<ol>
-<li>基本的数据类型，void关键字等都存在类类型<br>Class c = 基类.class （int,String,double,void等）</li>
-<li>Class类的基本API操作</li>
-</ol>
-<ul>
-<li>c.getName()可以获取类的名称</li>
-<li>c.getSimpleName();//不包含包名的类的名称</li>
-<li>c.getMethods()获取类的【public方法】集合，【包括继承来的】</li>
-</ul>
-<p><strong>注意【所有方法都是Method类的对象】</strong></p>
-<ul>
-<li>c.getDeclaredMethods()获取的是所有该类【自己声明】的方法，【不问访问权限】</li>
-</ul>
-<ol>
-<li>Method类提供了一些操作方法的方法</li>
-</ol>
-<ul>
-<li>.getReturnType()得到该方法的返回值类型的类类型（class），如int.class String.class</li>
-<li>.getName()得到方法的名称</li>
-<li>.getParameterTypes()获得参数列表类型的类类型，如参数为(int,int)则得到</li>
-</ul>
-<p><strong>实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c1 = int.class; int的类类型</div><div class="line">Class c2 = String.class; String类的类类型 String类字节码</div><div class="line">Class c3 = double.class; double这个数据类类型的字节码表示方式</div><div class="line">Class c4 = Double.class; Double这个类的类类型字节码表示方式</div><div class="line">Class c5 = void.class; 表达了void这个类的类类型</div><div class="line">getName为这个类的类类型的具体名称</div><div class="line">c1.getName ---&gt; int</div><div class="line">c2.getName ---&gt; java.lang.String 类的全称</div><div class="line">c2.getSimpleName ---&gt; String 不包含包名的类的名称</div></pre></td></tr></table></figure>
-<h2 id="获取成员变量构造函数信息"><a href="#获取成员变量构造函数信息" class="headerlink" title="获取成员变量构造函数信息"></a>获取成员变量构造函数信息</h2><h3 id="Java反射机制－获取成员变量-amp-构造函数"><a href="#Java反射机制－获取成员变量-amp-构造函数" class="headerlink" title="Java反射机制－获取成员变量&amp;构造函数"></a>Java反射机制－获取成员变量&amp;构造函数</h3><ol>
-<li>成员变量是java.lang.reflect.Field的对象</li>
-</ol>
-<ul>
-<li>Field类封装了关于成员变量的操作</li>
-<li>Field[] fs = c.getFields()方法获取所有public的成员变量Field[]信息</li>
-<li>c.getDeclaredFields获取的是该类自己声明的成员变量信息</li>
-<li>field.getType()获得成员类型的类类型</li>
-<li>field.getName()获得成员的名称</li>
-</ul>
-<ol>
-<li>构造函数是java.lang.Constructor类的对象</li>
-</ol>
-<ul>
-<li>通过Class.getConstructor()获得Constructor[]所有公有构造方法信息</li>
-<li>建议getDeclaredConstructors()获取自己声明的构造方法</li>
-<li>Constructor.getName():String</li>
-<li>Constructor.getParameterTypes():Class[]</li>
-</ul>
-<p><strong>成员变量也是对象，是java.lang.reflect.Field的对象</strong></p>
-<h3 id="反射——获取成员变量的信息"><a href="#反射——获取成员变量的信息" class="headerlink" title="反射——获取成员变量的信息"></a>反射——获取成员变量的信息</h3><ol>
-<li>Class c = obj.getClass();<br>Field[] fs = c.getFields();</li>
-<li>获取成员变量： 获取成员变量的类型的类类型<code>Class fieldType = field.getType();</code>　<br>//获取成员变量的类型的名字fieldType.getName();　<br>//获取成员变量的名称getName()</li>
-</ol>
-<h3 id="反射——获取构造函数的信息"><a href="#反射——获取构造函数的信息" class="headerlink" title="反射——获取构造函数的信息"></a>反射——获取构造函数的信息</h3><ol>
-<li>Class c = obj.getClass(）;<br>Constructor[] cs = c.getConstructors();</li>
-<li>获取构造函数的参数列表，得到的是参数列表的类型的类类型</li>
-</ol>
-<p><code>Class[] paramTypes =constructor.getParammeterTypes();</code>　<br>//获取参数类型的名称paramTypes.getName();</p>
-<h2 id="方法反射的基本操作"><a href="#方法反射的基本操作" class="headerlink" title="方法反射的基本操作"></a>方法反射的基本操作</h2><h3 id="获取A类中的print-int-int-方法："><a href="#获取A类中的print-int-int-方法：" class="headerlink" title="获取A类中的print(int,int)方法："></a>获取A类中的print(int,int)方法：</h3><ol>
-<li>要获取一个方法就是获取类的信息，获取类的信息首先要获取类的类类型<br>A a1=new A();  Class c= a1.getClass();</li>
-<li>获取方法 由名称和参数列表来决定,<code>getMethod获取的是public方法</code>，<code>getDelcaredMethod获取自己声明的方法</code><br><code>Method m =c.getMethod(methodName,paramtypes);</code>　<br>//paramtypes可以用数组的形式  表示new Class[]{int.class,int.class}，也可以直接列举类类型</li>
-</ol>
-<h3 id="方法的反射操作："><a href="#方法的反射操作：" class="headerlink" title="方法的反射操作："></a>方法的反射操作：</h3><p>是用m对象来进行方法调用，和a1.print(10,20)调用的方法相同 <code>m.invoke（a1，new Object[]｛10,20｝）
-Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返回null，如果有返回值返回具体值，参数可用数组的方式表示，也可以直接列举，没有参数就不写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public Class A&#123;</div><div class="line">	 public void print()&#123;&#125;;</div><div class="line">	 public void Print(Sting a,String b)&#123;&#125;</div><div class="line">	 public void Print(int a,int b)&#123;&#125;;</div><div class="line">&#125;</div><div class="line">public Class B&#123;</div><div class="line">	 public static void main(String[] args)&#123;</div><div class="line">	  A a1 = new A();  Class c= a1.getclass;</div><div class="line">	  Method getMet=c.getMethod(&quot;print&quot;,String.class,String.class);</div><div class="line">	  Object obj=getMet.invoke(a1,&quot;df&quot;,&quot;df&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="通过反射了解集合泛型的本质"><a href="#通过反射了解集合泛型的本质" class="headerlink" title="通过反射了解集合泛型的本质"></a>通过反射了解集合泛型的本质</h2><ol>
-<li>反射的操作都是编译之后的操作</li>
-<li>集合的泛型只为了防止错误输入，编译阶段有效，绕过编译，使用反射是不会控制集合中的数据类型的。</li>
-<li>反射操作类方法：通过对象的类类型得到方法的对象Method，通过方法对象的invoke方法操作对象，调用对象的方法。</li>
-</ol>
-<p><strong>实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class c1=对象a.getClass()</div><div class="line">Method m = c1.getMethod(方法名，参数列表)</div><div class="line">Object o =m.invoke(对象a，参数列表，可以一一列举，也可以用数组)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Reference:<br> <a href="http://www.imooc.com/learn/199" target="_blank" rel="external">IMOOC-反射——Java高级开发必须懂的</a></p>
-</blockquote>
-<p>botao<br>2017.11.27</p>
+        <p>caffe 是一个比较有名的深度学习框架，在视频和图像方面应用比较广泛，因为NVIDIA主要是做GPU和视觉，所以caffe和NIVEA关系比较亲密。使用的GPU驱动也是NVIDIA驱动和NVIDIA cuda8.0。</p>
+<h2 id="安装cuda-8-0"><a href="#安装cuda-8-0" class="headerlink" title="安装cuda 8.0"></a>安装cuda 8.0</h2><h3 id="下载cuda-8-0和补丁"><a href="#下载cuda-8-0和补丁" class="headerlink" title="下载cuda 8.0和补丁"></a>下载cuda 8.0和补丁</h3><p>浏览器访问 <a href="https://developer.nvidia.com/cuda-80-ga2-download-archive" target="_blank" rel="external">https://developer.nvidia.com/cuda-80-ga2-download-archive</a> 下载Base Installer和Patch 2</p>
+<p><img src="/img/CUDA_Toolkit_8_0.png" alt=""></p>
+<h3 id="安装cuda-所需要的库"><a href="#安装cuda-所需要的库" class="headerlink" title="安装cuda 所需要的库"></a>安装cuda 所需要的库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa</div><div class="line">libglu1-mesa-dev libxi-dev libxmu-dev -y</div></pre></td></tr></table></figure>
+<h3 id="安装cuda-8-0-1"><a href="#安装cuda-8-0-1" class="headerlink" title="安装cuda 8.0"></a>安装cuda 8.0</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">$ sudo ./cuda_8.0.61_375.26_linux-run</div><div class="line"></div><div class="line">Do you accept the previously <span class="built_in">read</span> EULA?</div><div class="line">accept/decline/quit: accept <span class="comment">#接受</span></div><div class="line"></div><div class="line">Install NVIDIA Accelerated Graphics Driver <span class="keyword">for</span> Linux-x86_64 375.26?</div><div class="line">(y)es/(n)o/(q)uit: n <span class="comment">#不安装默认驱动</span></div><div class="line"></div><div class="line">Install the CUDA 8.0 Toolkit?</div><div class="line">(y)es/(n)o/(q)uit: y <span class="comment">#确认安装</span></div><div class="line"></div><div class="line">Enter Toolkit Location</div><div class="line"> [ default is /usr/<span class="built_in">local</span>/cuda-8.0 ]: <span class="comment">#回车默认</span></div><div class="line"></div><div class="line"> Do you want to install a symbolic link at /usr/<span class="built_in">local</span>/cuda?</div><div class="line">(y)es/(n)o/(q)uit:y <span class="comment">#创建连接</span></div><div class="line"></div><div class="line">Install the CUDA 8.0 Samples?</div><div class="line">(y)es/(n)o/(q)uit:y</div><div class="line"></div><div class="line">Enter CUDA Samples Location</div><div class="line"> [ default is /home/ubuntu ]:y</div><div class="line"></div><div class="line">Installing the CUDA Toolkit <span class="keyword">in</span> /usr/<span class="built_in">local</span>/cuda-8.0 ...</div></pre></td></tr></table></figure>
+<h3 id="安装补丁"><a href="#安装补丁" class="headerlink" title="安装补丁"></a>安装补丁</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ sudo ./cuda_8.0.61.2_linux-run</div><div class="line">Do you accept the previously <span class="built_in">read</span> EULA?</div><div class="line">accept/decline/quit: accept</div><div class="line"></div><div class="line">Enter CUDA Toolkit installation directory</div><div class="line"> [ default is /usr/<span class="built_in">local</span>/cuda-8.0 ]:</div><div class="line"></div><div class="line">Installation complete!</div><div class="line">Installation directory: /usr/<span class="built_in">local</span>/cuda-8.0</div></pre></td></tr></table></figure>
+<h2 id="安装caffe所需要的依赖"><a href="#安装caffe所需要的依赖" class="headerlink" title="安装caffe所需要的依赖"></a>安装caffe所需要的依赖</h2><h3 id="安装protobuf、BLAS、Boost、hdf5等"><a href="#安装protobuf、BLAS、Boost、hdf5等" class="headerlink" title="安装protobuf、BLAS、Boost、hdf5等"></a>安装protobuf、BLAS、Boost、hdf5等</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</div><div class="line">$ sudo apt-get install --no-install-recommends libboost-all-dev</div><div class="line">$ sudo apt-get install libatlas-base-dev</div><div class="line">$ sudo apt-get install the python-dev</div></pre></td></tr></table></figure>
+<h2 id="安装OpenCV-3-0-https-github-com-opencv-opencv-releases-tag-3-0-0"><a href="#安装OpenCV-3-0-https-github-com-opencv-opencv-releases-tag-3-0-0" class="headerlink" title="安装OpenCV 3.0 (https://github.com/opencv/opencv/releases/tag/3.0.0)"></a>安装OpenCV 3.0 (<a href="https://github.com/opencv/opencv/releases/tag/3.0.0" target="_blank" rel="external">https://github.com/opencv/opencv/releases/tag/3.0.0</a>)</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev</div><div class="line">$ sudo apt-get install build-essential</div><div class="line">$ sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev</div></pre></td></tr></table></figure>
+<h3 id="下载OpenCV"><a href="#下载OpenCV" class="headerlink" title="下载OpenCV"></a>下载OpenCV</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ wget -c https://github.com/opencv/opencv/archive/3.0.0.tar.gz</div><div class="line">$ tar -zxvf 3.0.0.tar.gz</div><div class="line">$ <span class="built_in">cd</span> opencv-3.0.0/</div><div class="line">$ mkdir build</div><div class="line">$ <span class="built_in">cd</span> build</div><div class="line">$ sudo cmake .. <span class="comment">## 如果没有安装cmake，使用 apt install cmake 进行安装</span></div><div class="line">$ sudo make all</div></pre></td></tr></table></figure>
+<h2 id="安装cuDNN"><a href="#安装cuDNN" class="headerlink" title="安装cuDNN"></a>安装cuDNN</h2><h3 id="安装拓展"><a href="#安装拓展" class="headerlink" title="安装拓展"></a>安装拓展</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install snappy libleveldb-dev liblmdb-dev -y</div></pre></td></tr></table></figure>
+<h3 id="下载cudnn类库"><a href="#下载cudnn类库" class="headerlink" title="下载cudnn类库"></a>下载cudnn类库</h3><p><img src="/img/cudnn.png" alt=""></p>
+<h3 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ tar xvf cudnn-8.0-linux-x64-v7.tar</div><div class="line"><span class="comment">## 系统将解压内容放到了cuda文件夹里面了</span></div><div class="line">cuda/include/cudnn.h</div><div class="line">cuda/NVIDIA_SLA_cuDNN_Support.txt</div><div class="line">cuda/lib64/libcudnn.so</div><div class="line">cuda/lib64/libcudnn.so.7</div><div class="line">cuda/lib64/libcudnn.so.7.0.4</div><div class="line">cuda/lib64/libcudnn_static.a</div><div class="line"></div><div class="line"><span class="comment">## 拷贝类库</span></div><div class="line">$ sudo cp cuda/lib64/lib* /usr/<span class="built_in">local</span>/cuda/lib64/ </div><div class="line"><span class="comment">## 拷贝.h文件</span></div><div class="line">$ sudo cp cuda/include/cudnn.h /usr/<span class="built_in">local</span>/cuda/include/ </div><div class="line"></div><div class="line"><span class="comment">#更新软连接</span></div><div class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/cuda/lib64/ </div><div class="line">$ sudo rm -rf libcudnn.so libcudnn.so.6.5 </div><div class="line">$ sudo ln -s libcudnn.so.6.5.48 libcudnn.so.6.5 </div><div class="line">$ sudo ln -s libcudnn.so.6.5 libcudnn.so</div></pre></td></tr></table></figure>
+<h2 id="安装NVIDIA驱动-可选"><a href="#安装NVIDIA驱动-可选" class="headerlink" title="安装NVIDIA驱动(可选)"></a>安装NVIDIA驱动(可选)</h2><p>这次没有遇到驱动版本问题。但是之前也遇到过一个坑，笔记本自带的驱动不兼容，后来安装了nvdia-375.66结束</p>
+<h2 id="编译caffe-ssd"><a href="#编译caffe-ssd" class="headerlink" title="编译caffe-ssd"></a>编译caffe-ssd</h2><p>$ git clone <a href="https://github.com/weiliu89/caffe.git" target="_blank" rel="external">https://github.com/weiliu89/caffe.git</a><br>$ cd caffe<br>$ git checkout ssd<br>$ mkdir build<br>$ sudo cmake ..<br>$ sudo make -j8<br>$ sudo make runtest -j8<br>$ sudo make install</p>
+<h2 id="运行作者样例"><a href="#运行作者样例" class="headerlink" title="运行作者样例"></a>运行作者样例</h2><p>在caffe/models下新建一个文件夹VGGNet<br>下载预训练模型 链接：<a href="http://pan.baidu.com/s/1miDE9h2" target="_blank" rel="external">http://pan.baidu.com/s/1miDE9h2</a> 密码：0hf2，将其中的<code>VGG_ILSVRC_16_layers_fc_reduced.caffemodel</code> 放入<code>caffe/models/VGGNet/</code>目录下<br>下载VOC2007和VOC2012数据集，放到 <code>~/data</code>下。下载数据集并解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar   </div><div class="line">$ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar   </div><div class="line">$ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar</div><div class="line">$ tar -xvf VOCtrainval_11-May-2012.tar   </div><div class="line">$ tar -xvf VOCtrainval_06-Nov-2007.tar    </div><div class="line">$ tar -xvf VOCtest_06-Nov-2007.tar</div></pre></td></tr></table></figure></p>
+<h2 id="将图片转化为LMDB文件"><a href="#将图片转化为LMDB文件" class="headerlink" title="将图片转化为LMDB文件"></a>将图片转化为LMDB文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ./data/VOC0712/create_list.sh     </div><div class="line">$ ./data/VOC0712/create_data.sh</div></pre></td></tr></table></figure>
+<p>这里用的脚本实现批处理，可能会出现:no module named caffe等错误，这是由于caffe的Python环境变量未配置好，可按照下面方法解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="string">"export PYTHONPATH=/home/<span class="variable">$USER</span>/caffe/python"</span> &gt;&gt; ~/.profile    </div><div class="line">$ <span class="built_in">source</span> ~/.profile</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$PYTHONPATH</span> <span class="comment">#检查环境变量的值</span></div></pre></td></tr></table></figure></p>
+<h2 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h2><p>在下载的caffe根目录执行如下命令训练，在examples/ssd下存在几个.py文件，训练的时间较长.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python examples/ssd/ssd_pascal.py</div></pre></td></tr></table></figure>
+<h2 id="在摄像头上测试"><a href="#在摄像头上测试" class="headerlink" title="在摄像头上测试"></a>在摄像头上测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python examples/ssd/ssd_pascal_webcam.py</div></pre></td></tr></table></figure>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h4 id="fatal-error-boost-shared-ptr-hpp-没有那个文件或目录"><a href="#fatal-error-boost-shared-ptr-hpp-没有那个文件或目录" class="headerlink" title="fatal error: boost/shared_ptr.hpp: 没有那个文件或目录"></a>fatal error: boost/shared_ptr.hpp: 没有那个文件或目录</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install libboost1.58* -y</div></pre></td></tr></table></figure>
+</code></pre><h4 id="fatal-error-gflags-gflags-h-没有那个文件或目录"><a href="#fatal-error-gflags-gflags-h-没有那个文件或目录" class="headerlink" title="fatal error: gflags/gflags.h: 没有那个文件或目录"></a>fatal error: gflags/gflags.h: 没有那个文件或目录</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install libgflags-dev -y</div></pre></td></tr></table></figure>
+</code></pre><h4 id="fatal-error-glog-logging-h-没有那个文件或目录"><a href="#fatal-error-glog-logging-h-没有那个文件或目录" class="headerlink" title="fatal error: glog/logging.h: 没有那个文件或目录"></a>fatal error: glog/logging.h: 没有那个文件或目录</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install libgoogle-glog-dev -y</div></pre></td></tr></table></figure>
+</code></pre><h4 id="Check-failed-error-cudaSuccess-10-vs-0-invalid-device-ordinal"><a href="#Check-failed-error-cudaSuccess-10-vs-0-invalid-device-ordinal" class="headerlink" title="Check failed: error == cudaSuccess (10 vs. 0)  invalid device ordinal"></a>Check failed: error == cudaSuccess (10 vs. 0)  invalid device ordinal</h4><pre><code>更改examples/ssd/ssd_pascal.py，把gpus = &quot;0,1,2,3&quot; 改为gpus = &quot;0&quot;
+</code></pre><h4 id="heck-failed-error-cudaSuccess-2-vs-0-out-of-memory"><a href="#heck-failed-error-cudaSuccess-2-vs-0-out-of-memory" class="headerlink" title="heck failed: error == cudaSuccess (2 vs. 0)  out of memory"></a>heck failed: error == cudaSuccess (2 vs. 0)  out of memory</h4><pre><code>更改examples/ssd/ssd_pascal.py，把 batch_size = 32 改为batch_size = 16 或依次改小
+</code></pre><h4 id="搭建caffe环境时“error-hdf5-h”找不到的解决方法"><a href="#搭建caffe环境时“error-hdf5-h”找不到的解决方法" class="headerlink" title="搭建caffe环境时“error: hdf5.h”找不到的解决方法"></a>搭建caffe环境时“error: hdf5.h”找不到的解决方法</h4><pre><code>所以相应的需要更改&quot;Makefile.config&quot;文件中的包含目录
+INCLUDE_DIRS:=$(PYTHON_INCLUDE) /usr/local/include
+然后在后面加上&quot;serial&quot;的包含目录，即：
+INCLUDE_DIRS:=$(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+接着需要更改相应的&quot;Makefile&quot;文件，找到
+LIBRARIES +=glog gflags protobuf boost_system boost_filesystem m hdf5_hl hdf5
+更改最后两项为：
+LIBRARIES +=glog gflags protobuf boost_system boost_filesystem m hdf5_serial_hl hdf5_serial
+就可以了，继续make了。
+</code></pre><h4 id="如果出现-‘NppiGraphcutState’-has-not-been-declared是因为cuda和OpenCV的版本兼容问题"><a href="#如果出现-‘NppiGraphcutState’-has-not-been-declared是因为cuda和OpenCV的版本兼容问题" class="headerlink" title="如果出现 ‘NppiGraphcutState’ has not been declared是因为cuda和OpenCV的版本兼容问题"></a>如果出现 <code>‘NppiGraphcutState’ has not been declared</code>是因为cuda和OpenCV的版本兼容问题</h4><pre><code>找到 `$CAFFE/modules/cudalegacy/src/graphcuts.cpp` 然后进行修改
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># <span class="meta-keyword">if</span> !defined (HAVE_CUDA) || defined (CUDA_DISABLER) </span></div><div class="line"></div><div class="line">改为</div><div class="line"></div><div class="line"><span class="meta"># <span class="meta-keyword">if</span> !defined (HAVE_CUDA) || defined (CUDA_DISABLER) || (CUDART_VERSION &gt;= 8000)</span></div></pre></td></tr></table></figure>
+
+然后继续编译安装
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo make</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure>
+</code></pre><p>feilong<br>2017.12.21</p>
 
         
     
@@ -618,7 +544,7 @@ Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返�
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/21/deeplearning/171221-Ubuntu-配置caffe-ssd/" id="post_nav-newer" class="prev-content">
+        <a href="/2018/01/16/leave-if-no-experts/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -632,7 +558,7 @@ Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返�
 
     <!-- Next Nav -->
     
-        <a href="/2017/11/26/simple-macbook-report/" id="post_nav-older" class="next-content">
+        <a href="/2017/11/27/java-reflect/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            基于以太坊创建私有链进行挖矿、交易 | 
+        
+        Network Center Blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="geeker">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",blockchain">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Network Center Blog">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://network-center.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="基于以太坊创建私有链进行挖矿、交易 | Network Center Blog">
+    <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="blockchain"> 
+
+    
+        <meta property="article:published_time" content="Thu Jan 25 2018 17:38:45 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Apr 13 2018 20:16:17 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="基于以太坊创建私有链进行挖矿、交易 | Network Center Blog">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://network-center.github.io" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/index.html",
+    "headline": "基于以太坊创建私有链进行挖矿、交易",
+    "datePublished": "Thu Jan 25 2018 17:38:45 GMT+0800",
+    "dateModified": "Fri Apr 13 2018 20:16:17 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "geeker",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Network Center Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",blockchain",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装golang"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装golang</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#克隆项目"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">克隆项目</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装go-1-4"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装go 1.4</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#克隆go-ethereum"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">克隆go-ethereum</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装以太坊"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">安装以太坊</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建连接"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">创建连接</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建私有链"><span class="post-toc-number">2.</span> <span class="post-toc-text">创建私有链</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建创世区块"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">创建创世区块</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建创世节点，并且初始化数据"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">创建创世节点，并且初始化数据</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#启动节点，指定networkid"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">启动节点，指定networkid</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建节点的账号"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">创建节点的账号</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#开始进行挖矿"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">开始进行挖矿</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#结束挖矿"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">结束挖矿</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查看挖矿的金额"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">查看挖矿的金额</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#新开一个窗口，创建第二个节点"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">新开一个窗口，创建第二个节点</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#运行第二个节点"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">运行第二个节点</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建账号"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">创建账号</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#开始进行挖矿-1"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">开始进行挖矿</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#结束挖矿-1"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">结束挖矿</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用户交易"><span class="post-toc-number">3.</span> <span class="post-toc-text">用户交易</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#回到第一个节点"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">回到第一个节点</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#切换到第二个节点窗口"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">切换到第二个节点窗口</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#切换到第一个控制台"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">切换到第一个控制台</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#开始进行交易"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">开始进行交易</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#确认交易是否成功"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">确认交易是否成功</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考文献"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                基于以太坊创建私有链进行挖矿、交易
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>geeker</strong>
+        <span>1月 25, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/blockchain/">blockchain</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=基于以太坊创建私有链进行挖矿、交易&url=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=基于以太坊创建私有链进行挖矿、交易&url=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/index.html&via=geeker" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>要说2018年什么最火，无疑就是区块链。比特币的疯狂上涨，每个比特币超过了1万美金。随之而来的就是区块链的技术。<br>以太坊（Ethereum）并不是一个机构，而是一款能够在区块链上实现智能合约、开源的底层系统。本文主要是通过以太坊，创建私有链，实现挖矿和交易。</p>
+<h4 id="安装golang"><a href="#安装golang" class="headerlink" title="安装golang"></a>安装golang</h4><h5 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/golang/go.git</div></pre></td></tr></table></figure>
+<h5 id="安装go-1-4"><a href="#安装go-1-4" class="headerlink" title="安装go 1.4"></a>安装go 1.4</h5><p>golang 是自编译，所以如果安装版本 &gt;=1.5 需要先编译1.4版本，然后再安装其他版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cp -r go/ <span class="variable">$HOME</span>/go1.4 <span class="comment">#复制一份文件夹，用于编译1.4版本</span></div><div class="line">$ <span class="built_in">cd</span> <span class="variable">$HOME</span>/go1.4</div><div class="line">$ git checkout release-branch.go1.4</div><div class="line">$ <span class="built_in">cd</span> src</div><div class="line">$ ./make.bash <span class="comment"># 进行编译</span></div></pre></td></tr></table></figure>
+<p>编译之后，开始安装go 1.9版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> <span class="variable">$HOME</span>/install/go</div><div class="line">$ git checkout release-branch.go1.9</div><div class="line">$ <span class="built_in">cd</span> src/</div><div class="line">$ ./all.bash <span class="comment">#安装1.9版本</span></div><div class="line"><span class="comment">##### Building Go bootstrap tool.</span></div><div class="line">cmd/dist</div><div class="line"></div><div class="line"><span class="comment">##### Building Go toolchain using /home/test/go1.4.</span></div><div class="line">bootstrap/cmd/internal/dwarf</div><div class="line">bootstrap/cmd/internal/objabi</div><div class="line">bootstrap/cmd/internal/src</div><div class="line">bootstrap/cmd/internal/sys</div><div class="line">bootstrap/cmd/internal/obj</div><div class="line">bootstrap/cmd/internal/obj/arm</div><div class="line">bootstrap/cmd/internal/obj/arm64</div><div class="line">bootstrap/cmd/internal/obj/mips</div><div class="line">bootstrap/cmd/internal/obj/ppc64</div><div class="line">bootstrap/cmd/internal/obj/s390x</div><div class="line">... <span class="comment">##各种编译安装信息</span></div><div class="line"><span class="comment">##### API check</span></div><div class="line">Go version is <span class="string">"go1.9.2"</span>, ignoring -next /home/<span class="built_in">test</span>/install/go/api/next.txt</div><div class="line"></div><div class="line">ALL TESTS PASSED</div><div class="line"></div><div class="line">---</div><div class="line">Installed Go <span class="keyword">for</span> linux/amd64 <span class="keyword">in</span> /home/<span class="built_in">test</span>/install/go</div><div class="line">Installed commands <span class="keyword">in</span> /home/<span class="built_in">test</span>/install/go/bin</div><div class="line">*** You need to add /home/<span class="built_in">test</span>/install/go/bin to your PATH.</div></pre></td></tr></table></figure>
+<p>配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/<span class="built_in">test</span>/install/go/bin</div></pre></td></tr></table></figure>
+<p>查看安装版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ go version</div><div class="line">go version go1.9.2 linux/amd64</div></pre></td></tr></table></figure>
+<h5 id="克隆go-ethereum"><a href="#克隆go-ethereum" class="headerlink" title="克隆go-ethereum"></a>克隆go-ethereum</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/ethereum/go-ethereum.git</div></pre></td></tr></table></figure>
+<h5 id="安装以太坊"><a href="#安装以太坊" class="headerlink" title="安装以太坊"></a>安装以太坊</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ make geth</div><div class="line"></div><div class="line">build/env.sh go run build/ci.go install ./cmd/geth</div><div class="line">&gt;&gt;&gt; /home/<span class="built_in">test</span>/install/go/bin/go install -ldflags -X main.gitCommit=5d4267911a7791bfa60f275a97347372fbf0ce99 -v ./cmd/geth</div><div class="line">github.com/ethereum/go-ethereum/common/hexutil</div><div class="line">github.com/ethereum/go-ethereum/crypto/sha3</div><div class="line">github.com/ethereum/go-ethereum/common</div><div class="line">...</div><div class="line">github.com/ethereum/go-ethereum/vendor/github.com/gizak/termui</div><div class="line">github.com/ethereum/go-ethereum/vendor/github.com/naoina/go-stringutil</div><div class="line">github.com/ethereum/go-ethereum/vendor/github.com/naoina/toml/ast</div><div class="line">github.com/ethereum/go-ethereum/vendor/github.com/naoina/toml</div><div class="line">github.com/ethereum/go-ethereum/cmd/geth</div><div class="line">Done building.</div><div class="line">Run <span class="string">"/home/test/install/go-ethereum/build/bin/geth"</span> to launch geth.</div></pre></td></tr></table></figure>
+<h5 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ln -s  /home/<span class="built_in">test</span>/install/go-ethereum/build/bin/geth /usr/<span class="built_in">local</span>/bin/geth</div></pre></td></tr></table></figure>
+<h4 id="创建私有链"><a href="#创建私有链" class="headerlink" title="创建私有链"></a>创建私有链</h4><h5 id="创建创世区块"><a href="#创建创世区块" class="headerlink" title="创建创世区块"></a>创建创世区块</h5><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"config"</span>: &#123;</div><div class="line">        <span class="attr">"chainId"</span>: <span class="number">15</span>,</div><div class="line">        <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">"eip158Block"</span>: <span class="number">0</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"coinbase"</span> : <span class="string">"0x0000000000000000000000000000000000000000"</span>,</div><div class="line">    <span class="attr">"difficulty"</span> : <span class="string">"0x40000"</span>,</div><div class="line">    <span class="attr">"extraData"</span> : <span class="string">""</span>,</div><div class="line">    <span class="attr">"gasLimit"</span> : <span class="string">"0xffffffff"</span>,</div><div class="line">    <span class="attr">"nonce"</span> : <span class="string">"0x0000000000000042"</span>,</div><div class="line">    <span class="attr">"mixhash"</span> : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">    <span class="attr">"parentHash"</span> : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">    <span class="attr">"timestamp"</span> : <span class="string">"0x00"</span>,</div><div class="line">    <span class="attr">"alloc"</span>: &#123; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir my_chain</div><div class="line">$ <span class="built_in">cd</span> my_chain</div><div class="line">$ vim genesis.json <span class="comment"># json文件的内容是上面的json字符串</span></div></pre></td></tr></table></figure>
+<h5 id="创建创世节点，并且初始化数据"><a href="#创建创世节点，并且初始化数据" class="headerlink" title="创建创世节点，并且初始化数据"></a>创建创世节点，并且初始化数据</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data00 init genesis.json</div></pre></td></tr></table></figure>
+<p><code>data00</code>就是用来保存创世节点的数据</p>
+<h5 id="启动节点，指定networkid"><a href="#启动节点，指定networkid" class="headerlink" title="启动节点，指定networkid"></a>启动节点，指定networkid</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir ./data00 --networkid 5201314 console <span class="comment">#使用console 支持命令行模式</span></div></pre></td></tr></table></figure>
+<p><img src="/img/blockchain00.png" alt=""></p>
+<h5 id="创建节点的账号"><a href="#创建节点的账号" class="headerlink" title="创建节点的账号"></a>创建节点的账号</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在console命令模式下</span></div><div class="line">&gt; personal.newAccount(<span class="string">"123"</span>)</div><div class="line"><span class="string">"0x9ff8676095e5999bf82eafeab98192e33ad74364"</span></div></pre></td></tr></table></figure>
+<h5 id="开始进行挖矿"><a href="#开始进行挖矿" class="headerlink" title="开始进行挖矿"></a>开始进行挖矿</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; miner.start()</div><div class="line">INFO [01-23|00:14:37] Updated mining threads                   threads=0</div><div class="line">INFO [01-23|00:14:37] Transaction pool price threshold updated price=18000000000</div><div class="line">INFO [01-23|00:14:37] Etherbase automatically configured       address=0x9FF8676095e5999bf82EafEaB98192E33ad74364</div><div class="line">null</div><div class="line">&gt; INFO [01-23|00:14:37] Starting mining operation</div><div class="line">INFO [01-23|00:14:37] Commit new mining work                   number=1 txs=0 uncles=0 elapsed=146.511µs</div><div class="line">INFO [01-23|00:14:43] Generating DAG in progress               epoch=0 percentage=0 elapsed=4.529s</div><div class="line">INFO [01-23|00:14:48] Generating DAG in progress               epoch=0 percentage=1 elapsed=8.913s</div><div class="line">INFO [01-23|00:14:52] Generating DAG in progress               epoch=0 percentage=2 elapsed=13.169s</div><div class="line">INFO [01-23|00:14:56] Generating DAG in progress               epoch=0 percentage=3 elapsed=17.298s</div><div class="line">INFO [01-23|00:15:01] Generating DAG in progress               epoch=0 percentage=4 elapsed=21.964s</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>等到percentage加载到100的时候就开始进行挖矿</p>
+<p><img src="/img/blockchain01.png" alt=""></p>
+<h5 id="结束挖矿"><a href="#结束挖矿" class="headerlink" title="结束挖矿"></a>结束挖矿</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; miner.stop()</div></pre></td></tr></table></figure>
+<h5 id="查看挖矿的金额"><a href="#查看挖矿的金额" class="headerlink" title="查看挖矿的金额"></a>查看挖矿的金额</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.getBalance(eth.accounts[0])</div><div class="line">5000000000000000000</div></pre></td></tr></table></figure>
+<h5 id="新开一个窗口，创建第二个节点"><a href="#新开一个窗口，创建第二个节点" class="headerlink" title="新开一个窗口，创建第二个节点"></a>新开一个窗口，创建第二个节点</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data01 init genesis.json</div></pre></td></tr></table></figure>
+<h5 id="运行第二个节点"><a href="#运行第二个节点" class="headerlink" title="运行第二个节点"></a>运行第二个节点</h5><p>networkid需要和第一个账号相同</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir data01 --networkid 5201314 --ipcdisable --port 61910 --rpcport 8200 console <span class="comment">#使用命令行模式</span></div></pre></td></tr></table></figure>
+<h5 id="创建账号"><a href="#创建账号" class="headerlink" title="创建账号"></a>创建账号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.newAccount(&quot;456&quot;)</div><div class="line">&quot;0xfc350d17b0fb92eeb0a3bab80116c27d9f7e40d1&quot;</div></pre></td></tr></table></figure>
+<h5 id="开始进行挖矿-1"><a href="#开始进行挖矿-1" class="headerlink" title="开始进行挖矿"></a>开始进行挖矿</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; miner.start()</div></pre></td></tr></table></figure>
+<h5 id="结束挖矿-1"><a href="#结束挖矿-1" class="headerlink" title="结束挖矿"></a>结束挖矿</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; miner.stop()</div></pre></td></tr></table></figure>
+<h4 id="用户交易"><a href="#用户交易" class="headerlink" title="用户交易"></a>用户交易</h4><h5 id="回到第一个节点"><a href="#回到第一个节点" class="headerlink" title="回到第一个节点"></a>回到第一个节点</h5><p>查看节点信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.nodeInfo.enode</div><div class="line"><span class="string">"enode://49e538b3f090a04e97f56a7fd1e6223c29599535d5e93010349147dee334b690744504f057ae11adb2804baada222375a56398ef42be536c595c6197a4a7cb2d@[::]:30303"</span></div></pre></td></tr></table></figure></p>
+<h5 id="切换到第二个节点窗口"><a href="#切换到第二个节点窗口" class="headerlink" title="切换到第二个节点窗口"></a>切换到第二个节点窗口</h5><p>建立联系, 添加第一个节点enode</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.addPeer(<span class="string">"enode://49e538b3f090a04e97f56a7fd1e6223c29599535d5e93010349147dee334b690744504f057ae11adb2804baada222375a56398ef42be536c595c6197a4a7cb2d@[::]:30303"</span>)</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<h5 id="切换到第一个控制台"><a href="#切换到第一个控制台" class="headerlink" title="切换到第一个控制台"></a>切换到第一个控制台</h5><p>查看建立的联系数量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; net.peerCount</div><div class="line">1</div></pre></td></tr></table></figure>
+<p>peerCount=1，说明已经建立了联系</p>
+<h5 id="开始进行交易"><a href="#开始进行交易" class="headerlink" title="开始进行交易"></a>开始进行交易</h5><p>切换到一个控制台，交易之前，需要先解锁账号才行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.unlockAccount(eth.accounts[0], <span class="string">"123"</span>)</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>返回true说明已经解锁成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; eth.sendTransaction(&#123;from: <span class="string">"0x9ff8676095e5999bf82eafeab98192e33ad74364"</span>, to: <span class="string">"0xfc350d17b0fb92eeb0a3bab80116c27d9f7e40d1"</span>, value: web3.toWei(1, <span class="string">"ether"</span>)&#125;)</div></pre></td></tr></table></figure>
+<p>to和form分别是接受和发送的账号，也就是personal.listAccounts里面的账号</p>
+<p>查看确认下交易信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; eth.pendingTransactions</div><div class="line">[&#123;</div><div class="line">    blockHash: null,</div><div class="line">    blockNumber: null,</div><div class="line">    from: <span class="string">"0x9ff8676095e5999bf82eafeab98192e33ad74364"</span>,</div><div class="line">    gas: 90000,</div><div class="line">    gasPrice: 18000000000,</div><div class="line">    <span class="built_in">hash</span>: <span class="string">"0x6146513432b27b6a27f54b64fcf0a30dc90290452dfd25e282a05aaf423f4afa"</span>,</div><div class="line">    input: <span class="string">"0x"</span>,</div><div class="line">    nonce: 0,</div><div class="line">    r: <span class="string">"0x77644ff132f800da9b2d8133c796916f956061a491b55e3cbbd0d710f5157199"</span>,</div><div class="line">    s: <span class="string">"0x9dbe268e152e5fc15421efa5b00e5d4a601ef4cb2655b577901fd96c5d3c959"</span>,</div><div class="line">    to: <span class="string">"0xfc350d17b0fb92eeb0a3bab80116c27d9f7e40d1"</span>,</div><div class="line">    transactionIndex: 0,</div><div class="line">    v: <span class="string">"0x42"</span>,</div><div class="line">    value: 1000000000000000000</div><div class="line">&#125;]</div></pre></td></tr></table></figure>
+<p>开始进行挖矿，使交易生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; miner.start()</div></pre></td></tr></table></figure>
+<h5 id="确认交易是否成功"><a href="#确认交易是否成功" class="headerlink" title="确认交易是否成功"></a>确认交易是否成功</h5><p>在一个和第二个控制台分别运行命令，确认是否交易成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; eth.getBalance(eth.accounts[0])</div></pre></td></tr></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><h5 id="挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。"><a href="#挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。" class="headerlink" title="挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。"></a>挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。</h5><p><img src="/img/blockchain02.png" alt=""></p>
+<p><img src="/img/blockchain03.png" alt=""></p>
+<h5 id="还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。"><a href="#还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。" class="headerlink" title="还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。"></a>还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。</h5><h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="http://www.cnblogs.com/zl03jsj/category/997608.html" target="_blank" rel="external">blockchain随笔</a></p>
+<p>feilong<br>2018.01.25</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/01/16/leave-if-no-experts/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="geeker's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        168@yifans.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Network Center Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

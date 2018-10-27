@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -45,7 +45,7 @@
     <!-- Meta & Info -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="geeker">
     <meta name="description" itemprop="description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
@@ -232,25 +232,25 @@
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Java 反射 | Network Center Blog">
-    <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
+    <meta property="og:image" content="https://network-center.github.io/img/favicon.png">
     <meta property="og:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
     <meta property="og:article:tag" content="java"> 
 
     
-        <meta property="article:published_time" content="Mon Nov 27 2017 18:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Dec 18 2017 14:50:38 GMT+0800" />
+        <meta property="article:published_time" content="Mon Nov 27 2017 18:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Sat Oct 27 2018 17:12:01 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Java 反射 | Network Center Blog">
     <meta name="twitter:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)类是对象，类是java.lang.Class类的实例对象">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://network-center.github.io" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://network-center.github.io">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/2017/11/27/java-reflect/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2017/11/27/java-reflect/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://network-center.github.io/2017/11/27/java-reflect/index.html",
     "headline": "Java 反射",
     "datePublished": "Mon Nov 27 2017 18:00:00 GMT+0800",
-    "dateModified": "Mon Dec 18 2017 14:50:38 GMT+0800",
+    "dateModified": "Sat Oct 27 2018 17:12:01 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -343,13 +343,12 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-类的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">Class 类的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这个对象的表示方式有三种："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">这个对象的表示方式有三种：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可以通过类类型创建该类的类对象"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">可以通过类类型创建该类的类对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态加载类"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取方法信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">获取方法信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员变量构造函数信息"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取成员变量构造函数信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java反射机制－获取成员变量-amp-构造函数"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Java反射机制－获取成员变量&构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取成员变量的信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">反射——获取成员变量的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取构造函数的信息"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">反射——获取构造函数的信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法反射的基本操作"><span class="post-toc-number">5.</span> <span class="post-toc-text">方法反射的基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取A类中的print-int-int-方法："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">获取A类中的print(int,int)方法：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法的反射操作："><span class="post-toc-number">5.2.</span> <span class="post-toc-text">方法的反射操作：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过反射了解集合泛型的本质"><span class="post-toc-number">6.</span> <span class="post-toc-text">通过反射了解集合泛型的本质</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-类的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">Class 类的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这个对象的表示方式有三种："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">这个对象的表示方式有三种：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可以通过类类型创建该类的类对象"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">可以通过类类型创建该类的类对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态加载类"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取方法信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">获取方法信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员变量构造函数信息"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取成员变量构造函数信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java反射机制－获取成员变量-amp-构造函数"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Java反射机制－获取成员变量&amp;构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取成员变量的信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">反射——获取成员变量的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射——获取构造函数的信息"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">反射——获取构造函数的信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法反射的基本操作"><span class="post-toc-number">5.</span> <span class="post-toc-text">方法反射的基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取A类中的print-int-int-方法："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">获取A类中的print(int,int)方法：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法的反射操作："><span class="post-toc-number">5.2.</span> <span class="post-toc-text">方法的反射操作：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过反射了解集合泛型的本质"><span class="post-toc-number">6.</span> <span class="post-toc-text">通过反射了解集合泛型的本质</span></a></li></ol>
     </ul>
     
 
@@ -395,7 +394,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -425,7 +424,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/java/">java</a>
-    </ul>
+    </li></ul>
     
 
     <!-- Share -->
@@ -495,20 +494,20 @@
 <a id="more"></a>
 <h3 id="这个对象的表示方式有三种："><a href="#这个对象的表示方式有三种：" class="headerlink" title="这个对象的表示方式有三种："></a>这个对象的表示方式有三种：</h3><ol>
 <li><p>第一种表示方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c1 = Foo.class; //任何一个类都有一个隐含的静态成员变量class</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class c1 = Foo.class; //任何一个类都有一个隐含的静态成员变量class</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>第二种表示方式：</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c2 = foo1.getClass //已知该类的对象，通过getClass方法得到这个实例类的class(类类型)</div></pre></td></tr></table></figure>
-<ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class c2 = foo1.getClass //已知该类的对象，通过getClass方法得到这个实例类的class(类类型)</span><br></pre></td></tr></table></figure>
+<ol start="3">
 <li>第三种表达方式</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class c3 = Class.forName(&quot;imooc.reflect.Foo&quot;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class c3 = Class.forName(&quot;imooc.reflect.Foo&quot;);</span><br></pre></td></tr></table></figure>
 <p>三种方式创建的类类型都相等，都是Foo的类类型</p>
-<h3 id="可以通过类类型创建该类的类对象"><a href="#可以通过类类型创建该类的类对象" class="headerlink" title="可以通过类类型创建该类的类对象"></a>可以通过类类型创建该类的类对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo foo=(Foo)c1.newInstance();</div></pre></td></tr></table></figure>
+<h3 id="可以通过类类型创建该类的类对象"><a href="#可以通过类类型创建该类的类对象" class="headerlink" title="可以通过类类型创建该类的类对象"></a>可以通过类类型创建该类的类对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Foo foo=(Foo)c1.newInstance();</span><br></pre></td></tr></table></figure>
 <p>前提是需要有无参数的构造方法，它要调用</p>
-<h2 id="动态加载类"><a href="#动态加载类" class="headerlink" title="动态加载类"></a>动态加载类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class.forName(&quot;类的全称&quot;)：</div></pre></td></tr></table></figure>
+<h2 id="动态加载类"><a href="#动态加载类" class="headerlink" title="动态加载类"></a>动态加载类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(&quot;类的全称&quot;)：</span><br></pre></td></tr></table></figure>
 <ul>
 <li>不仅表示了类的类类型，还代表了动态加载类</li>
 <li>请区分编译、运行</li>
@@ -516,9 +515,9 @@
 </ul>
 <p>用new创建对象，属于静态加载类，在编译时刻就需要加载所有的可能使用到的类，只要有一个类缺失或者类中某个成员缺失，就会报错（不管实际上有没有用到这个类），导致整个程序都无法运行。</p>
 <p>于是我们希望：要用哪个类的时候再加载这个类，不用就不加载。通过动态加载类可以解决上述问题。<br>本例中举了Word类、Excel类加载的例子，现在做动态加载：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forName(args[0]);</div><div class="line">//通过类类型，创建该类对象，这里就产生一个问题：是生成Word呢还是生成Excel?老师的解决思路是：只创建一个新类OfficeAble，作为接口，令Word类、Excel类都实现这个接口就可以了：</div><div class="line">OfficeAble oa = (OfficeAble)c.newInstance();</div><div class="line">oa.start();</div><div class="line"></div><div class="line">class Word implements OfficeAble</div><div class="line">&#123;</div><div class="line">	public void start()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class c = Class.forName(args[0]);</span><br><span class="line">//通过类类型，创建该类对象，这里就产生一个问题：是生成Word呢还是生成Excel?老师的解决思路是：只创建一个新类OfficeAble，作为接口，令Word类、Excel类都实现这个接口就可以了：</span><br><span class="line">OfficeAble oa = (OfficeAble)c.newInstance();</span><br><span class="line">oa.start();</span><br><span class="line"></span><br><span class="line">class Word implements OfficeAble</span><br><span class="line">&#123;</span><br><span class="line">	public void start()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>代码设计思路</strong>：功能性的类最好使用动态加载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Class c = Class.forname(参数);//动态加载类返回该类的类类型。</div><div class="line">接口 x = (接口)c.newInstance();通过转换为接口的类型，用来实现方法。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class c = Class.forname(参数);//动态加载类返回该类的类类型。</span><br><span class="line">接口 x = (接口)c.newInstance();通过转换为接口的类型，用来实现方法。</span><br></pre></td></tr></table></figure>
 <h2 id="获取方法信息"><a href="#获取方法信息" class="headerlink" title="获取方法信息"></a>获取方法信息</h2><p>基本数据类型，void关键字都存在类类型</p>
 <ul>
 <li>class.getMethods()方法获取是该类的所有public方法，包括从父类继承的方法；</li>
@@ -541,7 +540,7 @@
 <ul>
 <li>c.getDeclaredMethods()获取的是所有该类【自己声明】的方法，【不问访问权限】</li>
 </ul>
-<ol>
+<ol start="3">
 <li>Method类提供了一些操作方法的方法</li>
 </ol>
 <ul>
@@ -550,7 +549,7 @@
 <li>.getParameterTypes()获得参数列表类型的类类型，如参数为(int,int)则得到</li>
 </ul>
 <p><strong>实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class c1 = int.class; int的类类型</div><div class="line">Class c2 = String.class; String类的类类型 String类字节码</div><div class="line">Class c3 = double.class; double这个数据类类型的字节码表示方式</div><div class="line">Class c4 = Double.class; Double这个类的类类型字节码表示方式</div><div class="line">Class c5 = void.class; 表达了void这个类的类类型</div><div class="line">getName为这个类的类类型的具体名称</div><div class="line">c1.getName ---&gt; int</div><div class="line">c2.getName ---&gt; java.lang.String 类的全称</div><div class="line">c2.getSimpleName ---&gt; String 不包含包名的类的名称</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class c1 = int.class; int的类类型</span><br><span class="line">Class c2 = String.class; String类的类类型 String类字节码</span><br><span class="line">Class c3 = double.class; double这个数据类类型的字节码表示方式</span><br><span class="line">Class c4 = Double.class; Double这个类的类类型字节码表示方式</span><br><span class="line">Class c5 = void.class; 表达了void这个类的类类型</span><br><span class="line">getName为这个类的类类型的具体名称</span><br><span class="line">c1.getName ---&gt; int</span><br><span class="line">c2.getName ---&gt; java.lang.String 类的全称</span><br><span class="line">c2.getSimpleName ---&gt; String 不包含包名的类的名称</span><br></pre></td></tr></table></figure>
 <h2 id="获取成员变量构造函数信息"><a href="#获取成员变量构造函数信息" class="headerlink" title="获取成员变量构造函数信息"></a>获取成员变量构造函数信息</h2><h3 id="Java反射机制－获取成员变量-amp-构造函数"><a href="#Java反射机制－获取成员变量-amp-构造函数" class="headerlink" title="Java反射机制－获取成员变量&amp;构造函数"></a>Java反射机制－获取成员变量&amp;构造函数</h3><ol>
 <li>成员变量是java.lang.reflect.Field的对象</li>
 </ol>
@@ -561,7 +560,7 @@
 <li>field.getType()获得成员类型的类类型</li>
 <li>field.getName()获得成员的名称</li>
 </ul>
-<ol>
+<ol start="2">
 <li>构造函数是java.lang.Constructor类的对象</li>
 </ol>
 <ul>
@@ -586,16 +585,16 @@
 </ol>
 <h3 id="方法的反射操作："><a href="#方法的反射操作：" class="headerlink" title="方法的反射操作："></a>方法的反射操作：</h3><p>是用m对象来进行方法调用，和a1.print(10,20)调用的方法相同 <code>m.invoke（a1，new Object[]｛10,20｝）
 Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返回null，如果有返回值返回具体值，参数可用数组的方式表示，也可以直接列举，没有参数就不写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public Class A&#123;</div><div class="line">	 public void print()&#123;&#125;;</div><div class="line">	 public void Print(Sting a,String b)&#123;&#125;</div><div class="line">	 public void Print(int a,int b)&#123;&#125;;</div><div class="line">&#125;</div><div class="line">public Class B&#123;</div><div class="line">	 public static void main(String[] args)&#123;</div><div class="line">	  A a1 = new A();  Class c= a1.getclass;</div><div class="line">	  Method getMet=c.getMethod(&quot;print&quot;,String.class,String.class);</div><div class="line">	  Object obj=getMet.invoke(a1,&quot;df&quot;,&quot;df&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public Class A&#123;</span><br><span class="line">	 public void print()&#123;&#125;;</span><br><span class="line">	 public void Print(Sting a,String b)&#123;&#125;</span><br><span class="line">	 public void Print(int a,int b)&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">public Class B&#123;</span><br><span class="line">	 public static void main(String[] args)&#123;</span><br><span class="line">	  A a1 = new A();  Class c= a1.getclass;</span><br><span class="line">	  Method getMet=c.getMethod(&quot;print&quot;,String.class,String.class);</span><br><span class="line">	  Object obj=getMet.invoke(a1,&quot;df&quot;,&quot;df&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="通过反射了解集合泛型的本质"><a href="#通过反射了解集合泛型的本质" class="headerlink" title="通过反射了解集合泛型的本质"></a>通过反射了解集合泛型的本质</h2><ol>
 <li>反射的操作都是编译之后的操作</li>
 <li>集合的泛型只为了防止错误输入，编译阶段有效，绕过编译，使用反射是不会控制集合中的数据类型的。</li>
 <li>反射操作类方法：通过对象的类类型得到方法的对象Method，通过方法对象的invoke方法操作对象，调用对象的方法。</li>
 </ol>
 <p><strong>实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class c1=对象a.getClass()</div><div class="line">Method m = c1.getMethod(方法名，参数列表)</div><div class="line">Object o =m.invoke(对象a，参数列表，可以一一列举，也可以用数组)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class c1=对象a.getClass()</span><br><span class="line">Method m = c1.getMethod(方法名，参数列表)</span><br><span class="line">Object o =m.invoke(对象a，参数列表，可以一一列举，也可以用数组)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Reference:<br> <a href="http://www.imooc.com/learn/199" target="_blank" rel="external">IMOOC-反射——Java高级开发必须懂的</a></p>
+<p>Reference:<br> <a href="http://www.imooc.com/learn/199" target="_blank" rel="noopener">IMOOC-反射——Java高级开发必须懂的</a></p>
 </blockquote>
 <p>botao<br>2017.11.27</p>
 
@@ -725,7 +724,7 @@ Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返�
             <ul class="dropdown-menu">
             <li>
                 <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
-            </ul>
+            </li></ul>
         </li>
         
     
@@ -759,7 +758,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>

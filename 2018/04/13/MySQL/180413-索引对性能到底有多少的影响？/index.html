@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -45,7 +45,7 @@
     <!-- Meta & Info -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="geeker">
     <meta name="description" itemprop="description" content="">
@@ -232,25 +232,25 @@
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="索引对性能到底有多少的影响？ | Network Center Blog">
-    <meta property="og:image" content="https://network-center.github.io/img/favicon.png" />
+    <meta property="og:image" content="https://network-center.github.io/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Fri Apr 13 2018 20:21:32 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Apr 13 2018 20:24:12 GMT+0800" />
+        <meta property="article:published_time" content="Fri Apr 13 2018 20:21:32 GMT+0800">
+        <meta property="article:modified_time" content="Sat Oct 27 2018 17:12:01 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="索引对性能到底有多少的影响？ | Network Center Blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://network-center.github.io" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://network-center.github.io">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html" />
+        <link rel="canonical" href="https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html",
     "headline": "索引对性能到底有多少的影响？",
     "datePublished": "Fri Apr 13 2018 20:21:32 GMT+0800",
-    "dateModified": "Fri Apr 13 2018 20:24:12 GMT+0800",
+    "dateModified": "Sat Oct 27 2018 17:12:01 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -343,8 +343,7 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -395,7 +394,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -495,7 +494,7 @@
 <p><img src="/images/mysql-index-3.png" alt=""></p>
 <p>我曹，每次扫描了8W多行。看来是没有使用到索引。加上次数频繁，解析的总次数高达 1762833762 行。</p>
 <h4 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h4><p>查看MySQL的执行计划</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mysql&gt; explain extended SELECT * FROM `test` WHERE `is_deleted` =0 AND `a` = 81644;</div><div class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</div><div class="line">| id | select_type | table     | type | possible_keys | key  | key_len | ref  | rows  | Extra       |</div><div class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</div><div class="line">|  1 | SIMPLE      | test | ALL  | a_index      | NULL | NULL    | NULL | 86172 | Using where |</div><div class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</div><div class="line">1 row in set, 3 warnings (0.01 sec)</div><div class="line">mysql&gt; show warnings;</div><div class="line">| Level   | Code | Message                                                                                             </div><div class="line">| Warning | 1739 | Cannot use ref access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;                                                                                                 |</div><div class="line">| Warning | 1739 | Cannot use range access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; explain extended SELECT * FROM `test` WHERE `is_deleted` =0 AND `a` = 81644;</span><br><span class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</span><br><span class="line">| id | select_type | table     | type | possible_keys | key  | key_len | ref  | rows  | Extra       |</span><br><span class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</span><br><span class="line">|  1 | SIMPLE      | test | ALL  | a_index      | NULL | NULL    | NULL | 86172 | Using where |</span><br><span class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</span><br><span class="line">1 row in set, 3 warnings (0.01 sec)</span><br><span class="line">mysql&gt; show warnings;</span><br><span class="line">| Level   | Code | Message                                                                                             </span><br><span class="line">| Warning | 1739 | Cannot use ref access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;                                                                                                 |</span><br><span class="line">| Warning | 1739 | Cannot use range access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;</span><br></pre></td></tr></table></figure>
 <p>果然是没有用到索引，全表扫描。</p>
 <p>原来，由于a数据类型是varchar类型的。但是查询的时候，使用的int类型，在执行SQL语句的时候，由于类型原因，造成了隐式转换。没有用到索引。所以实际上，应该把原来的SQL语句更改成 <code>SELECT * FROM  test  WHERE is_deleted =0 AND a = &#39;81644&#39;</code>。</p>
 <p>虽然原因找到了，但是查询的SQL那么多，定位那具体的php文件以及对于的代码行数，也是一个难题。</p>
@@ -504,7 +503,7 @@
 <h4 id="索引对性能的影响！"><a href="#索引对性能的影响！" class="headerlink" title="索引对性能的影响！"></a>索引对性能的影响！</h4><p>接下来用对比图来比较下使用索引和没有使用索引的对比吧</p>
 <p><img src="/images/mysql-index-4.png" alt=""></p>
 <p>优化之后的SQL执行效率，相比之前要高出很多，CPU占用率稳定保持在个位数，甚至 5%一下，相比之前80%左右，呈现指数的翻倍。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实隐式转换是MySQL索引经常遇到的问题。我最开始听说是前段时间，阿里云组织了一个<a href="https://yq.aliyun.com/roundtable/56333?utm_content=m_25986" target="_blank" rel="external">慢SQL的优化大赛</a>。虽然没有得到名次，但是确实通过大赛，学到了很多关于索引的知识。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实隐式转换是MySQL索引经常遇到的问题。我最开始听说是前段时间，阿里云组织了一个<a href="https://yq.aliyun.com/roundtable/56333?utm_content=m_25986" target="_blank" rel="noopener">慢SQL的优化大赛</a>。虽然没有得到名次，但是确实通过大赛，学到了很多关于索引的知识。</p>
 
         
     
@@ -624,7 +623,7 @@
             <ul class="dropdown-menu">
             <li>
                 <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
-            </ul>
+            </li></ul>
         </li>
         
     
@@ -658,7 +657,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>

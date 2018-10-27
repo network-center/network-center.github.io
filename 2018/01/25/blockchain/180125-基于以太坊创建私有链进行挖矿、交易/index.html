@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Jan 25 2018 17:38:45 GMT+0800">
-        <meta property="article:modified_time" content="Sat Oct 27 2018 17:12:01 GMT+0800">
+        <meta property="article:modified_time" content="Sat Oct 27 2018 17:35:37 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://network-center.github.io/2018/01/25/blockchain/180125-基于以太坊创建私有链进行挖矿、交易/index.html",
     "headline": "基于以太坊创建私有链进行挖矿、交易",
     "datePublished": "Thu Jan 25 2018 17:38:45 GMT+0800",
-    "dateModified": "Sat Oct 27 2018 17:12:01 GMT+0800",
+    "dateModified": "Sat Oct 27 2018 17:35:37 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -508,11 +508,11 @@
 <h5 id="创建创世节点，并且初始化数据"><a href="#创建创世节点，并且初始化数据" class="headerlink" title="创建创世节点，并且初始化数据"></a>创建创世节点，并且初始化数据</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ geth --datadir data00 init genesis.json</span><br></pre></td></tr></table></figure>
 <p><code>data00</code>就是用来保存创世节点的数据</p>
 <h5 id="启动节点，指定networkid"><a href="#启动节点，指定networkid" class="headerlink" title="启动节点，指定networkid"></a>启动节点，指定networkid</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ geth --datadir ./data00 --networkid 5201314 console <span class="comment">#使用console 支持命令行模式</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/blockchain00.png" alt=""></p>
+<p><img src="/images/20180125/blockchain00.png" alt=""></p>
 <h5 id="创建节点的账号"><a href="#创建节点的账号" class="headerlink" title="创建节点的账号"></a>创建节点的账号</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在console命令模式下</span></span><br><span class="line">&gt; personal.newAccount(<span class="string">"123"</span>)</span><br><span class="line"><span class="string">"0x9ff8676095e5999bf82eafeab98192e33ad74364"</span></span><br></pre></td></tr></table></figure>
 <h5 id="开始进行挖矿"><a href="#开始进行挖矿" class="headerlink" title="开始进行挖矿"></a>开始进行挖矿</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; miner.start()</span><br><span class="line">INFO [01-23|00:14:37] Updated mining threads                   threads=0</span><br><span class="line">INFO [01-23|00:14:37] Transaction pool price threshold updated price=18000000000</span><br><span class="line">INFO [01-23|00:14:37] Etherbase automatically configured       address=0x9FF8676095e5999bf82EafEaB98192E33ad74364</span><br><span class="line">null</span><br><span class="line">&gt; INFO [01-23|00:14:37] Starting mining operation</span><br><span class="line">INFO [01-23|00:14:37] Commit new mining work                   number=1 txs=0 uncles=0 elapsed=146.511µs</span><br><span class="line">INFO [01-23|00:14:43] Generating DAG in progress               epoch=0 percentage=0 elapsed=4.529s</span><br><span class="line">INFO [01-23|00:14:48] Generating DAG in progress               epoch=0 percentage=1 elapsed=8.913s</span><br><span class="line">INFO [01-23|00:14:52] Generating DAG in progress               epoch=0 percentage=2 elapsed=13.169s</span><br><span class="line">INFO [01-23|00:14:56] Generating DAG in progress               epoch=0 percentage=3 elapsed=17.298s</span><br><span class="line">INFO [01-23|00:15:01] Generating DAG in progress               epoch=0 percentage=4 elapsed=21.964s</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>等到percentage加载到100的时候就开始进行挖矿</p>
-<p><img src="/images/blockchain01.png" alt=""></p>
+<p><img src="/images/20180125/blockchain01.png" alt=""></p>
 <h5 id="结束挖矿"><a href="#结束挖矿" class="headerlink" title="结束挖矿"></a>结束挖矿</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; miner.stop()</span><br></pre></td></tr></table></figure>
 <h5 id="查看挖矿的金额"><a href="#查看挖矿的金额" class="headerlink" title="查看挖矿的金额"></a>查看挖矿的金额</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getBalance(eth.accounts[0])</span><br><span class="line">5000000000000000000</span><br></pre></td></tr></table></figure>
 <h5 id="新开一个窗口，创建第二个节点"><a href="#新开一个窗口，创建第二个节点" class="headerlink" title="新开一个窗口，创建第二个节点"></a>新开一个窗口，创建第二个节点</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ geth --datadir data01 init genesis.json</span><br></pre></td></tr></table></figure>
@@ -538,8 +538,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; miner.start()</span><br></pre></td></tr></table></figure>
 <h5 id="确认交易是否成功"><a href="#确认交易是否成功" class="headerlink" title="确认交易是否成功"></a>确认交易是否成功</h5><p>在一个和第二个控制台分别运行命令，确认是否交易成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getBalance(eth.accounts[0])</span><br></pre></td></tr></table></figure>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><h5 id="挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。"><a href="#挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。" class="headerlink" title="挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。"></a>挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。</h5><p><img src="/images/blockchain02.png" alt=""></p>
-<p><img src="/images/blockchain03.png" alt=""></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><h5 id="挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。"><a href="#挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。" class="headerlink" title="挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。"></a>挖矿对电脑要求比较高，我使用阿里云的服务器，1核1G基本的配置，两个节点同时挖矿，经常出现CPU吃满的情况。</h5><p><img src="/images/20180125/blockchain02.png" alt=""></p>
+<p><img src="/images/20180125/blockchain03.png" alt=""></p>
 <h5 id="还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。"><a href="#还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。" class="headerlink" title="还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。"></a>还有一个比较奇怪的，当发起交易的时候，一定要进行挖矿操作，才能使交易生效。</h5><h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="http://www.cnblogs.com/zl03jsj/category/997608.html" target="_blank" rel="noopener">blockchain随笔</a></p>
 <p>feilong<br>2018.01.25</p>
 

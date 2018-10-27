@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Fri Apr 13 2018 20:21:32 GMT+0800">
-        <meta property="article:modified_time" content="Sat Oct 27 2018 17:12:01 GMT+0800">
+        <meta property="article:modified_time" content="Sat Oct 27 2018 17:32:54 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://network-center.github.io/2018/04/13/MySQL/180413-索引对性能到底有多少的影响？/index.html",
     "headline": "索引对性能到底有多少的影响？",
     "datePublished": "Fri Apr 13 2018 20:21:32 GMT+0800",
-    "dateModified": "Sat Oct 27 2018 17:12:01 GMT+0800",
+    "dateModified": "Sat Oct 27 2018 17:32:54 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "geeker",
@@ -486,12 +486,12 @@
 <p>像很多创业公司的一样，我们选用的是阿里云的ECS+RDS。因为如果自己购买服务器，不管是运维成本还是物理成本都是比较高的。</p>
 <p>一天将近半夜12点的时候，报警日志突然出现了<code>MySQL server has gone away</code></p>
 <p>遇到问题肯定是先Baidu，我找到了MySQL官方的解释，原因是查询的时候，出现的mysql断开的情况。我登录阿里云rds后台，发现wait_timeout时间长得很。不应该会出现超时的情况。</p>
-<p><img src="/images/mysql-index-1.png" alt=""></p>
+<p><img src="/images/20180413/mysql-index-1.png" alt=""></p>
 <p>一个同事：“会不会和rds经常CPU报警有关？”</p>
 <p>我勒个去，我查了一下rds监控，果然CPU持续升高。</p>
-<p><img src="/images/mysql-index-2.jpg" alt=""></p>
+<p><img src="/images/20180413/mysql-index-2.jpg" alt=""></p>
 <h4 id="问题跟进"><a href="#问题跟进" class="headerlink" title="问题跟进"></a>问题跟进</h4><p>rds自带了日志系统，可以方便。查看了一下慢日志系统，果然有很多的慢SQL日志。</p>
-<p><img src="/images/mysql-index-3.png" alt=""></p>
+<p><img src="/images/20180413/mysql-index-3.png" alt=""></p>
 <p>我曹，每次扫描了8W多行。看来是没有使用到索引。加上次数频繁，解析的总次数高达 1762833762 行。</p>
 <h4 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h4><p>查看MySQL的执行计划</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; explain extended SELECT * FROM `test` WHERE `is_deleted` =0 AND `a` = 81644;</span><br><span class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</span><br><span class="line">| id | select_type | table     | type | possible_keys | key  | key_len | ref  | rows  | Extra       |</span><br><span class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</span><br><span class="line">|  1 | SIMPLE      | test | ALL  | a_index      | NULL | NULL    | NULL | 86172 | Using where |</span><br><span class="line">+----+-------------+-----------+------+---------------+------+---------+------+-------+-------------+</span><br><span class="line">1 row in set, 3 warnings (0.01 sec)</span><br><span class="line">mysql&gt; show warnings;</span><br><span class="line">| Level   | Code | Message                                                                                             </span><br><span class="line">| Warning | 1739 | Cannot use ref access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;                                                                                                 |</span><br><span class="line">| Warning | 1739 | Cannot use range access on index &apos;a_index&apos; due to type or collation conversion on field &apos;a&apos;</span><br></pre></td></tr></table></figure>
@@ -501,7 +501,7 @@
 <h4 id="PHP慢日志"><a href="#PHP慢日志" class="headerlink" title="PHP慢日志"></a>PHP慢日志</h4><p>为了能够定位代码的效率，PHP自带一个功能，那就是慢日志。如果PHP脚本，执行时间比较长的时候，那么PHP会认为这段代码是有问题的，PHP会把代码的基本信息打印到慢日志里面，能够方便开发者定位问题。</p>
 <p>这么说来，如果找到慢日志里面关于执行这个SQL的代码，也就能够准确定位到对应的PHP文件。</p>
 <h4 id="索引对性能的影响！"><a href="#索引对性能的影响！" class="headerlink" title="索引对性能的影响！"></a>索引对性能的影响！</h4><p>接下来用对比图来比较下使用索引和没有使用索引的对比吧</p>
-<p><img src="/images/mysql-index-4.png" alt=""></p>
+<p><img src="/images/20180413/mysql-index-4.png" alt=""></p>
 <p>优化之后的SQL执行效率，相比之前要高出很多，CPU占用率稳定保持在个位数，甚至 5%一下，相比之前80%左右，呈现指数的翻倍。</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实隐式转换是MySQL索引经常遇到的问题。我最开始听说是前段时间，阿里云组织了一个<a href="https://yq.aliyun.com/roundtable/56333?utm_content=m_25986" target="_blank" rel="noopener">慢SQL的优化大赛</a>。虽然没有得到名次，但是确实通过大赛，学到了很多关于索引的知识。</p>
 
@@ -524,13 +524,21 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2018/04/14/PHP/180413-记面试N个PHP程序员的经历/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/04/13/PHP/180413-记面试N个PHP程序员的经历/" id="post_nav-older" class="next-content">
+        <a href="/2018/01/25/blockchain/180125-基于以太坊实现局域网多节点挖矿/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

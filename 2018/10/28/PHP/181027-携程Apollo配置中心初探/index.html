@@ -37,7 +37,7 @@
     
     <title>
         
-            归档 | 
+            携程Apollo配置中心初探 | 
         
         Network Center Blog
     </title>
@@ -231,15 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://network-center.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | Network Center Blog">
+    <meta property="og:title" content="携程Apollo配置中心初探 | Network Center Blog">
     <meta property="og:image" content="https://network-center.github.io/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
+        <meta property="article:published_time" content="Sun Oct 28 2018 02:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Sat Oct 27 2018 18:17:12 GMT+0800">
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | Network Center Blog">
+    <meta name="twitter:title" content="携程Apollo配置中心初探 | Network Center Blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://network-center.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -247,13 +250,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://network-center.github.io/archives/page/2/index.html">
+        <link rel="canonical" href="https://network-center.github.io/2018/10/28/PHP/181027-携程Apollo配置中心初探/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://network-center.github.io/2018/10/28/PHP/181027-携程Apollo配置中心初探/index.html",
+    "headline": "携程Apollo配置中心初探",
+    "datePublished": "Sun Oct 28 2018 02:00:00 GMT+0800",
+    "dateModified": "Sat Oct 27 2018 18:17:12 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "geeker",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Network Center Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
 
 
     
@@ -287,381 +320,249 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Apollo"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. Apollo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Do-it"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Do it</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-创建项目"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 创建项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-1-1-克隆项目"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">3.1.1 克隆项目</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-1-2-按需更改docker-compose-yml"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">3.1.2 按需更改docker-compose.yml</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-1-3-启动服务"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">3.1.3 启动服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-配置"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-3-运行测试"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 运行测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-3-1-初始化项目"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">3.3.1 初始化项目</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-3-2-运行项目"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">3.3.2 运行项目</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 总结</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/02/linux-ps-manage/">Linux 进程管理</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/02/linux-ps-manage/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>11月 02, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/01/Linux/171101-使用docker搭建lnmp-二/">使用docker搭建lnmp (二)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            docker 名为容器。何为容器，也就是所谓的瓶子，罐子。用可以容纳东西的容器，不同容器之间互不影响。比如，一个瓶子装酒精，一个瓶子装水，非人为状态...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/01/Linux/171101-使用docker搭建lnmp-二/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>11月 01, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/23/Linux/171023-使用docker搭建lnmp环境/">使用docker搭建lnmp环境</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            docker是一个开源的容器引擎，随着“微服务架构”正在变得越来越重要，docker也变得越来越火。但是网上的文章中，要么是很有借鉴意义的干货，要...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/23/Linux/171023-使用docker搭建lnmp环境/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>10月 23, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/26/php-source-code-cli/">PHP源码分析：cli模式执行的过程</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            众所周知，PHP在web上应用很广泛。接近80%的web网站都是使用PHP+MySQL，虽然越来越多的新语种崛起，但是现在PHP依然是中小型web系...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/26/php-source-code-cli/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>9月 26, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/15/keep-going/">这个项目一定会做下去</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-有善始者实繁，能克终者盖寡。
-
-自己无数次的用这就话警示自己。有良好开端的实在很多...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/15/keep-going/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>9月 15, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/30/nice-to-meet-you/">Hello Center 好久不见</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/30/nice-to-meet-you/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="geeker's avatar">
-            </div>
-            <div>
-                <strong>geeker</strong>
-                <span>8月 30, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/archives/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                携程Apollo配置中心初探
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>geeker</strong>
+        <span>10月 28, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=携程Apollo配置中心初探&url=https://network-center.github.io/2018/10/28/PHP/181027-携程Apollo配置中心初探/index.html&pic=https://network-center.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=携程Apollo配置中心初探&url=https://network-center.github.io/2018/10/28/PHP/181027-携程Apollo配置中心初探/index.html&via=geeker" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://network-center.github.io/2018/10/28/PHP/181027-携程Apollo配置中心初探/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://network-center.github.io/2018/10/28/PHP/181027-携程Apollo配置中心初探/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h3 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h3><p>平时开发最头疼之一就是各种配置：</p>
+<ul>
+<li>一个项目往往会包含各式各样的配置信息，且不说数据库、redis、memcache这些常用的配置，还会有很多业务上的配置。</li>
+<li>线上、测试和开发环境配置各不一样，每个环境都要保存一份</li>
+<li>每次上线的时候，都要挨个check一下，</li>
+<li>更改某个配置，需要重新上线代码</li>
+<li>….</li>
+</ul>
+<p>所以配置中心，在devops的开发中，是必不可少的，配置中心，也可以有效的避免，因为更改配置代码，导致的代码运行出错的风险。</p>
+<h3 id="2-Apollo"><a href="#2-Apollo" class="headerlink" title="2. Apollo"></a>2. Apollo</h3><p>携程的Apollo配置中心，在业内算是比较有名的，github上面大概有8.5k的star。很多知名的公司也都在使用。至于实现的原理直接看github上面的wiki即可。</p>
+<h3 id="3-Do-it"><a href="#3-Do-it" class="headerlink" title="3. Do it"></a>3. Do it</h3><h4 id="3-1-创建项目"><a href="#3-1-创建项目" class="headerlink" title="3.1 创建项目"></a>3.1 创建项目</h4><h5 id="3-1-1-克隆项目"><a href="#3-1-1-克隆项目" class="headerlink" title="3.1.1 克隆项目"></a>3.1.1 克隆项目</h5><p><img src="/images/20181027/WX20181027-143049@2x.png" alt=""></p>
+<h5 id="3-1-2-按需更改docker-compose-yml"><a href="#3-1-2-按需更改docker-compose-yml" class="headerlink" title="3.1.2 按需更改docker-compose.yml"></a>3.1.2 按需更改docker-compose.yml</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feilongdeMacBook-Pro:apollo2 feilong$ cd scripts/docker-quick-start/</span><br><span class="line">feilongdeMacBook-Pro:docker-quick-start feilong$ ll</span><br><span class="line">total 8</span><br><span class="line">-rw-r--r--  1 feilong  wheel  663 Oct 27 14:56 docker-compose.yml</span><br><span class="line">drwxr-xr-x  4 feilong  wheel  128 Oct 27 14:56 sql</span><br></pre></td></tr></table></figure>
+<p>因为我不是java技术栈，所以以docker运行。<br>本地由于8080端口被占用，所以把端口改为8082</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  apollo-quick-start:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">nobodyiam/apollo-quick-start</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">apollo-quick-start</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">apollo-db</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8082:8080"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8070:8070"</span></span><br><span class="line"><span class="attr">    links:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">apollo-db</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  apollo-db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">mysql:5.7</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">apollo-db</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      TZ:</span> <span class="string">Asia/Shanghai</span></span><br><span class="line"><span class="attr">      MYSQL_ALLOW_EMPTY_PASSWORD:</span> <span class="string">'yes'</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">apollo-dbdata</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"13306:3306"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">./sql:/docker-entrypoint-initdb.d</span></span><br><span class="line"><span class="attr">    volumes_from:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">apollo-dbdata</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  apollo-dbdata:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">alpine:latest</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">apollo-dbdata</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/var/lib/mysql</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-1-3-启动服务"><a href="#3-1-3-启动服务" class="headerlink" title="3.1.3 启动服务"></a>3.1.3 启动服务</h5><p>通过docker-compose启动Apollo服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feilongdeMacBook-Pro:docker-quick-start feilong$ docker-compose up -d</span><br><span class="line">Creating network "docker-quick-start_default" with the default driver</span><br><span class="line">Creating apollo-dbdata ... done</span><br><span class="line">Creating apollo-db     ... done</span><br><span class="line">Creating apollo-quick-start ... done</span><br><span class="line">feilongdeMacBook-Pro:docker-quick-start feilong$</span><br></pre></td></tr></table></figure>
+<p>访问地址 localhost:8070，如果启动失败的话，请参考 <a href="https://github.com/ctripcorp/apollo/issues/1473" target="_blank" rel="noopener">#1473 docker_quick_start 起不来</a></p>
+<p><img src="/images/20181027/WX20181027-152632.png" alt=""></p>
+<h4 id="3-2-配置"><a href="#3-2-配置" class="headerlink" title="3.2 配置"></a>3.2 配置</h4><p>Apollo内置了账号 <code>apollo/admin</code>，登录之后，可以看到有个默认的应用SampleApp</p>
+<p><img src="/images/20181027/WX20181027-153023.png" alt=""></p>
+<p>通过后台创建一个用于演示的redis的配置信息</p>
+<p><img src="/images/20181027/WX20181027-153143@2x.png" alt=""></p>
+<p><img src="/images/20181027/1540625597036.jpg" alt=""></p>
+<p>创建结束后，点击“发布”按钮，发布最新的配置</p>
+<h4 id="3-3-运行测试"><a href="#3-3-运行测试" class="headerlink" title="3.3 运行测试"></a>3.3 运行测试</h4><p>除了配置的server端，还要有接受配置的client端，我是PHP技术栈，所以就以PHP为主</p>
+<h5 id="3-3-1-初始化项目"><a href="#3-3-1-初始化项目" class="headerlink" title="3.3.1 初始化项目"></a>3.3.1 初始化项目</h5><p>配置php项目，通过<code>composer</code>引入Apollo的SDK</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">feilongdeMacBook-Pro:apollo feilong$ composer require multilinguals/apollo-client --ignore-platform-reqs</span><br><span class="line">Using version ^0.1.1 for multilinguals/apollo-client</span><br><span class="line">./composer.json has been created</span><br><span class="line">Loading composer repositories with package information</span><br><span class="line">Updating dependencies (including require-dev)</span><br><span class="line">Package operations: 1 install, 0 updates, 0 removals</span><br><span class="line"> - Installing multilinguals/apollo-client (v0.1.1): Downloading (100%)</span><br><span class="line">Writing lock file</span><br><span class="line">Generating autoload files</span><br></pre></td></tr></table></figure>
+<p><img src="/images/20181027/WX20181027-161420@2x.png" alt=""></p>
+<p>新建一个<code>pull.php</code>，为了能够实时获取最新的配置，需要长时间运行。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">'vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Org</span>\<span class="title">Multilinguals</span>\<span class="title">Apollo</span>\<span class="title">Client</span>\<span class="title">ApolloClient</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// docker-compose里面配置的API服务的端口</span></span><br><span class="line">$serverIp = <span class="string">'192.168.1.72:8082'</span>;</span><br><span class="line"><span class="comment">// 在Apollo的后台可以查到</span></span><br><span class="line">$appId = <span class="string">'SampleApp'</span>;</span><br><span class="line">$namespaces = <span class="keyword">array</span>(<span class="string">'application'</span>);</span><br><span class="line">$apollo = <span class="keyword">new</span> ApolloClient($serverIp, $appId, $namespaces);</span><br><span class="line">$apollo-&gt;save_dir = <span class="string">'config'</span>;</span><br><span class="line"></span><br><span class="line">$restart = <span class="keyword">true</span>; <span class="comment">//auto start if failed</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    $error = $apollo-&gt;start();</span><br><span class="line">    <span class="keyword">if</span> ($error) &#123;</span><br><span class="line">        <span class="keyword">echo</span>(<span class="string">'error:'</span>.$error.<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">while</span> ($error &amp;&amp; $restart);</span><br></pre></td></tr></table></figure>
+<h5 id="3-3-2-运行项目"><a href="#3-3-2-运行项目" class="headerlink" title="3.3.2 运行项目"></a>3.3.2 运行项目</h5><p>新建一个config的目录，运行pull.php文件，获取配置信息</p>
+<p><img src="/images/20181027/WX20181027-162049@2x.png" alt=""></p>
+<p>新建一个窗口，查看下config文件夹下的文件</p>
+<p><img src="/images/20181027/WX20181027-162156@2x.png" alt=""></p>
+<p>发现新建了一个配置文件，里面是相应的配置信息</p>
+<p>后台做一些更新操作</p>
+<p><img src="/images/20181027/WX20181027-162346.png" alt=""></p>
+<p><img src="/images/20181027/WX20181027-162403.png" alt=""></p>
+<p>发布配置，查看配置文件</p>
+<p><img src="/images/20181027/WX20181027-162428@2x.png" alt=""></p>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><p>通过配置中心，我们就不用在部署的时候，手动一直更改项目的配置文件，可以实现自动化，降低人为风险。</p>
+<p>此外，Apollo是版本控制的，支持回滚操作，这样，就算是出现手误，也能及时回滚配置，及时生效。</p>
+<p>feilong<br>2018.10.27</p>
+
+        
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/14/PHP/180413-记面试N个PHP程序员的经历/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
